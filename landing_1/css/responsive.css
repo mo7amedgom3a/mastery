@@ -1,0 +1,212 @@
+/* ==========================================================================
+   Mastery Academy — Responsive Breakpoints
+   ========================================================================== */
+
+/* ── Desktop (≤ 1080px) ───────────────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  :root {
+    --fs-display: 2.75rem; /* 44px */
+    --fs-h1: 1.875rem;     /* 30px */
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-band__metrics {
+    gap: var(--sp-6);
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .instructor-cta {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .instructor-cta__text {
+    max-width: 100%;
+  }
+}
+
+/* ── Tablet (≤ 768px) ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --fs-display: 2.25rem; /* 36px */
+    --fs-h1: 1.625rem;     /* 26px */
+    --section-gap: var(--sp-16); /* 64px */
+  }
+
+  .container {
+    padding-inline: var(--sp-4);
+  }
+
+  .nav__links {
+    display: none;
+  }
+
+  .nav__hamburger {
+    display: flex;
+  }
+
+  .nav__cart {
+    display: none;
+  }
+
+  .grid-3,
+  .grid-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-2,
+  .grid-bundles {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-band {
+    padding: var(--sp-12) 0;
+  }
+
+  .hero-band__title {
+    font-size: var(--fs-display);
+  }
+
+  .carousel__item {
+    width: 260px;
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-6);
+  }
+
+  .testimonial-card {
+    padding: var(--sp-6);
+  }
+
+  .instructor-cta {
+    padding: var(--sp-8) var(--sp-6);
+  }
+
+  .section-header {
+    margin-block-end: var(--sp-6);
+  }
+}
+
+/* ── Mobile (≤ 600px) ─────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  :root {
+    --fs-display: 1.875rem; /* 30px */
+    --fs-h1: 1.375rem;      /* 22px */
+    --fs-h2: 1.25rem;       /* 20px */
+    --section-gap: var(--sp-12); /* 48px */
+  }
+
+  .container {
+    padding-inline: var(--sp-4);
+  }
+
+  .grid-3,
+  .grid-4,
+  .grid-features {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-band {
+    padding: var(--sp-10) 0;
+  }
+
+  .hero-band__title {
+    font-size: var(--fs-display);
+  }
+
+  .hero-band__subtitle {
+    font-size: var(--fs-body);
+  }
+
+  .hero-band__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-band__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-band__metrics {
+    gap: var(--sp-6);
+  }
+
+  .hero-band__metric-value {
+    font-size: var(--fs-h2);
+  }
+
+  .carousel__item {
+    width: 260px;
+  }
+
+  .carousel__item .card {
+    width: 100%;
+  }
+
+  .section-header__title {
+    font-size: var(--fs-h1);
+  }
+
+  .instructor-cta {
+    padding: var(--sp-8) var(--sp-5);
+    border-radius: var(--rounded-lg);
+  }
+
+  .instructor-cta__title {
+    font-size: var(--fs-h2);
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .testimonial-card {
+    padding: var(--sp-5);
+  }
+
+  .accordion__header {
+    padding: var(--sp-4) var(--sp-5);
+  }
+
+  .accordion__content {
+    padding: 0 var(--sp-5) var(--sp-4);
+  }
+
+  .btn--lg {
+    height: 48px;
+    padding: var(--sp-3) var(--sp-6);
+    font-size: var(--fs-body);
+  }
+
+  .feature-item {
+    padding: var(--sp-5);
+  }
+}
+
+/* ── Small Mobile (≤ 380px) ───────────────────────────────────────────────── */
+@media (max-width: 380px) {
+  :root {
+    --fs-display: 1.625rem; /* 26px */
+  }
+
+  .hero-band__metrics {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-4);
+  }
+}

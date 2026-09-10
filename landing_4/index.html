@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ماستري أكاديمي — تعلم ما يغير عالمك</title>
+<meta name="description" content="طور مهاراتك في ريادة الأعمال والتسويق والتجارة الإلكترونية وإدارة المشاريع من خلال دورات تدريبية يقدمها خبراء متميزون في مجالاتهم.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="visually-hidden" href="#main">تخطي إلى المحتوى</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container header-row">
+    <a href="#" class="logo">
+      <span class="logo-mark">MA</span>
+      ماستري أكاديمي
+    </a>
+
+    <nav class="nav-primary" aria-label="التنقل الرئيسي">
+      <ul>
+        <li><a href="#courses">الدورات والدبلومات</a></li>
+        <li><a href="#categories">الأقسام</a></li>
+        <li><a href="#instructors">انضم كمدرب</a></li>
+        <li><a href="#faq">الأسئلة الشائعة</a></li>
+      </ul>
+    </nav>
+
+    <form class="search-form" role="search">
+      <label class="visually-hidden" for="site-search">ابحث عن دورة</label>
+      <input id="site-search" type="search" placeholder="ابحث عن دورة، مدرب، أو مهارة…">
+      <button type="submit" aria-label="بحث">🔍</button>
+    </form>
+
+    <div class="header-actions">
+      <button class="btn btn-ghost" id="open-signin">تسجيل الدخول</button>
+      <button class="btn btn-primary" id="open-signup">إشترك الآن</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="فتح القائمة" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-eyebrow">أكثر من 80 دورة ودبلوم معتمد</span>
+        <h1>تعلم ما يغير عالمك</h1>
+        <p class="lead">دورات تدريبية عملية في ريادة الأعمال والتسويق والإدارة والتمويل، يقدّمها خبراء متخصصون — تتابعها من أي جهاز ووقتما تريد.</p>
+        <div class="hero-cta">
+          <a href="#courses" class="btn btn-accent">تصفح الدورات</a>
+          <a href="#about" class="btn btn-secondary" style="border-color:#fff;color:#fff;">تعرف على المنصة</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>+80</b><span>دورة ودبلوم</span></div>
+          <div class="stat"><b>13</b><span>قسمًا تدريبيًا</span></div>
+          <div class="stat"><b>عام كامل</b><span>مشاهدة غير محدودة</span></div>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <h3>تمتع بتجربة تعليمية فريدة</h3>
+        <ul>
+          <li><span class="check">✓</span> تابع جميع الدورات من أي جهاز، أينما كنت ووقتما تريد</li>
+          <li><span class="check">✓</span> احصل على شهادة معتمدة من ماستري بعد إتمام أي دورة</li>
+          <li><span class="check">✓</span> شاهد دوراتك مرات غير محدودة لمدة عام كامل</li>
+          <li><span class="check">✓</span> تعلم مع دبلومات بث مباشر تفاعلية</li>
+          <li><span class="check">✓</span> اطرح أسئلتك واستفد من خبرة المدربين</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORY RAIL ============ -->
+  <section class="category-rail" id="categories">
+    <div class="container">
+      <div class="chip-row" role="tablist" aria-label="تصفية حسب القسم">
+        <button class="chip" aria-pressed="true">الكل</button>
+        <button class="chip" aria-pressed="false">التسويق المتكامل</button>
+        <button class="chip" aria-pressed="false">الإدارة والأعمال</button>
+        <button class="chip" aria-pressed="false">المبيعات وخدمة العملاء</button>
+        <button class="chip" aria-pressed="false">الموارد البشرية والتدريب</button>
+        <button class="chip" aria-pressed="false">المالية والمحاسبة</button>
+        <button class="chip" aria-pressed="false">الحوكمة</button>
+        <button class="chip" aria-pressed="false">قطاع التأمين</button>
+        <button class="chip" aria-pressed="false">القطاع المصرفي</button>
+        <button class="chip" aria-pressed="false">الصحة والسلامة المهنية</button>
+        <button class="chip" aria-pressed="false">العلاقات العامة والإعلام</button>
+        <button class="chip" aria-pressed="false">الذكاء الاصطناعي وتكنولوجيا المعلومات</button>
+        <button class="chip" aria-pressed="false">الفاعلية الشخصية</button>
+        <button class="chip" aria-pressed="false">الميديا والتصميم</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED COURSES ============ -->
+  <section class="section" id="courses">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>تصفح الدورات التالية</h2>
+          <p>اختر من بين عشرات الدورات العملية في مجالات الأعمال والتسويق والإدارة</p>
+        </div>
+        <a href="#" class="btn btn-secondary">تصفح كل الدورات</a>
+      </div>
+
+      <div class="course-grid" id="course-grid">
+        <!-- cards are injected by script.js from data.js content -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALUE PROPS ============ -->
+  <section class="section section-alt" id="about">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>لماذا ماستري أكاديمي</h2>
+          <p>منصة مبنية حول التقدم العملي، لا مجرد المشاهدة</p>
+        </div>
+      </div>
+      <div class="value-grid">
+        <article class="value-card">
+          <span class="icon">🎓</span>
+          <h3>شهادة معتمدة</h3>
+          <p>احصل على شهادة معتمدة من ماستري بعد إتمام أي دورة تدريبية.</p>
+        </article>
+        <article class="value-card">
+          <span class="icon">📱</span>
+          <h3>تعلّم من أي مكان</h3>
+          <p>تابع جميع الدورات من أي جهاز، أينما كنت ووقتما تريد.</p>
+        </article>
+        <article class="value-card">
+          <span class="icon">⏳</span>
+          <h3>وصول لعام كامل</h3>
+          <p>شاهد دوراتك مرات غير محدودة لمدة عام كامل من تاريخ الاشتراك.</p>
+        </article>
+        <article class="value-card">
+          <span class="icon">🎥</span>
+          <h3>دبلومات بث مباشر</h3>
+          <p>تعلم مع دبلومات بث مباشر تفاعلية إلى جانب الدورات المسجّلة.</p>
+        </article>
+        <article class="value-card">
+          <span class="icon">💬</span>
+          <h3>تواصل مع المدربين</h3>
+          <p>اطرح أسئلتك واستفد من خبرة نخبة من المدربين المتخصصين.</p>
+        </article>
+        <article class="value-card">
+          <span class="icon">🤝</span>
+          <h3>خدمة عملاء متميزة</h3>
+          <p>فريق دعم يرافقك بعد انتهاء الدورة، لا فقط أثناءها.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS BAND ============ -->
+  <section class="stats-band">
+    <div class="container">
+      <div><b>+80</b><span>دورة ودبلوم</span></div>
+      <div><b>13</b><span>قسمًا تدريبيًا متنوعًا</span></div>
+      <div><b>عام</b><span>مدة مشاهدة كل دورة</span></div>
+      <div><b>%100</b><span>تعلم عن بُعد</span></div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>ماذا قال المتدربون عن ماستري أكاديمي</h2>
+        </div>
+      </div>
+
+      <div class="testi-wrap">
+        <div class="testi-track" id="testi-track">
+          <article class="testi-card">
+            <p class="testi-quote">"أشكر الأستاذ سهل والأستاذ ثابت على الجهد المبذول، وأشكر فريق العمل والشباب المساعدين لهم."</p>
+            <div class="testi-person">
+              <span class="testi-avatar">و</span>
+              <div><b>وليد علي الوحيد</b><span>المملكة العربية السعودية</span></div>
+            </div>
+          </article>
+          <article class="testi-card">
+            <p class="testi-quote">"أخذت دبلوم التسويق المتكامل، وصراحة كانت فترة جميلة جدًا فيها مجموعة من المهارات، ودعم فني وخدمة عملاء رائعة."</p>
+            <div class="testi-person">
+              <span class="testi-avatar">ي</span>
+              <div><b>يونس مبروك</b><span>المملكة المغربية</span></div>
+            </div>
+          </article>
+          <article class="testi-card">
+            <p class="testi-quote">"خريج جامعة الملك فهد تخصص تسويق، ودرست دبلوم التسويق المتكامل مع الأستاذ ثابت والأستاذ سهل. أنصح كل مهتم بالتسويق بأخذ الدبلوم."</p>
+            <div class="testi-person">
+              <span class="testi-avatar">ل</span>
+              <div><b>لؤي الجيراني</b><span>المملكة العربية السعودية</span></div>
+            </div>
+          </article>
+          <article class="testi-card">
+            <p class="testi-quote">"كنت على وشك التخلي عن أحلامي، لكن دورة الأستاذ ثابت في دبلوم القيادة الإدارية شعرت كما لو كانت إشارة قوية."</p>
+            <div class="testi-person">
+              <span class="testi-avatar">ز</span>
+              <div><b>زهير الميموني</b><span>قطر — الدوحة</span></div>
+            </div>
+          </article>
+          <article class="testi-card">
+            <p class="testi-quote">"ما جذبني إلى ماستري أنني أستطيع التواصل معهم بعد انتهاء الدبلوم؛ هذا شجعني على الاشتراك في دورات إضافية."</p>
+            <div class="testi-person">
+              <span class="testi-avatar">س</span>
+              <div><b>سارة طالب</b><span>العراق</span></div>
+            </div>
+          </article>
+          <article class="testi-card">
+            <p class="testi-quote">"في يوتيوب تسمع المعلومة من مصادر متعددة دون نظام؛ هنا تعلّمت المعلومة وكيفية تطبيقها معًا."</p>
+            <div class="testi-person">
+              <span class="testi-avatar">م</span>
+              <div><b>محمد اسمر</b><span>تركيا</span></div>
+            </div>
+          </article>
+        </div>
+        <div class="testi-controls">
+          <button id="testi-prev" aria-label="السابق">›</button>
+          <button id="testi-next" aria-label="التالي">‹</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INSTRUCTOR CTA ============ -->
+  <section class="section" id="instructors">
+    <div class="container">
+      <div class="instructor-cta">
+        <div>
+          <h2>مدرّب خبير؟ إذًا انضم لنا</h2>
+          <p>كن أحد الخبراء في ماستري أكاديمي وشارك معرفتك مع آلاف المتدربين.</p>
+        </div>
+        <a href="#" class="btn btn-accent">انضم إلينا الآن</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-head" style="justify-content:center;text-align:center;">
+        <div><h2>أسئلة مكررة</h2></div>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>حساب المشترك وكلمة المرور <span class="icon">+</span></summary>
+          <p class="faq-body">يمكنك إعادة تعيين كلمة المرور في أي وقت من صفحة "تسجيل الدخول" عبر خيار "نسيت كلمة المرور"، وستصلك رسالة تأكيد على بريدك الإلكتروني المسجّل.</p>
+        </details>
+        <details class="faq-item">
+          <summary>أمن المعلومات <span class="icon">+</span></summary>
+          <p class="faq-body">نستخدم اتصالًا مشفّرًا بمعيار SSL لحماية بياناتك، ولا نشارك معلوماتك الشخصية مع أي جهة خارجية دون موافقتك.</p>
+        </details>
+        <details class="faq-item">
+          <summary>سياسة الشراء والدفع <span class="icon">+</span></summary>
+          <p class="faq-body">يمكنك الدفع عبر بطاقات Visa وMada، أو بالتقسيط عبر Tamara، ويتم تفعيل وصولك للدورة فور تأكيد الدفع.</p>
+        </details>
+        <details class="faq-item">
+          <summary>سياسة استخدام الدورات التدريبية بالموقع <span class="icon">+</span></summary>
+          <p class="faq-body">الدورة متاحة للمشاهدة غير المحدودة لمدة عام كامل من تاريخ الاشتراك، على أن تُستخدم بواسطة صاحب الحساب فقط.</p>
+        </details>
+        <details class="faq-item">
+          <summary>سياسة الاسترداد / الاسترجاع <span class="icon">+</span></summary>
+          <p class="faq-body">يحق لك طلب الاسترداد خلال فترة محددة من الاشتراك ما لم تتجاوز نسبة المشاهدة الحد المسموح به، وفقًا لسياسة الاسترجاع الكاملة.</p>
+        </details>
+        <details class="faq-item">
+          <summary>هل يمكنني الحصول على اعتماد دولي عند إتمام البرنامج؟ <span class="icon">+</span></summary>
+          <p class="faq-body">دورات وبرامج مختارة معتمدة ضمن إطار التطوير المهني المستمر (CPD)، وتظهر هذه الدورات بعلامة الاعتماد على صفحتها.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="newsletter">
+        <div>
+          <h3>النشرة البريدية</h3>
+          <p>اشترك ليصلك كل جديد عن الدورات والعروض.</p>
+        </div>
+        <form>
+          <label class="visually-hidden" for="newsletter-email">بريدك الإلكتروني</label>
+          <input id="newsletter-email" type="email" placeholder="بريدك الإلكتروني" required>
+          <button type="submit" class="btn btn-primary">اشترك</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-mark">MA</span>
+          ماستري أكاديمي
+        </a>
+        <p>طور مهاراتك في ريادة الأعمال والتسويق والتجارة الإلكترونية وإدارة المشاريع من خلال دورات تدريبية يقدمها خبراء متميزون.</p>
+        <div class="social-row">
+          <a href="https://instagram.com/emasteryacademy" aria-label="انستجرام">IG</a>
+          <a href="https://www.facebook.com/emasteryacademy" aria-label="فيسبوك">FB</a>
+          <a href="https://x.com/emasteryacademy" aria-label="اكس">X</a>
+          <a href="https://www.linkedin.com/company/emasteryacademy" aria-label="لينكدإن">IN</a>
+          <a href="https://www.youtube.com/c/eMasteryAcademy" aria-label="يوتيوب">YT</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>عن المنصة</h4>
+        <ul>
+          <li><a href="#">حول ماستري أكاديمي</a></li>
+          <li><a href="#">تواصل معنا</a></li>
+          <li><a href="#instructors">انضم لنا كمدرب</a></li>
+          <li><a href="#">استشارات</a></li>
+          <li><a href="#">تحقق من الشهادة</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>روابط عامة</h4>
+        <ul>
+          <li><a href="#">النشرة البريدية</a></li>
+          <li><a href="#">سلة المشتريات</a></li>
+          <li><a href="#">سياسة الخصوصية</a></li>
+          <li><a href="#">شروط الاستخدام</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>بوابات الدفع</h4>
+        <div class="payment-row">
+          <span>Tamara</span>
+          <span>Mada</span>
+          <span>Visa</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>حمّل التطبيق</h4>
+        <div class="payment-row">
+          <span>App Store</span>
+          <span>Google Play</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Mastery Academy Platform — جميع الحقوق محفوظة</span>
+      <span>🔒 Secured with SSL</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ SIGN UP MODAL ============ -->
+<div class="modal-overlay" id="signup-overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="signup-title">
+    <button class="modal-close" data-close-modal aria-label="إغلاق">✕</button>
+    <h3 id="signup-title">تسجيل اشتراك</h3>
+    <form id="signup-form">
+      <div class="field">
+        <label for="su-name">الاسم بالكامل</label>
+        <input id="su-name" type="text" required>
+      </div>
+      <div class="field">
+        <label for="su-email">البريد الإلكتروني</label>
+        <input id="su-email" type="email" required>
+      </div>
+      <div class="field">
+        <label for="su-password">كلمة المرور</label>
+        <input id="su-password" type="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">اشترك الآن</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="signin-overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="signin-title">
+    <button class="modal-close" data-close-modal aria-label="إغلاق">✕</button>
+    <h3 id="signin-title">تسجيل الدخول</h3>
+    <form id="signin-form">
+      <div class="field">
+        <label for="si-email">البريد الإلكتروني</label>
+        <input id="si-email" type="email" required>
+      </div>
+      <div class="field">
+        <label for="si-password">كلمة المرور</label>
+        <input id="si-password" type="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">تسجيل الدخول</button>
+    </form>
+  </div>
+</div>
+
+<script src="courses-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

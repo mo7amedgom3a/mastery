@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Mastery Academy — Layout
+   ========================================================================== */
+
+/* ── Container ────────────────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--sp-6);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+/* ── Sections ─────────────────────────────────────────────────────────────── */
+.section {
+  padding-block: var(--section-gap);
+}
+
+.section--alt {
+  background-color: var(--color-surface);
+}
+
+.section--flush {
+  padding-block: 0;
+}
+
+/* ── Grid Utilities ───────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  gap: var(--sp-8);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-features {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-bundles {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ── Flex Utilities ───────────────────────────────────────────────────────── */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-2 { gap: var(--sp-2); }
+.gap-3 { gap: var(--sp-3); }
+.gap-4 { gap: var(--sp-4); }
+.gap-6 { gap: var(--sp-6); }
+.gap-8 { gap: var(--sp-8); }
+
+/* ── Full-bleed hero ──────────────────────────────────────────────────────── */
+.hero-band {
+  margin-block: 0;
+}
+
+.hero-band .container {
+  position: relative;
+  z-index: 1;
+}

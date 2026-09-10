@@ -1,0 +1,2421 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ماستري أكاديمي — تعلم ما يغير عالمك</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23A435F0'/%3E%3Cpath d='M8 22V11l8 7 8-7v11' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   MASTERY ACADEMY — DESIGN TOKENS v1.3
+   Udemy/Coursera-derived token layer (unchanged core):
+   INK #1D1E2C · PAPER #FFF/#F7F9FA · ACCENT #A435F0 · LINK #0056D2 · BADGE #ECEB98
+   v1.3: routed pages — course detail page + instructor profile page
+   ========================================================================== */
+:root{
+  --ink-900:#1D1E2C; --ink-700:#3E414D; --ink-500:#6A6D7A; --ink-300:#9A9DA8;
+  --paper:#FFFFFF; --wash:#F7F9FA; --wash-2:#EDEEF2;
+  --line:#E5E7EC; --line-strong:#D3D6DE;
+  --accent:#A435F0; --accent-strong:#8710D8; --accent-tint:#F6EDFE; --accent-deep:#5624D0;
+  --link:#0056D2;
+  --badge:#ECEB98; --badge-ink:#3D3D0A;
+  --gold:#F69C08; --rating-ink:#B4690E;
+  --ok:#1E7B4D; --ok-tint:#E8F4EE;
+  --live:#E02D2D; --danger:#C0310A;
+  --font-display:'Alexandria','IBM Plex Sans Arabic',sans-serif;
+  --font-body:'IBM Plex Sans Arabic','Alexandria',sans-serif;
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px; --s-6:32px; --s-8:48px; --s-10:64px; --s-12:96px;
+  --r-xs:4px; --r-sm:8px; --r-md:12px; --r-lg:16px; --r-full:999px;
+  --shadow-1:0 1px 2px rgba(29,30,44,.06);
+  --shadow-2:0 8px 24px -8px rgba(29,30,44,.14);
+  --shadow-3:0 18px 44px -14px rgba(29,30,44,.24);
+  --header-h:72px;
+  --dots:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Ccircle cx='2' cy='2' r='1.6' fill='%231D1E2C' fill-opacity='.07'/%3E%3C/svg%3E");
+}
+
+/* ---------- Base ---------- */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{font:400 16px/1.75 var(--font-body);color:var(--ink-700);background:var(--paper);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--ink-900);line-height:1.3;font-weight:700}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;background:none;border:none;color:inherit;cursor:pointer}
+img,svg{display:block}
+ul{list-style:none}
+::selection{background:var(--badge);color:var(--ink-900)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--r-xs)}
+.container{max-width:1180px;margin-inline:auto;padding-inline:var(--s-5)}
+.sec{padding-block:var(--s-12)}
+.band{background:var(--wash)}
+.icon{width:20px;height:20px;flex:none}
+.ic-s{width:14px;height:14px;flex:none}
+mark{background:var(--badge);color:inherit;padding:.02em .16em .08em;border-radius:var(--r-xs);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hidden{display:none!important}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);height:48px;padding:0 var(--s-5);border-radius:var(--r-xs);font:600 15px/1 var(--font-body);border:1px solid transparent;transition:background .2s,color .2s,border-color .2s,transform .15s;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-strong)}
+.btn-outline{border-color:var(--ink-900);color:var(--ink-900);background:transparent}
+.btn-outline:hover{background:var(--ink-900);color:#fff}
+.btn-light{background:#fff;color:var(--ink-900)}
+.btn-light:hover{background:var(--badge)}
+.btn-ghost{border:1px solid rgba(255,255,255,.85);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--accent-strong)}
+.btn-sm{height:40px;padding:0 var(--s-4);font-size:14px}
+.icon-btn{width:42px;height:42px;border-radius:var(--r-xs);display:grid;place-items:center;color:var(--ink-700);transition:background .2s,color .2s}
+.icon-btn:hover{background:var(--wash-2);color:var(--ink-900)}
+.icon-btn-line{width:40px;height:40px;border:1px solid var(--line-strong);border-radius:var(--r-xs);display:grid;place-items:center;color:var(--ink-700);transition:all .2s;flex:none}
+.icon-btn-line:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-tint)}
+
+/* ---------- Chips / badges ---------- */
+.chip{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 var(--s-3);border-radius:var(--r-full);font:600 12px/1 var(--font-body);white-space:nowrap}
+.chip svg{width:13px;height:13px}
+.chip-badge{background:var(--badge);color:var(--badge-ink)}
+.chip-ok{background:var(--ok-tint);color:var(--ok)}
+.chip-accent{background:var(--accent-tint);color:var(--accent-strong)}
+.chip-line{border:1px solid var(--line-strong);color:var(--ink-500)}
+.chip-ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+.chip-ink{background:rgba(29,30,44,.78);color:#fff;border:none}
+.price{font-weight:700;color:var(--ink-900);font-size:17px}
+.price.big{font-size:30px;font-weight:800}
+s{color:var(--ink-300);font-size:13px;font-weight:500}
+
+/* ---------- Eyebrow / section head ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:var(--s-2);font:700 13px/1 var(--font-body);color:var(--accent);margin-bottom:var(--s-3)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--accent);border-radius:2px}
+.on-dark .eyebrow{color:var(--badge)}
+.on-dark .eyebrow::before{background:var(--badge)}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--s-5);margin-bottom:var(--s-8);flex-wrap:wrap}
+.section-head h2{font-size:clamp(26px,3.4vw,38px)}
+
+/* ---------- Stars ---------- */
+.stars{position:relative;display:inline-flex;line-height:0}
+.stars .st{width:100px;height:18px;color:#D9DBE3}
+.stars .st-top{position:absolute;inset-inline-start:0;top:0;height:18px;overflow:hidden;display:block}
+.stars .st-top .st{color:var(--gold)}
+.rate-num{font-weight:700;color:var(--rating-ink);font-size:13px}
+.rate-count{color:var(--ink-300);font-size:12.5px}
+
+/* ---------- Top bar ---------- */
+.topbar{background:var(--ink-900);color:#fff;font-size:13px}
+.topbar .container{display:flex;align-items:center;justify-content:center;gap:var(--s-3);min-height:40px;flex-wrap:wrap;text-align:center;padding-block:6px}
+.topbar a{color:var(--badge);font-weight:700;display:inline-flex;align-items:center;gap:6px}
+.topbar a:hover{text-decoration:underline}
+
+/* ---------- Header ---------- */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+.site-header.scrolled{border-color:var(--line);box-shadow:var(--shadow-1)}
+.header-inner{display:flex;align-items:center;gap:var(--s-6);height:var(--header-h)}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand-mark{width:36px;height:36px;border-radius:9px;background:var(--accent);display:grid;place-items:center;flex:none}
+.brand-mark svg{width:20px;height:20px}
+.brand-name{font:700 18px/1.2 var(--font-display);color:var(--ink-900)}
+.brand-name b{color:var(--accent);font-weight:800}
+.main-nav{display:flex;align-items:center;gap:2px;flex:1}
+.nav-link{display:inline-flex;align-items:center;gap:5px;padding:9px 13px;border-radius:var(--r-xs);font:500 14.5px/1 var(--font-body);color:var(--ink-700);transition:background .2s,color .2s;white-space:nowrap}
+.nav-link:hover{background:var(--wash);color:var(--ink-900)}
+.header-actions{display:flex;align-items:center;gap:var(--s-2);flex:none}
+.cart-wrap{position:relative}
+.cart-count{position:absolute;top:-4px;inset-inline-start:-4px;min-width:19px;height:19px;padding:0 5px;border-radius:var(--r-full);background:var(--accent);color:#fff;font:700 11px/19px var(--font-body);text-align:center}
+.cart-count.bump{animation:bump .4s}
+@keyframes bump{40%{transform:scale(1.35)}}
+.nav-drop{position:relative}
+.drop-panel{position:absolute;top:calc(100% + 8px);inset-inline-start:0;min-width:280px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-2);padding:var(--s-2);opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s;z-index:70}
+.nav-drop.open .drop-panel{opacity:1;visibility:visible;transform:none}
+.drop-item{display:flex;align-items:center;gap:var(--s-3);width:100%;padding:10px var(--s-3);border-radius:var(--r-sm);text-align:start;transition:background .15s}
+.drop-item:hover{background:var(--wash)}
+.drop-item .di{width:36px;height:36px;border-radius:var(--r-sm);background:var(--wash-2);color:var(--ink-500);display:grid;place-items:center;flex:none}
+.drop-item b{display:block;font:600 14px/1.4 var(--font-body);color:var(--ink-900)}
+.drop-item small{font-size:12px;color:var(--ink-300)}
+.nav-drop.open .drop-btn svg{transform:rotate(180deg)}
+.drop-btn svg{transition:transform .25s}
+.menu-btn{display:none}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:#fff;padding:var(--s-4) var(--s-5) var(--s-5)}
+.mobile-nav.open{display:block}
+.mobile-nav .nav-link{display:flex;width:100%;padding:13px 8px;border-radius:var(--r-xs);font-size:15.5px}
+.mobile-nav .btn{width:100%;margin-top:var(--s-3)}
+.mobile-nav hr{border:none;border-top:1px solid var(--line);margin:var(--s-2) 0}
+
+/* ---------- Hero ---------- */
+.hero-inner{display:grid;grid-template-columns:1.02fr .98fr;gap:var(--s-8);align-items:center;padding-block:var(--s-10) var(--s-12)}
+.hero-copy{max-width:580px}
+.hero-chip{display:inline-flex;align-items:center;gap:8px;background:var(--accent-tint);color:var(--accent-strong);font:600 13px/1 var(--font-body);padding:8px 14px;border-radius:var(--r-full);margin-bottom:var(--s-5)}
+.hero-chip svg{width:15px;height:15px}
+.hero h1{font-size:clamp(44px,6.4vw,74px);font-weight:800;letter-spacing:-.5px;line-height:1.15}
+.hero-tag{font:700 clamp(24px,3.1vw,38px)/1.5 var(--font-display);color:var(--ink-900);margin-top:var(--s-2)}
+.hero-desc{margin-top:var(--s-4);font-size:16.5px;max-width:520px;color:var(--ink-500)}
+.hero-ctas{display:flex;gap:var(--s-3);margin-top:var(--s-6);flex-wrap:wrap}
+.hero-stats{display:flex;margin-top:var(--s-8);border-top:1px solid var(--line);padding-top:var(--s-5)}
+.stat{padding-inline-end:var(--s-6);border-inline-end:1px solid var(--line)}
+.stat:last-child{padding-inline-end:0;border-inline-end:none}
+.stat:first-child{padding-inline-start:0}
+.stat-num{display:block;font:800 27px/1.2 var(--font-display);color:var(--ink-900)}
+.stat-badge{display:flex;height:34px;align-items:flex-end}
+.stat-badge svg{width:26px;height:26px;color:var(--gold)}
+.stat small{display:block;font-size:13px;color:var(--ink-500);margin-top:2px}
+.hero-visual{position:relative;height:540px;--mx:0;--my:0}
+.hv-el{position:absolute;will-change:transform;transform:translate3d(calc(var(--mx)*var(--d,0px)),calc(var(--my)*var(--d,0px)),0) rotate(var(--rot,0deg));transition:transform .25s ease-out}
+.hv-ring{width:430px;height:430px;border:1.5px solid var(--line-strong);border-radius:50%;top:50%;left:50%;margin:-215px 0 0 -215px;--d:6px}
+.hv-ring::after{content:"";position:absolute;width:11px;height:11px;border-radius:50%;background:var(--accent);top:12%;left:4%}
+.hv-plus{font:300 26px/1 var(--font-display);color:var(--ink-300)}
+.hv-plus.p1{top:6%;right:9%;--d:14px}
+.hv-plus.p2{bottom:9%;left:6%;--d:20px}
+.hv-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-3)}
+.hv-course{width:296px;top:96px;right:52px;z-index:3;--d:18px;overflow:hidden}
+.hv-cover{height:136px;background:var(--accent-tint) var(--dots);display:grid;place-items:center;position:relative}
+.hv-play{width:56px;height:56px;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:#fff;box-shadow:var(--shadow-2)}
+.hv-play svg{width:22px;height:22px;margin-inline-start:3px}
+.hv-cat{position:absolute;top:12px;inset-inline-start:12px;background:#fff;border-radius:var(--r-full);font:600 11.5px/1 var(--font-body);color:var(--ink-700);padding:6px 11px}
+.hv-body{padding:var(--s-4)}
+.hv-title{font:700 15.5px/1.5 var(--font-body);color:var(--ink-900);margin-top:10px}
+.hv-by{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:13px;color:var(--ink-500)}
+.ava{width:26px;height:26px;border-radius:50%;background:var(--accent-tint);color:var(--accent-strong);font:700 12px/26px var(--font-body);text-align:center;flex:none}
+.hv-rate{display:flex;align-items:center;gap:7px;margin-top:8px}
+.hv-foot{display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
+.hv-cert{width:232px;top:14px;left:0;z-index:2;--rot:-6deg;--d:10px;padding:20px 18px;text-align:center}
+.hv-cert .small{font-size:11px;color:var(--ink-300)}
+.hv-cert .ic{width:42px;height:42px;border-radius:50%;background:var(--accent-tint);color:var(--accent);display:grid;place-items:center;margin:10px auto 8px}
+.hv-cert b{font:700 17px/1.4 var(--font-display);color:var(--ink-900);display:block}
+.hv-cert p{font-size:11.5px;color:var(--ink-500);margin-top:2px}
+.hv-cert .sig{display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-300);border-top:1px dashed var(--line-strong);margin-top:14px;padding-top:10px}
+.hv-progress{bottom:56px;right:120px;z-index:4;--d:26px;display:flex;align-items:center;gap:12px;padding:13px 16px}
+.hv-progress small{font-size:12px;color:var(--ink-500);white-space:nowrap}
+.hv-bar{width:110px;height:7px;border-radius:99px;background:var(--wash-2);overflow:hidden}
+.hv-bar i{display:block;height:100%;width:68%;background:var(--accent);border-radius:99px}
+.hv-progress b{font-size:13px;color:var(--ink-900)}
+.hv-live{top:42px;left:26px;z-index:4;--d:30px;display:flex;align-items:center;gap:8px;padding:10px 15px;border-radius:var(--r-full);font:600 13px/1 var(--font-body);color:var(--ink-900)}
+.dot-live{width:8px;height:8px;border-radius:50%;background:var(--live);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(224,45,45,.4)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+[data-hero]{animation:rise .7s var(--dl,0s) both}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* ---------- VERTICAL CARDS ---------- */
+.vgrid{display:grid;gap:var(--s-5)}
+.vgrid-4{grid-template-columns:repeat(4,1fr)}
+.vgrid-3{grid-template-columns:repeat(3,1fr)}
+.vgrid-2{grid-template-columns:repeat(2,1fr)}
+.vcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;transition:box-shadow .25s,transform .25s,border-color .25s}
+.vcard:hover{box-shadow:var(--shadow-2);transform:translateY(-4px);border-color:var(--line-strong)}
+.hc-media{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:var(--wash-2)}
+.hc-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.vcard:hover .hc-media img{transform:scale(1.06)}
+.hc-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(29,30,44,.6),rgba(29,30,44,0) 46%)}
+.hc-type{position:absolute;top:12px;inset-inline-start:12px;z-index:2;background:rgba(29,30,44,.82);color:#fff;font:600 11.5px/1 var(--font-body);padding:6px 11px;border-radius:var(--r-full)}
+.hc-best{position:absolute;top:12px;inset-inline-end:12px;z-index:2}
+.hc-info{position:absolute;bottom:10px;inset-inline-start:12px;inset-inline-end:12px;z-index:2;display:flex;align-items:center;gap:6px;color:#fff;font-size:12px;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.35)}
+.hc-info svg{width:14px;height:14px;flex:none}
+.hc-body{flex:1;display:flex;flex-direction:column;gap:8px;padding:var(--s-4) var(--s-4) var(--s-5);min-width:0}
+.hc-tags{display:flex;gap:6px;flex-wrap:wrap}
+.hc-body h3{font-family:var(--font-body);font-weight:700;font-size:16.5px;line-height:1.55}
+.hc-body h3 a{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hc-body h3 a:hover{color:var(--accent-strong)}
+.hc-by{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-500);flex-wrap:wrap}
+.hc-by b{color:var(--ink-900);font-weight:600}
+.hc-by a:hover{color:var(--accent-strong)}
+.hc-rate{display:flex;align-items:center;gap:6px;flex-wrap:wrap;row-gap:2px}
+.hc-views{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:var(--ink-300)}
+.hc-views svg{width:13px;height:13px}
+.hc-meta{display:flex;flex-wrap:wrap;gap:var(--s-2) var(--s-3);font-size:12px;color:var(--ink-500)}
+.hc-meta span{display:inline-flex;align-items:center;gap:5px}
+.hc-meta svg{width:13px;height:13px;color:var(--ink-300)}
+.hc-desc{font-size:13px;color:var(--ink-500);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hc-foot{margin-top:auto;border-top:1px solid var(--line);padding-top:var(--s-4);display:flex;flex-direction:column;gap:10px}
+.hc-price-row{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:26px}
+.hc-price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.hc-price small{color:var(--ink-300);font-size:11.5px}
+.hc-actions{display:flex;align-items:center;gap:8px}
+.hc-actions .btn{flex:1}
+.cons-strip{margin-top:var(--s-6);background:var(--wash);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s-5);display:flex;justify-content:space-between;align-items:center;gap:var(--s-4);flex-wrap:wrap}
+.cons-strip b{font:700 17px var(--font-display);color:var(--ink-900)}
+.cons-strip p{font-size:14px;color:var(--ink-500)}
+.dip-layout{display:grid;grid-template-columns:340px 1fr;gap:var(--s-10);align-items:start}
+.dip-aside{position:sticky;top:110px}
+.dip-aside h2{font-size:clamp(26px,3.2vw,36px);margin-bottom:var(--s-4)}
+.dip-aside p{color:var(--ink-500);font-size:15px}
+.dip-note{display:flex;gap:12px;background:var(--wash);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s-4);margin-top:var(--s-5);font-size:13.5px;color:var(--ink-700)}
+.dip-note svg{width:22px;height:22px;color:var(--ok);flex:none;margin-top:2px}
+.dip-aside .btn{margin-top:var(--s-5)}
+
+/* ==========================================================================
+   COURSE DETAIL PAGE  (#/course/{id})
+   ========================================================================== */
+.crumbs{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-300);margin-bottom:var(--s-4)}
+.crumbs a,.crumbs button{font:inherit;color:inherit;background:none;padding:0}
+.crumbs a:hover,.crumbs button:hover{color:var(--badge)}
+.crumbs svg{width:11px;height:11px;opacity:.7}
+.cp-hero{background:var(--ink-900);color:#fff;padding:var(--s-6) 0 var(--s-8)}
+.cp-hero h1{color:#fff;font-family:var(--font-body);font-weight:700;font-size:clamp(24px,3.4vw,38px);line-height:1.45;margin-top:10px}
+.cp-sub{color:#C9CBD6;max-width:780px;margin-top:8px;font-size:15px}
+.cp-chips{display:flex;gap:8px;flex-wrap:wrap}
+.cp-rate{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;color:#C9CBD6;font-size:13.5px}
+.cp-rate .rate-num{color:var(--badge)}
+.cp-rate .rate-count{color:var(--ink-300)}
+.cp-rate .sep{opacity:.4}
+.cp-byline{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:14px;color:#C9CBD6;flex-wrap:wrap}
+.cp-byline .ava{width:32px;height:32px;font-size:14px;line-height:32px;background:var(--accent);color:#fff}
+.cp-byline a{color:#fff;font-weight:600;border-bottom:1px dashed rgba(255,255,255,.4)}
+.cp-byline a:hover{color:var(--badge);border-color:var(--badge)}
+.cp-byline span{color:#fff;font-weight:600}
+.cp-meta{display:flex;flex-wrap:wrap;gap:var(--s-4);margin-top:14px;font-size:13px;color:#C9CBD6}
+.cp-meta span{display:inline-flex;align-items:center;gap:6px}
+.cp-meta svg{width:14px;height:14px}
+.cp-layout{display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:var(--s-6);align-items:start;padding-block:var(--s-6) var(--s-10)}
+.cp-main{display:flex;flex-direction:column;gap:var(--s-8);min-width:0}
+.cp-side{position:sticky;top:96px}
+.cp-sec h2{font-family:var(--font-body);font-size:22px;line-height:1.5;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.cp-sec h2::before{content:"";width:20px;height:3px;border-radius:3px;background:var(--accent);flex:none}
+.panel{background:var(--wash);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s-5)}
+.md-learn{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px}
+.md-learn li{display:flex;gap:9px;font-size:14px;color:var(--ink-700);line-height:1.6}
+.md-learn svg{width:16px;height:16px;color:var(--ok);flex:none;margin-top:4px}
+.tgt li,.req li{display:flex;gap:10px;font-size:14.5px;padding:7px 0;line-height:1.7}
+.tgt svg{width:16px;height:16px;color:var(--accent);flex:none;margin-top:5px}
+.req svg{width:16px;height:16px;color:var(--ok);flex:none;margin-top:5px}
+/* buy card */
+.buy{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-2);overflow:hidden}
+.buy-body{padding:var(--s-5);display:flex;flex-direction:column;gap:12px}
+.buy-price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.buy-note{font-size:13px;color:var(--danger);font-weight:600;display:flex;align-items:center;gap:7px}
+.buy-note svg{width:15px;height:15px}
+.buy .btn{width:100%}
+.buy-mini{display:flex;gap:8px}
+.buy-mini .btn{flex:1;height:40px;font-size:13.5px}
+#favBtn.on{border-color:var(--danger);color:var(--danger)}
+.buy-inc{border-top:1px solid var(--line);padding:var(--s-4) var(--s-5)}
+.buy-inc h4{font:700 14px var(--font-body);margin-bottom:8px}
+.buy-inc li{display:flex;gap:9px;font-size:13.5px;padding:5px 0;color:var(--ink-700)}
+.buy-inc svg{width:15px;height:15px;color:var(--accent);flex:none;margin-top:4px}
+.buy-guar{display:flex;align-items:center;gap:10px;background:var(--ok-tint);color:var(--ok);font-size:13px;font-weight:600;padding:13px var(--s-5)}
+.buy-guar svg{width:18px;height:18px;flex:none}
+/* player */
+.pl-wrap{display:flex;flex-direction:column;gap:10px}
+.pl-now{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--ink-500)}
+.pl-now b{color:var(--ink-900)}
+.pl-now svg{width:16px;height:16px;color:var(--accent);flex:none}
+.player{position:relative;border-radius:var(--r-md);overflow:hidden;background:#000;box-shadow:var(--shadow-2);cursor:pointer}
+.player .frame{width:100%;aspect-ratio:16/9;object-fit:cover;opacity:.8}
+.player.playing .frame{animation:kb 16s ease-in-out infinite alternate;opacity:1}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.1)}}
+.pl-coverbtn{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(to top,rgba(29,30,44,.55),rgba(29,30,44,.12));transition:opacity .3s}
+.player.started .pl-coverbtn{opacity:0;pointer-events:none}
+.pl-big{width:78px;height:78px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;box-shadow:var(--shadow-3);transition:transform .25s}
+.pl-big svg{width:30px;height:30px;margin-inline-start:4px}
+.player:hover .pl-big{transform:scale(1.08)}
+.pl-tag{position:absolute;top:14px;inset-inline-start:14px;z-index:2}
+.pl-dur{position:absolute;bottom:14px;inset-inline-end:14px;z-index:2}
+.pl-tag,.pl-dur{transition:opacity .3s}
+.player.started .pl-tag,.player.started .pl-dur{opacity:0}
+.pl-ctrl{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;gap:12px;padding:14px 16px 12px;background:linear-gradient(to top,rgba(0,0,0,.78),transparent);opacity:0;transition:.25s;color:#fff}
+.player.started .pl-ctrl,.player:hover .pl-ctrl{opacity:1}
+.pl-ctrl button{color:#fff;width:34px;height:34px;display:grid;place-items:center;flex:none}
+.pl-ctrl button svg{width:20px;height:20px}
+.pl-bar{flex:1;height:5px;border-radius:99px;background:rgba(255,255,255,.28);cursor:pointer;position:relative}
+.pl-bar i{position:absolute;inset-inline-start:0;top:0;bottom:0;background:var(--accent);border-radius:99px;width:0}
+.pl-time{font-size:12px;color:#fff;direction:ltr;white-space:nowrap}
+.pl-vol{width:20px;height:20px;opacity:.85;flex:none}
+.pl-q{font:700 11px var(--font-body);background:rgba(255,255,255,.16);padding:5px 9px;border-radius:var(--r-xs);flex:none}
+@media(hover:none){.player.started .pl-ctrl{opacity:1}}
+/* roadmap */
+.rd{display:flex;flex-direction:column;gap:10px}
+.rd-sec{border:1px solid var(--line);border-radius:var(--r-sm);background:#fff;overflow:hidden}
+.rd-head{width:100%;display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--wash);text-align:start}
+.rd-head:hover{background:#F0F2F5}
+.rd-num{width:32px;height:32px;border-radius:9px;background:var(--accent-tint);color:var(--accent-strong);font:800 13.5px var(--font-display);display:grid;place-items:center;flex:none}
+.rd-head b{flex:1;font:600 14.5px/1.5 var(--font-body);color:var(--ink-900)}
+.rd-head small{font-size:12px;color:var(--ink-300);white-space:nowrap}
+.rd-head .chev{width:16px;height:16px;color:var(--ink-300);transition:transform .3s;flex:none}
+.rd-sec.open .rd-head .chev{transform:rotate(180deg)}
+.rd-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.rd-sec.open .rd-body{grid-template-rows:1fr}
+.rd-body>div{overflow:hidden}
+.rd-les{display:flex;align-items:center;gap:11px;padding:11px 16px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-700)}
+.rd-les .ic{width:16px;height:16px;color:var(--accent);flex:none}
+.rd-les.locked{color:var(--ink-300)}
+.rd-les.locked .ic{color:var(--line-strong)}
+.rd-les em{margin-inline-start:auto;font-style:normal;font-size:12px;color:var(--ink-300);white-space:nowrap}
+.rd-prev{border:1px solid var(--line-strong);color:var(--accent-strong);font:600 11.5px var(--font-body);border-radius:var(--r-full);padding:4px 11px;flex:none;transition:.2s}
+.rd-prev:hover{background:var(--accent-tint);border-color:var(--accent)}
+.rd-foot{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--ink-500);padding:14px 4px 0}
+.rd-foot svg{width:15px;height:15px;color:var(--accent);flex:none;margin-top:3px}
+/* reviews */
+.rv-top{display:flex;gap:var(--s-6);align-items:center;flex-wrap:wrap;margin-bottom:var(--s-4)}
+.rv-avgcol{display:flex;flex-direction:column;gap:6px;align-items:center}
+.rv-avg{font:800 52px/1 var(--font-display);color:var(--ink-900)}
+.rv-avgcol small{font-size:13px;color:var(--ink-500)}
+.rv-bars{flex:1;min-width:250px;max-width:420px;display:flex;flex-direction:column;gap:7px}
+.rv-bar{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink-500)}
+.rv-bar .track{flex:1;height:8px;border-radius:99px;background:var(--wash-2);overflow:hidden}
+.rv-bar .track i{display:block;height:100%;background:var(--gold);border-radius:99px}
+.rv-bar b{min-width:36px;text-align:end;color:var(--ink-700)}
+.rv-item{display:flex;gap:14px;padding:var(--s-5) 0;border-top:1px solid var(--line)}
+.rv-item .ava{width:42px;height:42px;font-size:16px;line-height:42px;background:var(--accent-tint)}
+.rv-main{flex:1;min-width:0}
+.rv-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rv-head b{font:600 14.5px var(--font-body);color:var(--ink-900)}
+.rv-date{font-size:12px;color:var(--ink-300)}
+.rv-course{font-size:12px;color:var(--accent-strong);margin-top:2px}
+.rv-stars{margin-top:6px}
+.rv-txt{font-size:14px;margin-top:6px;line-height:1.8}
+.rv-help{display:flex;align-items:center;gap:12px;margin-top:10px;font-size:12.5px;color:var(--ink-300)}
+.rv-help button{border:1px solid var(--line-strong);border-radius:var(--r-full);padding:5px 13px;font:600 12px var(--font-body);color:var(--ink-700);transition:.2s}
+.rv-help button:hover{border-color:var(--accent);color:var(--accent)}
+.rv-help button.did{background:var(--accent-tint);border-color:var(--accent);color:var(--accent-strong)}
+/* instructor box on course page */
+.cp-inst{display:flex;gap:var(--s-5);align-items:flex-start;flex-wrap:wrap;background:var(--wash);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s-5)}
+.cp-inst .ava{width:88px;height:88px;font-size:30px;line-height:88px;background:var(--accent);color:#fff}
+.cp-inst h3{font-family:var(--font-body);font-size:18px}
+.cp-inst .role{font-size:13px;color:var(--ink-500);margin-top:2px}
+.cp-inst .rate{margin-top:10px}
+.cp-inst p{font-size:13.5px;color:var(--ink-500);margin-top:10px;max-width:560px}
+.cp-inst .btn{margin-top:12px}
+
+/* ==========================================================================
+   INSTRUCTOR PAGE  (#/instructor/{id})
+   ========================================================================== */
+.ip-hero{background:var(--ink-900);color:#fff;padding:var(--s-10) 0}
+.ip-top{display:flex;gap:var(--s-6);align-items:center;flex-wrap:wrap}
+.ip-ava{width:118px;height:118px;border-radius:50%;background:var(--accent);color:#fff;font:800 42px/118px var(--font-display);text-align:center;flex:none;box-shadow:0 0 0 6px rgba(164,53,240,.25)}
+.ip-hero h1{color:#fff;font-size:clamp(26px,3.4vw,40px)}
+.ip-hero .role{color:var(--badge);font-weight:600;font-size:15px;margin-top:4px}
+.ip-hero .rate{margin-top:12px}
+.ip-hero .rate-num{color:var(--badge)}
+.ip-xp{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.ip-stats{display:flex;gap:var(--s-6);flex-wrap:wrap;margin-top:var(--s-6);padding-top:var(--s-5);border-top:1px solid rgba(255,255,255,.14)}
+.ip-stat b{display:block;font:800 26px/1.3 var(--font-display)}
+.ip-stat span{font-size:13px;color:var(--ink-300)}
+.ip-bio p{font-size:15px;color:var(--ink-700);margin-bottom:12px;max-width:820px;line-height:1.9}
+.ip-facts{display:flex;gap:var(--s-5);flex-wrap:wrap;margin-top:10px}
+.ip-facts span{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink-500)}
+.ip-facts svg{width:16px;height:16px;color:var(--accent)}
+
+/* ==========================================================================
+   CATALOG / SEARCH VIEW
+   ========================================================================== */
+#catalogView{min-height:100vh;background:var(--wash)}
+.cat-top{background:#fff;border-bottom:1px solid var(--line);padding:var(--s-6) 0}
+.cat-top-row{display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);flex-wrap:wrap}
+.cat-searchbar{position:relative;margin-top:var(--s-5)}
+.cat-searchbar .si{position:absolute;top:50%;inset-inline-start:18px;transform:translateY(-50%);width:20px;height:20px;color:var(--ink-300);pointer-events:none}
+#catSearch{width:100%;height:58px;border:1.5px solid var(--ink-900);border-radius:var(--r-md);padding:0 52px;font:500 16px var(--font-body);color:var(--ink-900);background:#fff;transition:border-color .2s,box-shadow .2s}
+#catSearch::placeholder{color:var(--ink-300)}
+#catSearch:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-tint)}
+.cat-clear{position:absolute;inset-inline-end:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:var(--r-full);display:grid;place-items:center;color:var(--ink-300);transition:.2s}
+.cat-clear:hover{color:var(--ink-900);background:var(--wash)}
+.cat-sub{margin-top:10px;font-size:13px;color:var(--ink-300)}
+.cat-layout{display:grid;grid-template-columns:290px 1fr;gap:var(--s-6);align-items:start;padding-block:var(--s-6) var(--s-12)}
+.cat-aside{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s-5);position:sticky;top:96px;max-height:calc(100vh - 120px);overflow:auto}
+.cf-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--s-4)}
+.cf-head b{font:700 15px var(--font-display);color:var(--ink-900);display:flex;align-items:center;gap:8px}
+.cf-head b svg{width:16px;height:16px;color:var(--accent)}
+#clearAll{font:600 12.5px var(--font-body);color:var(--accent-strong);padding:4px 6px;border-radius:var(--r-xs)}
+#clearAll:hover{background:var(--accent-tint)}
+.cf-group{padding-block:var(--s-4);border-top:1px solid var(--line)}
+.cf-group h4{font:700 13px var(--font-body);color:var(--ink-900);margin-bottom:8px}
+.cb{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:14px;cursor:pointer;color:var(--ink-700)}
+.cb input{accent-color:var(--accent);width:16px;height:16px;flex:none;cursor:pointer}
+.cb:hover span{color:var(--ink-900)}
+.cb em{font-style:normal;margin-inline-start:auto;font-size:12px;color:var(--ink-300)}
+.range-row{padding-top:6px}
+.range-row input[type=range]{width:100%;accent-color:var(--accent);cursor:pointer}
+.range-lab{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-300);margin-top:4px}
+.range-lab b{color:var(--ink-900)}
+.cat-toolbar{display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);margin-bottom:var(--s-4);flex-wrap:wrap}
+#resCount{font-size:14px;color:var(--ink-500)}
+#resCount b{color:var(--ink-900)}
+.selwrap{position:relative;display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-500)}
+.selwrap select{appearance:none;-webkit-appearance:none;border:1px solid var(--line-strong);border-radius:var(--r-xs);height:42px;padding:0 14px;padding-inline-end:36px;font:600 14px var(--font-body);color:var(--ink-900);background:#fff;cursor:pointer}
+.selwrap select:focus{outline:none;border-color:var(--accent)}
+.selwrap>svg{position:absolute;inset-inline-end:12px;pointer-events:none;color:var(--ink-300)}
+.cat-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:var(--s-4)}
+.cat-chips:empty{display:none}
+.fchip{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line-strong);border-radius:var(--r-full);padding:6px 7px;padding-inline-start:13px;padding-inline-end:7px;font:600 12.5px var(--font-body);color:var(--ink-700)}
+.fchip button{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;color:var(--ink-300);transition:.15s}
+.fchip button:hover{background:#FBEFEB;color:var(--danger)}
+.fchip button svg{width:12px;height:12px}
+.cat-empty{text-align:center;padding:var(--s-12) var(--s-5);background:#fff;border:1px dashed var(--line-strong);border-radius:var(--r-md);display:flex;flex-direction:column;align-items:center;gap:var(--s-3)}
+.cat-empty svg{width:48px;height:48px;color:var(--ink-300)}
+.cat-empty b{color:var(--ink-900);font-size:17px}
+.cat-empty p{font-size:14px;color:var(--ink-500);max-width:380px}
+.pag{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:var(--s-8);flex-wrap:wrap}
+.pag button{min-width:42px;height:42px;padding:0 12px;border:1px solid var(--line-strong);border-radius:var(--r-xs);background:#fff;font:600 14px var(--font-body);color:var(--ink-700);display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:.2s}
+.pag button:hover:not(:disabled):not(.on){border-color:var(--accent);color:var(--accent);background:var(--accent-tint)}
+.pag button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.pag button:disabled{opacity:.4;cursor:default}
+.pag .gap{color:var(--ink-300);padding:0 2px}
+
+/* ---------- Features ---------- */
+.feat-layout{display:grid;grid-template-columns:5fr 7fr;gap:var(--s-8);align-items:stretch}
+.f-tabs{display:flex;flex-direction:column;gap:var(--s-2)}
+.f-tab{position:relative;display:flex;align-items:flex-start;gap:var(--s-3);width:100%;text-align:start;padding:var(--s-4);border-radius:var(--r-sm);border:1px solid transparent;overflow:hidden;transition:background .2s,border-color .2s,box-shadow .2s}
+.f-tab:hover{background:rgba(255,255,255,.7)}
+.f-tab.active{background:#fff;border-color:var(--line);box-shadow:var(--shadow-1)}
+.f-ic{width:42px;height:42px;border-radius:10px;background:var(--wash-2);color:var(--ink-500);display:grid;place-items:center;flex:none;transition:.2s}
+.f-tab.active .f-ic{background:var(--accent-tint);color:var(--accent-strong)}
+.f-tx b{display:block;font:600 15.5px/1.5 var(--font-body);color:var(--ink-900)}
+.f-tx small{display:block;font-size:12.5px;color:var(--ink-500);margin-top:1px}
+.f-prog{position:absolute;bottom:0;left:0;right:0;height:3px}
+.f-prog i{display:block;height:100%;width:0;background:var(--accent)}
+.f-tab.active .f-prog i{animation:prog 4600ms linear forwards}
+.features-stage.paused .f-tab.active .f-prog i{animation-play-state:paused}
+@keyframes prog{to{width:100%}}
+.f-cta{margin-top:var(--s-5)}
+.f-stage{position:relative;background:#fff var(--dots);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-2);height:480px;overflow:hidden}
+.f-panel{position:absolute;inset:0;padding:var(--s-6);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--s-4);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .45s,transform .45s}
+.f-panel.active{opacity:1;transform:none;pointer-events:auto}
+.mock{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-2)}
+.mock-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.mock-bar i{width:8px;height:8px;border-radius:50%;background:var(--line-strong)}
+.mock-bar .sp{flex:1}
+.bar{height:7px;border-radius:4px;background:var(--line-strong)}
+.vg-chip{font:600 12px/1 var(--font-body);color:var(--ink-500);background:#fff;border:1px solid var(--line);border-radius:var(--r-full);padding:8px 14px;box-shadow:var(--shadow-1)}
+.vd-lap{position:relative}
+.vd-scr{width:330px;max-width:60vw;height:180px;border:2px solid var(--ink-700);border-radius:12px;background:#fff;display:flex;overflow:hidden}
+.vd-side{width:72px;background:var(--wash);border-inline-end:1px solid var(--line);padding:12px 10px;display:flex;flex-direction:column;gap:9px}
+.vd-main{flex:1;padding:12px;display:flex;flex-direction:column;gap:9px}
+.vd-item{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:8px;padding:8px}
+.vd-item .th{width:26px;height:26px;border-radius:6px;flex:none}
+.vd-item .ln{flex:1}
+.vd-base{width:72%;height:9px;background:var(--wash-2);border-radius:0 0 10px 10px;margin:-2px auto 0}
+.vd-phone{position:absolute;bottom:-22px;inset-inline-start:-26px;width:88px;border:2px solid var(--ink-700);border-radius:16px;background:#fff;padding:10px 8px;display:flex;flex-direction:column;gap:7px;box-shadow:var(--shadow-2)}
+.vd-phone .cam{width:26px;height:4px;border-radius:99px;background:var(--wash-2);margin:0 auto}
+.vd-phone .btn-m{height:16px;border-radius:4px;background:var(--accent)}
+.vd-note{position:absolute;bottom:26px;left:50%;transform:translateX(-50%)}
+.vc{width:330px;max-width:100%;position:relative;text-align:center;padding:26px 22px 20px}
+.vc::before{content:"";position:absolute;inset:8px;border:1px dashed var(--line-strong);border-radius:8px;pointer-events:none}
+.vc .ic{width:46px;height:46px;border-radius:50%;background:var(--accent-tint);color:var(--accent);display:grid;place-items:center;margin:0 auto 10px}
+.vc .ey{font-size:11px;color:var(--ink-300);letter-spacing:2px}
+.vc b{display:block;font:700 20px/1.5 var(--font-display);color:var(--ink-900);margin-top:2px}
+.vc p{font-size:12.5px;color:var(--ink-500)}
+.vc .sig{display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-300);border-top:1px solid var(--line);margin-top:16px;padding-top:10px}
+.vc-seal{position:absolute;bottom:-16px;inset-inline-start:28px;width:48px;height:48px;border-radius:50%;background:var(--badge);border:3px solid #fff;display:grid;place-items:center;color:#6B6A1F;box-shadow:var(--shadow-1)}
+.vc-seal svg{width:20px;height:20px}
+.vc-ok{position:absolute;top:16px;inset-inline-end:16px}
+.vp{width:340px;max-width:100%}
+.vp-cover{height:118px;background:var(--ink-900) var(--dots);border-radius:var(--r-md) var(--r-md) 0 0;display:grid;place-items:center}
+.vp-cover .hv-play{width:48px;height:48px}
+.vp-ctrl{border:1px solid var(--line);border-top:0;border-radius:0 0 var(--r-md) var(--r-md);padding:13px 15px;background:#fff}
+.tl{height:6px;border-radius:99px;background:var(--wash-2);position:relative}
+.tl i{position:absolute;inset-inline-start:0;top:0;bottom:0;width:62%;background:var(--gold);border-radius:99px}
+.tl b{position:absolute;top:50%;inset-inline-start:62%;width:14px;height:14px;margin-inline-start:-7px;margin-top:-7px;background:#fff;border:3px solid var(--gold);border-radius:50%}
+.vp-time{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-300);margin-top:9px}
+.vp-note{display:flex;align-items:center;gap:11px}
+.vp-note svg{width:24px;height:24px;color:var(--accent)}
+.vp-note b{display:block;font-size:14.5px;color:var(--ink-900)}
+.vp-note small{font-size:12.5px;color:var(--ink-500)}
+.vl{width:370px;max-width:100%}
+.vl-title{padding:9px 14px;font:600 13px/1.5 var(--font-body);color:var(--ink-900);border-bottom:1px solid var(--line)}
+.chip-live{display:inline-flex;align-items:center;gap:6px;background:#FCEAEA;color:var(--live);font:700 11px/1 var(--font-body);padding:5px 10px;border-radius:var(--r-full)}
+.vl-body{padding:14px;display:flex;flex-direction:column;gap:11px;background:var(--wash)}
+.msg{display:flex;gap:8px;max-width:88%}
+.msg.out{align-self:flex-end;flex-direction:row-reverse}
+.bub{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:12.5px;line-height:1.6}
+.msg.out .bub{background:var(--accent-tint);border-color:transparent}
+.bub b{display:block;font-size:10.5px;color:var(--ink-300);font-weight:600;margin-bottom:2px}
+.msg.out .bub b{color:var(--accent-strong)}
+.vl-input{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-300);background:#fff;border-radius:0 0 var(--r-md) var(--r-md)}
+.vl-input svg{width:17px;height:17px;color:var(--accent)}
+.vq{width:350px;max-width:100%;display:flex;flex-direction:column;gap:11px}
+.vq .bub{box-shadow:var(--shadow-1)}
+.tagline-mini{font:600 10.5px/1 var(--font-body);border-radius:var(--r-full);padding:4px 9px;display:inline-block;margin-top:6px}
+.tg-ok{background:var(--ok-tint);color:var(--ok)}
+.tg-ac{background:var(--accent-tint);color:var(--accent-strong)}
+.typing{display:inline-flex;gap:4px;padding:11px 14px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--ink-300);animation:blink 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}
+.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.vs{width:300px;max-width:100%}
+.vs-head{background:var(--ink-900);border-radius:var(--r-md) var(--r-md) 0 0;padding:13px 16px;display:flex;align-items:center;gap:11px;color:#fff}
+.vs-head svg{width:20px;height:20px}
+.vs-head b{display:block;font-size:13px;line-height:1.4}
+.vs-head small{font-size:11px;color:#9BE3B4;display:flex;align-items:center;gap:5px}
+.vs-head small i{width:6px;height:6px;border-radius:50%;background:#37C978}
+.vs-body{border:1px solid var(--line);border-top:0;border-radius:0 0 var(--r-md) var(--r-md);padding:14px;background:#fff}
+.vs-body .bub{background:var(--wash);border:none;font-size:12.5px;border-radius:10px;padding:9px 12px}
+.vs-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.vs-chips span{font:600 11px/1 var(--font-body);border:1px solid var(--line-strong);border-radius:var(--r-full);padding:6px 11px;color:var(--ink-500);cursor:pointer;transition:.2s}
+.vs-chips span:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-tint)}
+
+/* ---------- Testimonials ---------- */
+.testi{background:var(--ink-900);color:#fff}
+.testi h2{color:#fff}
+.t-wrap{position:relative}
+.t-quote-ic{position:absolute;top:-26px;inset-inline-start:-8px;width:74px;height:74px;color:rgba(255,255,255,.1)}
+.t-slides{display:grid;max-width:820px}
+.t-slide{grid-area:1/1;opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s;pointer-events:none;visibility:hidden}
+.t-slide.active{opacity:1;transform:none;pointer-events:auto;visibility:visible}
+.t-slide blockquote{font:500 clamp(19px,2.6vw,27px)/1.8 var(--font-display);color:#fff;margin:var(--s-4) 0 var(--s-5)}
+.t-slide figcaption{display:flex;align-items:center;gap:13px}
+.t-ava{width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;font:700 19px/46px var(--font-display);text-align:center;flex:none}
+.t-slide figcaption b{display:block;font-size:15px;color:#fff}
+.t-slide figcaption small{font-size:13px;color:var(--ink-300)}
+.t-ctrl{display:flex;align-items:center;gap:var(--s-4);margin-top:var(--s-8)}
+.t-btn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.28);color:#fff;display:grid;place-items:center;transition:.2s}
+.t-btn:hover{background:var(--accent);border-color:var(--accent)}
+.t-dots{display:flex;gap:8px}
+.t-dots button{width:8px;height:8px;border-radius:var(--r-full);background:rgba(255,255,255,.3);transition:.25s}
+.t-dots button.active{width:26px;background:var(--accent)}
+.t-count{font:600 13px var(--font-body);color:var(--ink-300);margin-inline-start:auto}
+
+/* ---------- Instructor CTA ---------- */
+.cta-panel{position:relative;background:var(--accent);border-radius:var(--r-lg);padding:var(--s-10) var(--s-8);display:grid;grid-template-columns:1.15fr .85fr;gap:var(--s-8);align-items:center;overflow:hidden}
+.cta-water{position:absolute;bottom:-110px;inset-inline-start:-24px;font:900 320px/1 var(--font-display);color:rgba(255,255,255,.09);pointer-events:none;user-select:none}
+.cta-panel h2{color:#fff;font-size:clamp(26px,3.4vw,40px);position:relative}
+.cta-panel p{color:rgba(255,255,255,.88);margin-top:var(--s-3);max-width:440px;position:relative}
+.cta-panel .btn{margin-top:var(--s-5);position:relative}
+.cta-panel .btn+.btn{margin-inline-start:10px}
+.cta-stats{display:flex;flex-direction:column;gap:var(--s-4);position:relative}
+.cta-stat{border:1px solid rgba(255,255,255,.4);border-radius:var(--r-md);padding:var(--s-4) var(--s-5);color:#fff;backdrop-filter:blur(2px)}
+.cta-stat b{display:block;font:800 26px/1.3 var(--font-display)}
+.cta-stat span{font-size:13px;color:rgba(255,255,255,.85)}
+
+/* ---------- FAQ ---------- */
+.faq-layout{display:grid;grid-template-columns:4fr 8fr;gap:var(--s-10);align-items:start}
+.faq-aside{position:sticky;top:110px}
+.faq-aside h2{font-size:clamp(26px,3.2vw,36px);margin-bottom:var(--s-4)}
+.faq-aside p{color:var(--ink-500);font-size:15px}
+.faq-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s-5);margin-top:var(--s-6)}
+.faq-card .ic{width:40px;height:40px;border-radius:10px;background:var(--accent-tint);color:var(--accent);display:grid;place-items:center;margin-bottom:12px}
+.faq-card b{color:var(--ink-900);font-size:15px}
+.faq-card p{font-size:13.5px;margin:4px 0 14px}
+.faq-item{border-top:1px solid var(--line)}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-q{display:flex;align-items:center;gap:var(--s-4);width:100%;padding:var(--s-5) var(--s-1);text-align:start}
+.faq-num{font:700 12.5px var(--font-body);color:var(--ink-300);min-width:26px}
+.faq-q h3{flex:1;font:600 16px/1.6 var(--font-body);font-family:var(--font-body);color:var(--ink-900)}
+.faq-q .chev{color:var(--ink-300);transition:transform .3s,color .3s}
+.faq-item.open .chev{transform:rotate(180deg);color:var(--accent)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.faq-a>div{overflow:hidden}
+.faq-a p{padding:0 46px var(--s-5);font-size:14.5px;color:var(--ink-500)}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--ink-900);color:#B4B7C3;font-size:14px}
+.f-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1.35fr;gap:var(--s-8);padding-block:var(--s-10) var(--s-8);border-bottom:1px solid rgba(255,255,255,.1)}
+.f-brand .brand-name{color:#fff}
+.f-brand>p{margin-top:var(--s-4);font-size:13.5px;line-height:1.9;max-width:290px}
+.f-site{font:600 11px var(--font-body);letter-spacing:1.5px;color:var(--ink-500);margin-top:10px}
+.f-title{font:700 14px var(--font-body);color:#fff;margin-bottom:var(--s-4)}
+.f-link{display:block;padding:5.5px 0;color:#B4B7C3;font-size:13.5px;transition:color .2s;background:none;text-align:start;width:100%}
+.f-link:hover{color:#fff}
+.soc-row{display:flex;gap:9px;margin-top:var(--s-4)}
+.soc{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;color:#C9CBD6;transition:.2s}
+.soc:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-3px)}
+.soc svg{width:16px;height:16px}
+.stores{display:flex;gap:10px;margin-bottom:var(--s-5);flex-wrap:wrap}
+.store{display:flex;align-items:center;gap:10px;padding:9px 15px;border:1px solid rgba(255,255,255,.22);border-radius:10px;background:rgba(255,255,255,.05);transition:.2s;text-align:start}
+.store:hover{border-color:rgba(255,255,255,.5)}
+.store svg{width:22px;height:22px;color:#fff}
+.store small{display:block;font-size:10px;color:var(--ink-300);line-height:1.3}
+.store b{display:block;font:600 13.5px/1.3 var(--font-body);color:#fff}
+.news-form{display:flex;gap:8px}
+.news-form input{flex:1;min-width:0;height:46px;border-radius:var(--r-xs);border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#fff;padding:0 14px;font:400 14px var(--font-body)}
+.news-form input::placeholder{color:var(--ink-300)}
+.news-form input:focus{outline:none;border-color:var(--accent)}
+.news-form button{width:46px;height:46px;border-radius:var(--r-xs);background:var(--accent);color:#fff;display:grid;place-items:center;flex:none;transition:background .2s}
+.news-form button:hover{background:var(--accent-strong)}
+.news-err{color:#F0A48A;font-size:12.5px;margin-top:8px;min-height:18px}
+.news-ok{display:flex;align-items:center;gap:9px;color:#7ED9A2;font-size:13.5px;font-weight:600}
+.f-pay{display:flex;align-items:center;gap:var(--s-3);flex-wrap:wrap;padding-block:var(--s-5);border-bottom:1px solid rgba(255,255,255,.1)}
+.f-pay>span{font-size:12.5px;color:var(--ink-300);margin-inline-end:6px}
+.pay{height:34px;padding:0 14px;display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-xs);font:700 12px var(--font-body);color:#fff}
+.pay svg{width:16px;height:16px}
+.mc{display:inline-flex}
+.mc i{width:15px;height:15px;border-radius:50%;display:block}
+.mc i:first-child{background:#EB001B}
+.mc i:last-child{background:#F79E1B;margin-inline-start:-6px;mix-blend-mode:screen}
+.f-bottom{display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);padding-block:var(--s-5);flex-wrap:wrap;font-size:13px}
+
+/* ---------- Overlays ---------- */
+.scrim{position:fixed;inset:0;background:rgba(29,30,44,.55);z-index:70;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;bottom:0;left:0;width:min(410px,94vw);background:#fff;z-index:80;transform:translateX(-105%);transition:transform .4s cubic-bezier(.32,.72,.28,1);box-shadow:var(--shadow-3);display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.dr-head{display:flex;align-items:center;justify-content:space-between;padding:var(--s-5);border-bottom:1px solid var(--line)}
+.dr-head h3{font-size:17px}
+.dr-body{flex:1;overflow-y:auto;padding:var(--s-4) var(--s-5)}
+.dr-empty{text-align:center;padding:var(--s-10) var(--s-4);display:flex;flex-direction:column;align-items:center;gap:var(--s-3)}
+.dr-empty svg{width:44px;height:44px;color:var(--ink-300)}
+.dr-empty b{color:var(--ink-900);font-size:16px}
+.dr-empty p{font-size:13.5px;color:var(--ink-500)}
+.dr-item{display:flex;gap:12px;align-items:center;padding:var(--s-4) 0;border-bottom:1px solid var(--line)}
+.dr-thumb{width:56px;height:56px;border-radius:var(--r-sm);overflow:hidden;flex:none;background:var(--wash-2)}
+.dr-thumb img{width:100%;height:100%;object-fit:cover}
+.dr-info{flex:1;min-width:0}
+.dr-info b{display:block;font:600 13.5px/1.5 var(--font-body);color:var(--ink-900)}
+.dr-info small{font-size:12px;color:var(--ink-500)}
+.dr-rm{color:var(--ink-300);width:32px;height:32px;display:grid;place-items:center;border-radius:var(--r-xs);transition:.2s}
+.dr-rm:hover{color:var(--danger);background:#FBEFEB}
+.dr-foot{border-top:1px solid var(--line);padding:var(--s-5);display:flex;flex-direction:column;gap:var(--s-3)}
+.dr-total{display:flex;justify-content:space-between;align-items:center}
+.dr-total b{font:800 20px var(--font-display);color:var(--ink-900)}
+.dr-note{font-size:12px;color:var(--ink-300)}
+.modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:var(--s-5);visibility:hidden}
+.modal.open{visibility:visible}
+.modal-card{background:#fff;border-radius:var(--r-md);width:min(470px,100%);max-height:88vh;overflow-y:auto;padding:var(--s-6);box-shadow:var(--shadow-3);transform:translateY(18px) scale(.98);opacity:0;transition:.35s}
+.modal.open .modal-card{transform:none;opacity:1}
+.m-head{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--s-4);margin-bottom:var(--s-5)}
+.m-head h3{font-size:20px}
+.m-head p{font-size:13.5px;color:var(--ink-500);margin-top:4px}
+.field{margin-bottom:var(--s-4)}
+.field label{display:block;font:600 13.5px var(--font-body);color:var(--ink-900);margin-bottom:7px}
+.field input,.field textarea{width:100%;height:46px;border:1px solid var(--line-strong);border-radius:var(--r-xs);padding:0 14px;font:400 14.5px var(--font-body);color:var(--ink-900);background:#fff;transition:border-color .2s}
+.field textarea{height:88px;padding:11px 14px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+.f-err{color:var(--danger);font-size:12.5px;margin-top:-8px;margin-bottom:14px;min-height:16px}
+.m-success{text-align:center;padding:var(--s-6) var(--s-2)}
+.m-success .ic{width:58px;height:58px;border-radius:50%;background:var(--ok-tint);color:var(--ok);display:grid;place-items:center;margin:0 auto var(--s-4)}
+.m-success .ic svg{width:26px;height:26px}
+.m-success h4{font-size:18px;margin-bottom:6px}
+.m-success p{font-size:14px;color:var(--ink-500)}
+.vr-card{border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s-5);margin-top:var(--s-4)}
+.vr-row{display:flex;justify-content:space-between;gap:var(--s-4);padding:8px 0;font-size:13.5px;border-bottom:1px dashed var(--line)}
+.vr-row:last-child{border-bottom:none}
+.vr-row span{color:var(--ink-500)}
+.vr-row b{color:var(--ink-900)}
+
+/* ---------- Toasts ---------- */
+.toasts{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:100;display:flex;flex-direction:column;align-items:center;gap:9px;pointer-events:none;width:max-content;max-width:92vw}
+.toast{display:flex;align-items:center;gap:10px;background:var(--ink-900);color:#fff;padding:13px 19px;border-radius:var(--r-sm);box-shadow:var(--shadow-2);font-size:14px;animation:t-in .35s cubic-bezier(.2,.9,.3,1.2);max-width:92vw}
+.toast.out{opacity:0;transform:translateY(10px);transition:.3s}
+.toast svg{width:18px;height:18px;color:var(--gold);flex:none}
+.toast.info svg{color:#8FC0FF}
+@keyframes t-in{from{opacity:0;transform:translateY(14px)}}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- Responsive ---------- */
+@media(max-width:1024px){
+  .main-nav,.login-link{display:none}
+  .menu-btn{display:grid}
+  .hero-inner{grid-template-columns:1fr;padding-block:var(--s-8) var(--s-10)}
+  .hero-visual{height:480px;max-width:560px;margin-inline:auto;width:100%}
+  .vgrid-4,.vgrid-3{grid-template-columns:repeat(2,1fr)}
+  .dip-layout{grid-template-columns:1fr;gap:var(--s-6)}
+  .dip-aside{position:static}
+  .feat-layout{grid-template-columns:1fr}
+  .cat-layout{grid-template-columns:1fr}
+  .cat-aside{position:static;max-height:none}
+  .cp-layout{display:flex;flex-direction:column}
+  .cp-side{position:static;order:-1}
+  .cta-panel{grid-template-columns:1fr;padding:var(--s-8) var(--s-6)}
+  .cta-stats{flex-direction:row}
+  .cta-stat{flex:1}
+  .cta-water{font-size:240px;bottom:-90px}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .sec{padding-block:var(--s-10)}
+}
+@media(max-width:640px){
+  .sec{padding-block:var(--s-10)}
+  .container{padding-inline:var(--s-4)}
+  .topbar{font-size:12px}
+  .hero-visual{height:400px}
+  .hv-course{width:252px;top:52px;right:16px}
+  .hv-cover{height:104px}
+  .hv-cert{width:182px;padding:14px 12px;top:6px;left:-4px}
+  .hv-progress{right:28px;bottom:26px}
+  .hv-live{top:10px;left:12px}
+  .hv-ring{width:310px;height:310px;margin:-155px 0 0 -155px}
+  .hero-stats{flex-direction:column;gap:var(--s-4)}
+  .stat{border:none;padding:0}
+  .vgrid-4,.vgrid-3,.vgrid-2{grid-template-columns:1fr}
+  .vgrid{gap:var(--s-4)}
+  #catSearch{height:52px;padding:0 46px}
+  .md-learn{grid-template-columns:1fr}
+  .cp-side{order:-1}
+  .rv-item{gap:10px}
+  .rv-item .ava{width:34px;height:34px;font-size:13px;line-height:34px}
+  .cta-stats{flex-direction:column}
+  .cta-panel .btn+.btn{margin-inline-start:0;margin-top:10px}
+  .f-grid{grid-template-columns:1fr}
+  .faq-a p{padding-inline:36px var(--s-5)}
+  .t-quote-ic{width:52px;height:52px;top:-16px}
+  .ip-ava{width:92px;height:92px;font-size:34px;line-height:92px}
+}
+@media(hover:none){.hv-el{transform:rotate(var(--rot,0deg))}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ====== SVG icon set ====== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.4l-5.8 3 1.1-6.4L2.6 9.4l6.5-.9z"/></symbol>
+    <symbol id="i-stars" viewBox="0 0 108 20"><use href="#i-star" width="18" height="18" y="1"/><use href="#i-star" width="18" height="18" x="22.5" y="1"/><use href="#i-star" width="18" height="18" x="45" y="1"/><use href="#i-star" width="18" height="18" x="67.5" y="1"/><use href="#i-star" width="18" height="18" x="90" y="1"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.4v13.2c0 .8.9 1.3 1.6.9l10.4-6.6c.6-.4.6-1.4 0-1.8L9.6 4.5c-.7-.4-1.6.1-1.6.9z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path fill="currentColor" d="M7 5h3.6v14H7zM13.4 5H17v14h-3.6z"/></symbol>
+    <symbol id="i-logo" viewBox="0 0 32 32"><path d="M8 22V11l8 7 8-7v11" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.2a1.6 1.6 0 0 0 1.6-1.2L21 8H6"/><circle cx="9.7" cy="20" r="1.4"/><circle cx="17.7" cy="20" r="1.4"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-chev-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-chev-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6l-6 6 6 6"/></symbol>
+    <symbol id="i-chev-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 2.8v5.3c0 4.6-3 8.1-7 9.9-4-1.8-7-5.3-7-9.9V5.8z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="10.5" width="13" height="9" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5M12 14.5v2"/></symbol>
+    <symbol id="i-inf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6.5 15.5C4.6 15.5 3 13.9 3 12s1.6-3.5 3.5-3.5c3.5 0 7.5 7 11 7 1.9 0 3.5-1.6 3.5-3.5S19.4 8.5 17.5 8.5c-3.5 0-7.5 7-11 7z"/></symbol>
+    <symbol id="i-devices" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="14" height="9.5" rx="1.5"/><path d="M1.2 17.5h15.6"/><rect x="16.8" y="8.5" width="5.4" height="10" rx="1.4"/><path d="M19 16.4h.01"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 6.5v8a2 2 0 0 1-2 2H10l-5 4v-4h-.5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10.5h8"/></symbol>
+    <symbol id="i-question" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3A2.6 2.6 0 0 1 12 7.6c1.4 0 2.5 1 2.5 2.3 0 1.6-1.7 1.9-2.4 2.9-.2.3-.2.6-.2 1.1M12 17h.01"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0"/><rect x="3" y="13.5" width="4" height="6" rx="1.6"/><rect x="17" y="13.5" width="4" height="6" rx="1.6"/><path d="M20 17.5v.5a2.5 2.5 0 0 1-2.5 2.5H13"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.2"/><path d="M8.9 13.4L7.5 21l4.5-2.6L16.5 21l-1.4-7.6"/></symbol>
+    <symbol id="i-live" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="2.6" fill="currentColor" stroke="none"/><path d="M6.4 6.4a8 8 0 0 0 0 11.2M17.6 6.4a8 8 0 0 1 0 11.2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><path d="M15.5 5.7a3.2 3.2 0 0 1 0 5.9M17.5 14.9c1.8.7 3 2.4 3 4.6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+    <symbol id="i-brief" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8" width="17" height="12" rx="2"/><path d="M9 8V6.5A1.5 1.5 0 0 1 10.5 5h3A1.5 1.5 0 0 1 15 6.5V8M3.5 13h17"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5.5-5.5 4 3L21 6"/><path d="M15.5 6H21v5.5"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M8 20h8M12 6L5.5 8m6.5-2l6.5 2"/><path d="M3.2 13l2.3-5 2.3 5a2.4 2.4 0 0 1-4.6 0zM16.2 13l2.3-5 2.3 5a2.4 2.4 0 0 1-4.6 0z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18M16.8 14.8h.01"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h13.5v14H6a2 2 0 0 0-2 2.5zm0 0A1.5 1.5 0 0 0 5.5 21H19.5"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2.5L2.8 9.8c-.7.3-.7 1.3 0 1.5l7 2.4 2.4 7c.2.7 1.2.7 1.5 0z"/><path d="M21.5 2.5L9.8 13.7"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5h.01"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3l1.9 5.4L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.6z"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path fill="currentColor" d="M10.4 5.2C7 6.5 5 9.2 5 12.8c0 2.9 1.9 4.8 4.2 4.8 2 0 3.6-1.5 3.6-3.5 0-1.9-1.4-3.3-3.2-3.5.3-1.6 1.4-2.9 3.1-3.8l-2.3-1.6zm8.2 0C15.2 6.5 13.2 9.2 13.2 12.8c0 2.9 1.9 4.8 4.2 4.8 2 0 3.6-1.5 3.6-3.5 0-1.9-1.4-3.3-3.2-3.5.3-1.6 1.4-2.9 3.1-3.8l-2.3-1.6z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.2 13.8a4.2 4.2 0 0 0 6 0l3-3a4.24 4.24 0 0 0-6-6l-1.1 1.1"/><path d="M13.8 10.2a4.2 4.2 0 0 0-6 0l-3 3a4.24 4.24 0 0 0 6 6l1.1-1.1"/></symbol>
+    <symbol id="i-vol" viewBox="0 0 24 24"><path fill="currentColor" d="M4 9v6h3.6L13 19.5v-15L7.6 9H4z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M16 8.5a5.5 5.5 0 0 1 0 7M18.5 6a9 9 0 0 1 0 12"/></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 12.9c0-2 1.7-3 1.8-3.1-1-1.4-2.5-1.6-3-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.4 0-2.6.8-3.3 2-1.4 2.5-.4 6.1 1 8.1.7 1 1.5 2.1 2.5 2 1 0 1.4-.6 2.7-.6 1.2 0 1.6.6 2.6.6 1.1 0 1.8-1 2.5-2 .8-1.1 1.1-2.2 1.1-2.3-.1 0-2.2-.9-2.3-3.1zM14.7 6.7c.5-.7.9-1.6.8-2.6-.8 0-1.8.6-2.4 1.3-.5.6-1 1.6-.8 2.5.9.1 1.9-.5 2.4-1.2z"/></symbol>
+    <symbol id="i-gplay" viewBox="0 0 24 24"><path fill="currentColor" d="M5.2 3.3c-.4.3-.7.8-.7 1.4v14.6c0 .6.3 1.1.7 1.4l8.3-8.7-8.3-8.7zm9.6 7.4L7.6 4.4l9.5 5.4-2.3.9zm3.3 1.4l-2.1-1.2-2.5 1.1 2.5 1.2 2.1-1.1zm-10.5 7.5l7.2-6.3 2.3.9-9.5 5.4z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="16.9" cy="7.1" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7c.5-1 1.9-2 3.9-2 3 0 4.3 1.8 4.3 5.2V21h-4v-6.3c0-1.9-.7-2.9-2.1-2.9-1.5 0-2.4 1-2.4 2.9V21H9z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M17.8 3h3l-6.7 7.7L22 21h-6.1l-4.8-6.2L5.6 21h-3l7.2-8.2L2 3h6.3l4.3 5.7L17.8 3zm-1 16h1.7L7.4 4.7H5.6L16.8 19z"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.2 0-1-.1-1.9-.1-1.9 0-3.2 1.2-3.2 3.3V11H9v3h2.3v7z"/></symbol>
+    <symbol id="i-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12s0-3.3-.4-4.8a2.5 2.5 0 0 0-1.8-1.8C18.3 5 12 5 12 5s-6.3 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.7 2 12 2 12s0 3.3.4 4.8a2.5 2.5 0 0 0 1.8 1.8c1.5.4 7.8.4 7.8.4s6.3 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.5.4-4.8.4-4.8zM10 8.8l5.5 3.2L10 15.2z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ====== Top bar ====== -->
+<div class="topbar">
+  <div class="container">
+    <span>عرض هذا الأسبوع: خصومات تصل إلى 33٪ على الباقات والدبلومات</span>
+    <a href="#bundles">تصفح الباقات <svg class="ic-s"><use href="#i-arrow-left"/></svg></a>
+  </div>
+</div>
+
+<!-- ====== Header ====== -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="ماستري أكاديمي">
+      <span class="brand-mark" style="color:#fff"><svg><use href="#i-logo"/></svg></span>
+      <span class="brand-name">ماستري <b>أكاديمي</b></span>
+    </a>
+
+    <nav class="main-nav" aria-label="التنقل الرئيسي">
+      <div class="nav-drop" id="catsDrop">
+        <button class="nav-link drop-btn" id="catsBtn" aria-expanded="false">جميع الأقسام <svg class="ic-s"><use href="#i-chev-down"/></svg></button>
+        <div class="drop-panel" id="catsPanel">
+          <button class="drop-item" data-open="all"><span class="di"><svg class="icon"><use href="#i-search"/></svg></span><span><b>استعراض كل البرامج</b><small>دورات · دبلومات · باقات · استشارات</small></span></button>
+          <button class="drop-item" data-open-cat="الأعمال"><span class="di"><svg class="icon"><use href="#i-brief"/></svg></span><span><b>الأعمال</b><small><span data-cnt="الأعمال"></span> برنامج</small></span></button>
+          <button class="drop-item" data-open-cat="التسويق"><span class="di"><svg class="icon"><use href="#i-trend"/></svg></span><span><b>التسويق</b><small><span data-cnt="التسويق"></span> برنامج</small></span></button>
+          <button class="drop-item" data-open-cat="القانون"><span class="di"><svg class="icon"><use href="#i-scale"/></svg></span><span><b>القانون</b><small><span data-cnt="القانون"></span> برنامج</small></span></button>
+          <button class="drop-item" data-open-cat="الإدارة والقيادة"><span class="di"><svg class="icon"><use href="#i-target"/></svg></span><span><b>الإدارة والقيادة</b><small><span data-cnt="الإدارة والقيادة"></span> برنامج</small></span></button>
+          <button class="drop-item" data-open-cat="المالية والمحاسبة"><span class="di"><svg class="icon"><use href="#i-wallet"/></svg></span><span><b>المالية والمحاسبة</b><small><span data-cnt="المالية والمحاسبة"></span> برنامج</small></span></button>
+        </div>
+      </div>
+      <button class="nav-link" data-lead="طلبات الشركات">طلبات الشركات</button>
+      <button class="nav-link" data-lead="التسويق بالعمولة">التسويق بالعمولة</button>
+      <button class="nav-link" data-verify>التحقق من الشهادة</button>
+      <a class="nav-link" href="#instructors">انضم لنا كمدرب</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="searchBtn" aria-label="ابحث في المنصة"><svg class="icon"><use href="#i-search"/></svg></button>
+      <span class="cart-wrap">
+        <button class="icon-btn" id="cartBtn" aria-label="سلة المشتريات"><svg class="icon"><use href="#i-cart"/></svg></button>
+        <span class="cart-count" id="cartCount" hidden>0</span>
+      </span>
+      <button class="nav-link login-link" id="loginLink" data-auth>تسجيل الدخول</button>
+      <a class="btn btn-primary btn-sm" href="#bundles">اشترك الآن</a>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="القائمة"><svg class="icon"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <button class="nav-link" data-open="all" data-mclose>ابحث في كل البرامج</button>
+    <a class="nav-link" href="#courses" data-mclose>جميع الأقسام</a>
+    <button class="nav-link" data-lead="طلبات الشركات" data-mclose>طلبات الشركات</button>
+    <button class="nav-link" data-lead="التسويق بالعمولة" data-mclose>التسويق بالعمولة</button>
+    <button class="nav-link" data-verify data-mclose>التحقق من الشهادة</button>
+    <a class="nav-link" href="#instructors" data-mclose>انضم لنا كمدرب</a>
+    <hr>
+    <button class="nav-link" data-auth data-mclose>تسجيل الدخول</button>
+    <a class="btn btn-primary" href="#bundles" data-mclose>اشترك الآن</a>
+  </div>
+</header>
+
+<!-- ================= LANDING VIEW ================= -->
+<main id="landingView">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="hero-chip" data-hero><svg><use href="#i-spark"/></svg> منصة التعلم الرائدة في الوطن العربي</span>
+        <h1 data-hero style="--dl:.08s">ماستري أكاديمي</h1>
+        <p class="hero-tag" data-hero style="--dl:.16s">تعلّم ما <mark>يغيّر عالمك</mark></p>
+        <p class="hero-desc" data-hero style="--dl:.24s">دورات ودبلومات وباقات واستشارات معتمدة في الأعمال والتسويق والقانون والإدارة والمالية — يقدّمها نخبة من الخبراء العرب.</p>
+        <div class="hero-ctas" data-hero style="--dl:.32s">
+          <a class="btn btn-primary" href="#bundles">اشترك الآن</a>
+          <button class="btn btn-outline" data-open="all"><svg class="ic-s"><use href="#i-search"/></svg> تصفح البرامج</button>
+        </div>
+        <div class="hero-stats" data-hero style="--dl:.4s">
+          <div class="stat"><span class="stat-num" dir="ltr" data-count="12000" data-prefix="+">+0</span><small>متدرب ومتدربة</small></div>
+          <div class="stat"><span class="stat-num" dir="ltr" data-count="50" data-prefix="+">+0</span><small>دورة تدريبية</small></div>
+          <div class="stat"><span class="stat-badge"><svg><use href="#i-award"/></svg></span><small>شهادات معتمدة دولياً</small></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" id="heroVisual" aria-hidden="true">
+        <span class="hv-el hv-ring"></span>
+        <span class="hv-el hv-plus p1">+</span>
+        <span class="hv-el hv-plus p2">+</span>
+        <div class="hv-el hv-card hv-cert">
+          <span class="small">شهادة إتمام</span>
+          <span class="ic"><svg class="icon"><use href="#i-award"/></svg></span>
+          <b>سارة عبدالرحمن</b>
+          <p>دبلوم التسويق الاحترافي التدريبي</p>
+          <span class="sig"><span>ماستري أكاديمي</span><span dir="ltr">MA-2025-0847</span></span>
+        </div>
+        <div class="hv-el hv-card hv-course">
+          <div class="hv-cover">
+            <span class="hv-cat">إدارة وقيادة</span>
+            <span class="hv-play"><svg><use href="#i-play"/></svg></span>
+          </div>
+          <div class="hv-body">
+            <span class="chip chip-badge">الأكثر مبيعاً</span>
+            <p class="hv-title">الإدارة بالأهداف والنتائج OKR’s</p>
+            <p class="hv-by"><span class="ava">ش</span> د. شاهر شهدي</p>
+            <p class="hv-rate">
+              <span class="stars"><svg class="st"><use href="#i-stars"/></svg><i class="st-top" style="width:96%"><svg class="st"><use href="#i-stars"/></svg></i></span>
+              <span class="rate-num">4.8</span><span class="rate-count">(1,214)</span>
+            </p>
+            <div class="hv-foot"><span class="price" dir="ltr">$129</span><s dir="ltr">$189</s></div>
+          </div>
+        </div>
+        <div class="hv-el hv-card hv-progress">
+          <small>تقدّمك في الدورة</small>
+          <span class="hv-bar"><i></i></span>
+          <b dir="ltr">68%</b>
+        </div>
+        <div class="hv-el hv-card hv-live"><span class="dot-live"></span> بث مباشر الآن</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section class="sec band" id="courses">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">الدورات</span><h2>تصفح الدورات التالية</h2></div>
+        <button class="btn btn-outline btn-sm" data-open="course">تصفح كل الدورات <svg class="ic-s"><use href="#i-arrow-left"/></svg></button>
+      </div>
+      <div class="vgrid vgrid-4" id="landCourses"></div>
+    </div>
+  </section>
+
+  <!-- Diplomas -->
+  <section class="sec" id="diplomas">
+    <div class="container dip-layout">
+      <aside class="dip-aside reveal">
+        <span class="eyebrow">الدبلومات</span>
+        <h2>تصفح الدبلومات التالية</h2>
+        <p>برامج مكثفة تجمع عدّة دورات في مسار واحد متكامل، بإشراف مباشر من المدربين ومشاريع تطبيقية تُنفّذ خلال البرنامج.</p>
+        <div class="dip-note"><svg><use href="#i-shield"/></svg><span>جميع الدبلومات تصدر بشهادة معتمدة من ماستري أكاديمي، ويمكن التحقق منها إلكترونياً عبر رقم فريد.</span></div>
+        <button class="btn btn-outline" data-open="diploma">كل الدبلومات <svg class="ic-s"><use href="#i-arrow-left"/></svg></button>
+      </aside>
+      <div class="vgrid vgrid-2" id="landDips"></div>
+    </div>
+  </section>
+
+  <!-- Bundles -->
+  <section class="sec band" id="bundles">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">الباقات</span><h2>تصفح الباقات التالية</h2></div>
+        <span class="chip chip-accent" style="height:34px;padding:0 16px"><svg><use href="#i-users"/></svg> مجموعة من المدربين</span>
+      </div>
+      <div class="vgrid vgrid-2" id="landBundles"></div>
+    </div>
+  </section>
+
+  <!-- Consultations -->
+  <section class="sec" id="consults">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">استشارات فردية</span><h2>احجز جلسة خاصة مع الخبراء</h2></div>
+        <button class="btn btn-outline btn-sm" data-open="consult">كل الاستشارات <svg class="ic-s"><use href="#i-arrow-left"/></svg></button>
+      </div>
+      <div class="vgrid vgrid-4" id="landCons"></div>
+      <div class="cons-strip reveal">
+        <div><b>هل تحتاج برنامجاً تدريبياً خاصاً لفريق عملك؟</b><p>نصمم لك حزمة تدريب مخصصة داخل أو خارج مقر شركتك.</p></div>
+        <button class="btn btn-primary" data-lead="طلب تدريب للشركات">طلبات الشركات</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="sec band" id="features">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">لماذا ماستري؟</span><h2>تمتع بتجربة تعليمية فريدة</h2></div>
+      </div>
+      <div class="feat-layout features-stage reveal" id="featStage">
+        <div>
+          <div class="f-tabs" role="tablist" aria-label="مزايا المنصة">
+            <button class="f-tab active" data-ft="0"><span class="f-ic"><svg class="icon"><use href="#i-devices"/></svg></span><span class="f-tx"><b>تابع من أي جهاز</b><small>أينما كنت ووقتما تريد</small></span><span class="f-prog"><i></i></span></button>
+            <button class="f-tab" data-ft="1"><span class="f-ic"><svg class="icon"><use href="#i-award"/></svg></span><span class="f-tx"><b>شهادة معتمدة</b><small>من ماستري بعد إتمام أي دورة</small></span><span class="f-prog"><i></i></span></button>
+            <button class="f-tab" data-ft="2"><span class="f-ic"><svg class="icon"><use href="#i-inf"/></svg></span><span class="f-tx"><b>مشاهدة بلا حدود</b><small>مرات غير محدودة لمدة عام كامل</small></span><span class="f-prog"><i></i></span></button>
+            <button class="f-tab" data-ft="3"><span class="f-ic"><svg class="icon"><use href="#i-live"/></svg></span><span class="f-tx"><b>دبلومات بث مباشر</b><small>جلسات تفاعلية مع المدربين</small></span><span class="f-prog"><i></i></span></button>
+            <button class="f-tab" data-ft="4"><span class="f-ic"><svg class="icon"><use href="#i-question"/></svg></span><span class="f-tx"><b>اسأل الخبراء</b><small>اطرح أسئلتك واستفد من خبرة المدربين</small></span><span class="f-prog"><i></i></span></button>
+            <button class="f-tab" data-ft="5"><span class="f-ic"><svg class="icon"><use href="#i-headset"/></svg></span><span class="f-tx"><b>دعم متميّز</b><small>خدمة عملاء فائقة التميّز</small></span><span class="f-prog"><i></i></span></button>
+          </div>
+          <a class="btn btn-primary f-cta" href="#bundles">إشترك الآن</a>
+        </div>
+
+        <div class="f-stage" id="fStage">
+          <div class="f-panel active">
+            <div class="vd-lap">
+              <div class="vd-scr">
+                <div class="vd-side"><span class="bar" style="width:80%"></span><span class="bar" style="width:60%"></span><span class="bar" style="width:70%"></span><span class="bar" style="width:50%"></span></div>
+                <div class="vd-main">
+                  <div class="vd-item"><span class="th" style="background:var(--accent-tint)"></span><span class="ln bar" style="width:70%"></span></div>
+                  <div class="vd-item"><span class="th" style="background:var(--wash-2)"></span><span class="ln bar" style="width:55%"></span></div>
+                  <div class="vd-item"><span class="th" style="background:#FBF3D7"></span><span class="ln bar" style="width:62%"></span></div>
+                </div>
+              </div>
+              <div class="vd-base"></div>
+              <div class="vd-phone"><span class="cam"></span><span class="bar" style="width:90%"></span><span class="bar" style="width:70%"></span><span class="btn-m"></span></div>
+            </div>
+            <span class="vg-chip vd-note">جوال • لابتوب • تابلت — تابع أينما كنت</span>
+          </div>
+          <div class="f-panel">
+            <div class="vc mock">
+              <span class="chip chip-ok vc-ok">موثّقة</span>
+              <span class="ic"><svg class="icon"><use href="#i-award"/></svg></span>
+              <span class="ey">شهادة إتمام</span>
+              <b>عبدالرحمن المحمادي</b>
+              <p>لإتمام متطلبات دبلوم التسويق الاحترافي التدريبي</p>
+              <span class="sig"><span>ماستري أكاديمي</span><span dir="ltr">ID: MA-2025-0847</span></span>
+              <span class="vc-seal"><svg><use href="#i-star"/></svg></span>
+            </div>
+            <span class="vg-chip">قابلة للتحقق إلكترونياً برقم فريد</span>
+          </div>
+          <div class="f-panel">
+            <div class="vp">
+              <div class="vp-cover"><span class="hv-play"><svg><use href="#i-play"/></svg></span></div>
+              <div class="vp-ctrl">
+                <div class="tl"><i></i><b></b></div>
+                <div class="vp-time"><span dir="ltr">18:24</span><span dir="ltr">32:10</span></div>
+              </div>
+            </div>
+            <div class="vp-note">
+              <svg><use href="#i-inf"/></svg>
+              <span><b>مشاهدات غير محدودة</b><small>صالحة لمدة 365 يوماً من تاريخ الاشتراك</small></span>
+            </div>
+          </div>
+          <div class="f-panel">
+            <div class="vl mock">
+              <div class="mock-bar"><i></i><i></i><i></i><span class="sp"></span><span class="chip-live"><span class="dot-live"></span> مباشر</span></div>
+              <div class="vl-title">دبلوم التخطيط الاستراتيجي — الأسبوع الرابع</div>
+              <div class="vl-body">
+                <div class="msg"><span class="ava">ع</span><span class="bub"><b>عبدالله</b>كيف نوازن بين الطموح والواقعية عند صياغة الأهداف؟</span></div>
+                <div class="msg out"><span class="ava" style="background:var(--badge);color:var(--badge-ink)">ش</span><span class="bub"><b>د. شاهر شهدي</b>نبدأ من نتيجة قابلة للقياس، ثم نعمل للخلف نحو مبادرات واقعية.</span></div>
+              </div>
+              <div class="vl-input"><span>اكتب سؤالك للمدرب…</span><svg><use href="#i-send"/></svg></div>
+            </div>
+          </div>
+          <div class="f-panel">
+            <div class="vq">
+              <div class="msg"><span class="ava">أ</span><span class="bub"><b>سؤال من أحمد</b>هل الشهادات معتمدة خارج السعودية؟<br><span class="tagline-mini tg-ac">سؤال للمدرب</span></span></div>
+              <div class="msg out"><span class="ava" style="background:var(--accent);color:#fff">م</span><span class="bub"><b>فريق ماستري</b>نعم — شهادتنا معتمدة وقابلة للتحقق عبر رابط إلكتروني فريد لكل متدرب.<br><span class="tagline-mini tg-ok">تمت الإجابة</span></span></div>
+              <div class="msg"><span class="ava">س</span><span class="bub typing"><i></i><i></i><i></i></span></div>
+            </div>
+          </div>
+          <div class="f-panel">
+            <div class="vs mock">
+              <div class="vs-head"><svg><use href="#i-headset"/></svg><span><b>فريق ماستري</b><small><i></i> متصل الآن</small></span></div>
+              <div class="vs-body">
+                <div class="bub">أهلاً بك! كيف نساعدك اليوم؟</div>
+                <div class="vs-chips"><span>استفسار عن الدفع</span><span>مشكلة تقنية</span><span>الشهادات</span></div>
+              </div>
+            </div>
+            <span class="vg-chip">متوسط زمن الرد: أقل من 5 دقائق</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="sec testi on-dark" id="testimonials">
+    <div class="container">
+      <div class="section-head reveal" style="margin-bottom:var(--s-6)">
+        <div><span class="eyebrow">آراء المتدربين</span><h2>ماذا قال المتدربين عن ماستري أكاديمي</h2></div>
+      </div>
+      <div class="t-wrap reveal">
+        <svg class="t-quote-ic"><use href="#i-quote"/></svg>
+        <div class="t-slides" id="tSlides">
+          <figure class="t-slide active">
+            <span class="stars" style="width:110px"><svg class="st"><use href="#i-stars"/></svg><i class="st-top" style="width:100%"><svg class="st"><use href="#i-stars"/></svg></i></span>
+            <blockquote>«ماستري أكاديمي غيّرت طريقة تفكيري في التسويق — الدورات احترافية جداً، والمحتوى عملي من الجلسة الأولى.»</blockquote>
+            <figcaption><span class="t-ava">أ</span><span><b>أحمد م.</b><small>مدير تسويق</small></span></figcaption>
+          </figure>
+          <figure class="t-slide">
+            <span class="stars" style="width:110px"><svg class="st"><use href="#i-stars"/></svg><i class="st-top" style="width:100%"><svg class="st"><use href="#i-stars"/></svg></i></span>
+            <blockquote>«حصلت على شهادة معتمدة، وزاد راتبي 30٪ خلال 3 أشهر فقط من تطبيق ما تعلمته.»</blockquote>
+            <figcaption><span class="t-ava" style="background:var(--badge);color:var(--badge-ink)">س</span><span><b>سارة ع.</b><small>متخصصة مبيعات</small></span></figcaption>
+          </figure>
+        </div>
+        <div class="t-ctrl">
+          <button class="t-btn" id="tNext" aria-label="التالي"><svg class="icon"><use href="#i-chev-left"/></svg></button>
+          <button class="t-btn" id="tPrev" aria-label="السابق"><svg class="icon"><use href="#i-chev-right"/></svg></button>
+          <div class="t-dots" id="tDots"></div>
+          <span class="t-count" id="tCount" dir="ltr">01 / 02</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructor CTA -->
+  <section class="sec" id="instructors">
+    <div class="container">
+      <div class="cta-panel reveal">
+        <span class="cta-water">؟</span>
+        <div>
+          <h2>مدرب خبير؟ إذاً انضم لنا</h2>
+          <p>كن أحد الخبراء في ماستري اكاديمي، وشارك معرفتك مع آلاف المتدربين العرب مع دعم كامل في الإنتاج والتسويق.</p>
+          <button class="btn btn-light" data-lead="انضم إلينا كمدرب">انضم إلينا الآن</button>
+        </div>
+        <div class="cta-stats">
+          <div class="cta-stat"><b dir="ltr">+40</b><span>مدرباً خبيراً ينشرون معنا</span></div>
+          <div class="cta-stat"><b dir="ltr">+12,000</b><span>متدرب ينتظر محتواك</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec band" id="faq" style="padding-top:0">
+    <div class="container" style="padding-top:var(--s-12)">
+      <div class="faq-layout">
+        <aside class="faq-aside reveal">
+          <span class="eyebrow">الأسئلة الشائعة</span>
+          <h2>كل ما تريد معرفته قبل أن تبدأ</h2>
+          <p>أجوبة سريعة عن الحسابات، الدفع، الشهادات، والسياسات — وإن لم تجد سؤالك فريقنا جاهز للمساعدة.</p>
+          <div class="faq-card">
+            <span class="ic"><svg class="icon"><use href="#i-headset"/></svg></span>
+            <b>لم تجد إجابتك؟</b>
+            <p>تواصل مع فريق خدمة العملاء وسنرد عليك خلال ساعات العمل.</p>
+            <button class="btn btn-outline btn-sm" data-lead="تواصل معنا">تواصل معنا</button>
+          </div>
+        </aside>
+        <div class="reveal">
+          <div class="faq-item" id="faq-1">
+            <button class="faq-q" aria-expanded="false"><span class="faq-num" dir="ltr">01</span><h3>حساب المشترك وكلمة المرور</h3><svg class="icon chev"><use href="#i-chev-down"/></svg></button>
+            <div class="faq-a"><div><p>يمكنك إنشاء حسابك من زر «اشترك الآن». وإذا نسيت كلمة المرور، اضغط «نسيت كلمة المرور» في صفحة الدخول وسنرسل رابط إعادة التعيين إلى بريدك المسجّل خلال دقائق.</p></div></div>
+          </div>
+          <div class="faq-item" id="faq-2">
+            <button class="faq-q" aria-expanded="false"><span class="faq-num" dir="ltr">02</span><h3>أمن المعلومات</h3><svg class="icon chev"><use href="#i-chev-down"/></svg></button>
+            <div class="faq-a"><div><p>نحمي بياناتك عبر اتصال مشفّر ببروتوكول SSL، ولا نشارك معلوماتك الشخصية أو البنكية مع أي طرف ثالث، وتُعالَج جميع المدفوعات عبر بوابات دفع معتمدة.</p></div></div>
+          </div>
+          <div class="faq-item" id="faq-3">
+            <button class="faq-q" aria-expanded="false"><span class="faq-num" dir="ltr">03</span><h3>سياسة الشراء والدفع</h3><svg class="icon chev"><use href="#i-chev-down"/></svg></button>
+            <div class="faq-a"><div><p>تُحدَّد الأسعار بالدولار الأمريكي، ويمكنك الدفع ببطاقات Visa وMastercard أو عبر Apple Pay. تُفعَّل الدورات في حسابك مباشرة بعد إتمام عملية الشراء.</p></div></div>
+          </div>
+          <div class="faq-item" id="faq-4">
+            <button class="faq-q" aria-expanded="false"><span class="faq-num" dir="ltr">04</span><h3>سياسة استخدام الدورات التدريبية بالموقع</h3><svg class="icon chev"><use href="#i-chev-down"/></svg></button>
+            <div class="faq-a"><div><p>يمنحك اشتراكك وصولاً شخصياً لمدة عام كامل مع إعادة مشاهدة غير محدودة. يمنع تحميل المحتوى أو مشاركة الحساب مع آخرين، حفاظاً على حقوق المدربين.</p></div></div>
+          </div>
+          <div class="faq-item" id="faq-5">
+            <button class="faq-q" aria-expanded="false"><span class="faq-num" dir="ltr">05</span><h3>شروط الاستخدام لكل دورة</h3><svg class="icon chev"><use href="#i-chev-down"/></svg></button>
+            <div class="faq-a"><div><p>لكل دورة شروطها الخاصة الموضّحة في صفحتها (المتطلبات المسبقة، مدة الوصول، شهادة الإتمام)، ويُعد تسجيلك في الدورة موافقةً عليها.</p></div></div>
+          </div>
+          <div class="faq-item" id="faq-6">
+            <button class="faq-q" aria-expanded="false"><span class="faq-num" dir="ltr">06</span><h3>سياسة الاسترداد / الاسترجاع</h3><svg class="icon chev"><use href="#i-chev-down"/></svg></button>
+            <div class="faq-a"><div><p>يمكنك طلب استرداد كامل خلال 30 يوماً من تاريخ الشراء إذا لم تناسبك الدورة، بشرط ألا تكون قد أكملت أكثر من 30٪ من محتواها.</p></div></div>
+          </div>
+          <div class="faq-item" id="faq-7">
+            <button class="faq-q" aria-expanded="false"><span class="faq-num" dir="ltr">07</span><h3>هل يمكنني الحصول على اعتماد دولي عند إتمام البرنامج؟</h3><svg class="icon chev"><use href="#i-chev-down"/></svg></button>
+            <div class="faq-a"><div><p>نعم؛ بعد إتمام أي برنامج تحصل على شهادة معتمدة من ماستري أكاديمي قابلة للتحقق إلكترونياً، وتصدر بعض الدبلومات باعتمادات دولية شريكة — وتفاصيل الاعتماد موضّحة في صفحة كل برنامج.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= CATALOG / SEARCH VIEW ================= -->
+<section id="catalogView" class="hidden" aria-label="البحث في البرامج">
+  <div class="cat-top">
+    <div class="container">
+      <div class="cat-top-row">
+        <a class="btn btn-outline btn-sm" href="#top"><svg class="ic-s"><use href="#i-arrow-right"/></svg> العودة للرئيسية</a>
+        <span class="chip chip-line"><svg><use href="#i-info"/></svg> نتائج تجريبية لأغراض العرض</span>
+      </div>
+      <div class="cat-searchbar">
+        <svg class="si"><use href="#i-search"/></svg>
+        <input type="search" id="catSearch" placeholder="ابحث عن دورة، دبلوم، باقة أو استشارة… أو ابحث باسم المدرب" autocomplete="off">
+        <button class="cat-clear hidden" id="catClear" aria-label="مسح البحث"><svg class="icon"><use href="#i-close"/></svg></button>
+      </div>
+      <p class="cat-sub">تصفح جميع برامج ماستري أكاديمي — استخدم عوامل التصفية والترتيب للوصول لما يناسبك.</p>
+    </div>
+  </div>
+
+  <div class="container cat-layout">
+    <aside class="cat-aside" id="catAside">
+      <div class="cf-head">
+        <b><svg><use href="#i-filter"/></svg> تصفية النتائج</b>
+        <button id="clearAll">مسح الكل</button>
+      </div>
+      <div class="cf-group">
+        <h4>النوع</h4>
+        <label class="cb"><input type="checkbox" data-type="course"><span>دورات تدريبية</span><em data-tn="course"></em></label>
+        <label class="cb"><input type="checkbox" data-type="diploma"><span>دبلومات</span><em data-tn="diploma"></em></label>
+        <label class="cb"><input type="checkbox" data-type="bundle"><span>باقات</span><em data-tn="bundle"></em></label>
+        <label class="cb"><input type="checkbox" data-type="consult"><span>استشارات فردية</span><em data-tn="consult"></em></label>
+      </div>
+      <div class="cf-group">
+        <h4>التصنيف</h4>
+        <label class="cb"><input type="checkbox" data-cat="الأعمال"><span>الأعمال</span><em data-cn="الأعمال"></em></label>
+        <label class="cb"><input type="checkbox" data-cat="التسويق"><span>التسويق</span><em data-cn="التسويق"></em></label>
+        <label class="cb"><input type="checkbox" data-cat="القانون"><span>القانون</span><em data-cn="القانون"></em></label>
+        <label class="cb"><input type="checkbox" data-cat="الإدارة والقيادة"><span>الإدارة والقيادة</span><em data-cn="الإدارة والقيادة"></em></label>
+        <label class="cb"><input type="checkbox" data-cat="المالية والمحاسبة"><span>المالية والمحاسبة</span><em data-cn="المالية والمحاسبة"></em></label>
+        <label class="cb"><input type="checkbox" data-cat="الرسم والإبداع"><span>الرسم والإبداع</span><em data-cn="الرسم والإبداع"></em></label>
+      </div>
+      <div class="cf-group">
+        <h4>المستوى</h4>
+        <label class="cb"><input type="radio" name="lvl" value="all" checked><span>جميع المستويات</span></label>
+        <label class="cb"><input type="radio" name="lvl" value="مبتدئ"><span>مبتدئ</span></label>
+        <label class="cb"><input type="radio" name="lvl" value="متوسط"><span>متوسط</span></label>
+        <label class="cb"><input type="radio" name="lvl" value="متقدم"><span>متقدم</span></label>
+      </div>
+      <div class="cf-group">
+        <h4>السعر</h4>
+        <label class="cb"><input type="checkbox" id="fFree"><span>المجاني فقط</span></label>
+        <div class="range-row">
+          <input type="range" id="fMax" min="50" max="800" step="25" value="800" aria-label="أقصى سعر">
+          <div class="range-lab"><span>$50</span><span>حتى <b id="maxLab">بلا حد</b></span></div>
+        </div>
+      </div>
+      <div class="cf-group">
+        <h4>التقييم</h4>
+        <label class="cb"><input type="checkbox" id="fRated"><span>4.5 نجوم وأعلى</span><em><svg style="width:13px;height:13px;color:var(--gold);display:inline"><use href="#i-star"/></svg></em></label>
+      </div>
+    </aside>
+
+    <div class="cat-main">
+      <div class="cat-toolbar" id="resTop">
+        <span id="resCount"></span>
+        <label class="selwrap"><span>ترتيب حسب:</span>
+          <select id="catSort" aria-label="ترتيب النتائج">
+            <option value="views">الأكثر مشاهدة</option>
+            <option value="rating">الأعلى تقييماً</option>
+            <option value="new">الأحدث</option>
+            <option value="priceAsc">السعر: من الأقل إلى الأعلى</option>
+            <option value="priceDesc">السعر: من الأعلى إلى الأقل</option>
+          </select>
+          <svg class="ic-s"><use href="#i-chev-down"/></svg>
+        </label>
+      </div>
+
+      <div class="cat-chips" id="chips"></div>
+      <div class="vgrid vgrid-3" id="catGrid"></div>
+
+      <div class="cat-empty hidden" id="catEmpty">
+        <svg><use href="#i-search"/></svg>
+        <b>لم نجد نتائج مطابقة</b>
+        <p>جرّب تعديل كلمات البحث أو إزالة بعض عوامل التصفية للحصول على نتائج أكثر.</p>
+        <button class="btn btn-primary btn-sm" id="emptyClear">مسح كل عوامل التصفية</button>
+      </div>
+
+      <nav class="pag" id="pag" aria-label="تنقل بين الصفحات"></nav>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COURSE DETAIL VIEW ================= -->
+<div id="courseView" class="hidden"></div>
+
+<!-- ================= INSTRUCTOR VIEW ================= -->
+<div id="instrView" class="hidden"></div>
+
+<!-- ====== Footer ====== -->
+<footer class="footer">
+  <div class="container">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark" style="color:#fff"><svg><use href="#i-logo"/></svg></span>
+          <span class="brand-name">ماستري <b style="color:var(--accent)">أكاديمي</b></span>
+        </a>
+        <p>منصة عربية للتعلم الإلكتروني تقدّم دورات ودبلومات وباقات واستشارات في الأعمال والتسويق والقانون والإدارة والمالية.</p>
+        <p class="f-site" dir="ltr">EMASTERYACADEMY.COM</p>
+        <p class="f-title" style="margin:18px 0 0">تابعنا على</p>
+        <div class="soc-row">
+          <a class="soc" href="#top" aria-label="انستغرام"><svg><use href="#i-ig"/></svg></a>
+          <a class="soc" href="#top" aria-label="لينكدإن"><svg><use href="#i-in"/></svg></a>
+          <a class="soc" href="#top" aria-label="إكس"><svg><use href="#i-x"/></svg></a>
+          <a class="soc" href="#top" aria-label="فيسبوك"><svg><use href="#i-fb"/></svg></a>
+          <a class="soc" href="#top" aria-label="يوتيوب"><svg><use href="#i-yt"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <p class="f-title">روابط سريعة</p>
+        <a class="f-link" href="#features">حول ماستري أكاديمي</a>
+        <button class="f-link" data-lead="تواصل معنا">تواصل معنا</button>
+        <a class="f-link" href="#instructors">انضم لنا كمدرب</a>
+        <a class="f-link" href="#consults">استشارات</a>
+        <button class="f-link" data-verify>تحقق من الشهادة</button>
+      </div>
+      <div>
+        <p class="f-title">السياسات والحساب</p>
+        <button class="f-link" data-news>النشرة البريدية</button>
+        <button class="f-link" data-cart>سلة المشتريات</button>
+        <button class="f-link" data-faq="faq-2">سياسة الخصوصية</button>
+        <button class="f-link" data-faq="faq-5">شروط الاستخدام</button>
+        <button class="f-link" data-faq="faq-6">سياسة الاسترداد</button>
+      </div>
+      <div>
+        <p class="f-title">حمّل التطبيق</p>
+        <div class="stores">
+          <a class="store" href="#top"><svg><use href="#i-gplay"/></svg><span><small>حمّله من</small><b>Google Play</b></span></a>
+          <a class="store" href="#top"><svg><use href="#i-apple"/></svg><span><small>حمّله من</small><b>App Store</b></span></a>
+        </div>
+        <p class="f-title">النشرة البريدية</p>
+        <form class="news-form" id="newsForm" novalidate>
+          <input type="email" id="newsEmail" placeholder="بريدك الإلكتروني" aria-label="بريدك الإلكتروني">
+          <button type="submit" aria-label="اشترك"><svg class="icon"><use href="#i-send"/></svg></button>
+        </form>
+        <p class="news-err" id="newsErr"></p>
+      </div>
+    </div>
+    <div class="f-pay">
+      <span>بوابات دفع آمنة:</span>
+      <span class="pay" style="font-style:italic;letter-spacing:1px">VISA</span>
+      <span class="pay"><span class="mc"><i></i><i></i></span> Mastercard</span>
+      <span class="pay"><svg><use href="#i-apple"/></svg> Pay</span>
+      <span class="pay"><svg><use href="#i-lock"/></svg> اتصال مشفّر SSL</span>
+    </div>
+    <div class="f-bottom">
+      <span>© Sahel Reach FZE 2025 — جميع الحقوق محفوظة.</span>
+      <span>ماستري أكاديمي — تعلم ما يغير عالمك</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ====== Overlays ====== -->
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="cartDrawer" aria-label="سلة المشتريات">
+  <div class="dr-head">
+    <h3>سلة المشتريات</h3>
+    <button class="icon-btn" id="drawerClose" aria-label="إغلاق"><svg class="icon"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="dr-body" id="cartItems"></div>
+  <div class="dr-foot" id="cartFoot">
+    <div class="dr-total"><span>الإجمالي</span><b id="cartTotal" dir="ltr">$0</b></div>
+    <p class="dr-note">الضرائب والرسوم تُحسب عند إتمام الدفع.</p>
+    <button class="btn btn-primary" id="checkoutBtn">إتمام الشراء</button>
+  </div>
+</aside>
+
+<div class="modal" id="modalVerify" role="dialog" aria-modal="true" aria-label="التحقق من الشهادة">
+  <div class="modal-card">
+    <div class="m-head">
+      <div><h3>التحقق من الشهادة</h3><p>أدخل رقم الشهادة المطبوع أسفل الشهادة للتأكد من صحتها.</p></div>
+      <button class="icon-btn" data-close aria-label="إغلاق"><svg class="icon"><use href="#i-close"/></svg></button>
+    </div>
+    <form id="verifyForm" novalidate>
+      <div class="field"><label for="certId">رقم الشهادة</label><input id="certId" placeholder="MA-XXXX-XXXX" dir="ltr" style="text-align:start"></div>
+      <p class="f-err" id="verifyErr"></p>
+      <button class="btn btn-primary" style="width:100%">تحقّق الآن</button>
+    </form>
+    <div id="verifyResult" class="hidden">
+      <div class="m-success" style="padding-bottom:14px">
+        <span class="ic"><svg><use href="#i-check"/></svg></span>
+        <h4>شهادة سارية المفعول</h4>
+        <p>الشهادة صادرة عن ماستري أكاديمية وموثّقة إلكترونياً.</p>
+      </div>
+      <div class="vr-card">
+        <div class="vr-row"><span>رقم الشهادة</span><b id="certEcho" dir="ltr"></b></div>
+        <div class="vr-row"><span>البرنامج</span><b>دبلوم التسويق الاحترافي التدريبي</b></div>
+        <div class="vr-row"><span>تاريخ الإصدار</span><b dir="ltr">2025 / 03</b></div>
+        <div class="vr-row"><span>الحالة</span><span class="chip chip-ok">موثّقة وسارية</span></div>
+      </div>
+      <p style="font-size:12px;color:var(--ink-300);margin-top:10px;text-align:center">نتيجة تجريبية لأغراض العرض.</p>
+      <button class="btn btn-outline btn-sm" id="resetVerify" style="width:100%;margin-top:14px">تحقق من رقم آخر</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modalLead" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <div class="m-head">
+      <div><h3 id="leadTitle">تواصل معنا</h3><p>اترك بياناتك وسيتواصل معك فريقنا خلال يوم عمل واحد.</p></div>
+      <button class="icon-btn" data-close aria-label="إغلاق"><svg class="icon"><use href="#i-close"/></svg></button>
+    </div>
+    <form id="leadForm" novalidate>
+      <div class="field"><label for="leadName">الاسم الكامل</label><input id="leadName" placeholder="مثال: محمد العلي"></div>
+      <div class="field"><label for="leadEmail">البريد الإلكتروني</label><input id="leadEmail" type="email" placeholder="name@example.com" dir="ltr" style="text-align:start"></div>
+      <div class="field"><label for="leadMsg">رسالتك <span style="color:var(--ink-300);font-weight:400">(اختياري)</span></label><textarea id="leadMsg" placeholder="اكتب تفاصيل طلبك هنا…"></textarea></div>
+      <p class="f-err" id="leadErr"></p>
+      <button class="btn btn-primary" style="width:100%">إرسال الطلب</button>
+    </form>
+    <div id="leadSuccess" class="m-success hidden">
+      <span class="ic"><svg><use href="#i-check"/></svg></span>
+      <h4>تم استلام طلبك بنجاح</h4>
+      <p>شكراً لتواصلك مع ماستري أكاديمي — سيتواصل معك فريقنا خلال يوم عمل واحد.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modalAuth" role="dialog" aria-modal="true" aria-label="تسجيل الدخول">
+  <div class="modal-card">
+    <div class="m-head">
+      <div><h3>تسجيل الدخول</h3><p>أهلاً بعودتك — تابع رحلة تعلّمك من حيث توقفت.</p></div>
+      <button class="icon-btn" data-close aria-label="إغلاق"><svg class="icon"><use href="#i-close"/></svg></button>
+    </div>
+    <form id="authForm" novalidate>
+      <div class="field"><label for="authEmail">البريد الإلكتروني</label><input id="authEmail" type="email" placeholder="name@example.com" dir="ltr" style="text-align:start"></div>
+      <div class="field"><label for="authPass">كلمة المرور</label><input id="authPass" type="password" placeholder="••••••••" dir="ltr" style="text-align:start"></div>
+      <p class="f-err" id="authErr"></p>
+      <button class="btn btn-primary" style="width:100%">دخول</button>
+    </form>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+const $=(s,c=document)=>c.querySelector(s);
+const $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* =====================================================================
+   CATALOG DATA
+   ===================================================================== */
+const CATALOG=[
+{id:'law',type:'course',cat:'القانون',title:'تطبيقات قانون العمل',by:'أ. نايف',role:'مستشار قانوني',price:0,old:0,rate:4.9,rc:2841,views:58300,d:420,hrs:4,lessons:12,lvl:'مبتدئ',seed:'ma-law',desc:'دورة مجانية تستعرض أحدث تعديلات نظام العمل وعلاقتها بالعقود وإنهاء الخدمة والتحقيق، بتطبيقات من قضايا واقعية.'},
+{id:'okr',type:'course',cat:'الإدارة والقيادة',title:'الإدارة بالأهداف والنتائج OKR’s',by:'د. شاهر شهدي',role:'خبير استراتيجية وأداء',price:129,old:189,rate:4.8,rc:1214,views:41200,d:300,hrs:6,lessons:18,lvl:'مبتدئ',seed:'ma-okr',best:true,desc:'منهجية عملية لتحويل الاستراتيجية إلى أهداف قابلة للقياس، مع نماذج جاهزة وورشات تطبيقية داخل الدورة.'},
+{id:'bank',type:'course',cat:'التسويق',title:'التسويق المصرفي',by:'أ. سهيل الحمدني',role:'خبير تسويق مصرفي ورقمي',price:129,old:0,rate:4.7,rc:863,views:33400,d:260,hrs:5,lessons:15,lvl:'متوسط',seed:'ma-bank',desc:'أساسيات التسويق المصرفي الحديث: بناء العلاقات، المنتجات المصرفية الرقمية، وحملات تكتسب عملاء وتحافظ عليهم.'},
+{id:'saudi',type:'course',cat:'القانون',title:'النظام السعودي',by:'أ. نايف',role:'مستشار قانوني',price:129,old:169,rate:4.9,rc:512,views:27900,d:14,hrs:7,lessons:20,lvl:'متوسط',seed:'ma-saudi',isNew:true,desc:'جولة شاملة في الأنظمة السعودية المؤثرة على الأعمال: النظام التجاري، نظام العمل، واللوائح التنفيذية بأمثلة تطبيقية.'},
+{id:'pmp',type:'course',cat:'الأعمال',title:'أساسيات إدارة المشاريع',by:'د. شاهر شهدي',role:'خبير استراتيجية وأداء',price:99,old:0,rate:4.6,rc:340,views:18900,d:340,hrs:8,lessons:22,lvl:'مبتدئ',seed:'ma-pmp',desc:'أدوات إدارة المشاريع من التخطيط إلى التسليم: النطاق، الزمن، التكلفة، والمخاطر — بمنهجية مبسطة وقابلة للتطبيق.'},
+{id:'fin',type:'course',cat:'المالية والمحاسبة',title:'تحليل القوائم المالية للمديرين',by:'م. خالد الشريف',role:'محلل مالي معتمد',price:119,old:149,rate:4.7,rc:275,views:21400,d:310,hrs:6,lessons:16,lvl:'متوسط',seed:'ma-fin',desc:'اقرأ القوائم المالية كالمديرين: مؤشرات الربحية والسيولة والكفاءة، وقرارات التمويل والاستثمار المبنية على الأرقام.'},
+{id:'dm',type:'course',cat:'التسويق',title:'التسويق الرقمي الشامل',by:'أ. سهيل الحمدني',role:'خبير تسويق مصرفي ورقمي',price:139,old:199,rate:4.8,rc:1532,views:52100,d:200,hrs:9,lessons:26,lvl:'مبتدئ',seed:'ma-dm',best:true,desc:'أشمل دورة تسويق رقمي بالعربية: من الاستراتيجية إلى الحملات المدفوعة وتحليل البيانات — مع شهادة معتمدة.'},
+{id:'content',type:'course',cat:'التسويق',title:'صناعة المحتوى وصناعة العلامة',by:'أ. ريم القحطاني',role:'خبير صناعة محتوى',price:89,old:0,rate:4.6,rc:214,views:9800,d:6,hrs:5,lessons:14,lvl:'مبتدئ',seed:'ma-content',isNew:true,desc:'صناعة محتوى يبني علامة: من الفكرة إلى تقويم النشر، مع قوالب تخطيط وأدوات كتابة وإخراج احترافية.'},
+{id:'nego',type:'course',cat:'الأعمال',title:'مهارات التفاوض والإقناع',by:'د. شاهر شهدي',role:'خبير استراتيجية وأداء',price:109,old:0,rate:4.7,rc:388,views:17600,d:280,hrs:4,lessons:12,lvl:'متوسط',seed:'ma-nego',desc:'تقنيات التفاوض الاحترافي: التحضير، صياغة العروض، إدارة الاعتراضات، وإغلاق الاتفاقيات المربحة للطرفين.'},
+{id:'hr',type:'course',cat:'الأعمال',title:'إدارة الموارد البشرية العملية',by:'أ. هند العتيبي',role:'مستشار موارد بشرية',price:115,old:0,rate:4.5,rc:233,views:15100,d:240,hrs:7,lessons:19,lvl:'متوسط',seed:'ma-hr',desc:'دورة عملية لأخصائيي ومديري الموارد البشرية: الاستقطاب، تقييم الأداء، الحوافز، وبناء الثقافة المؤسسية.'},
+{id:'excel',type:'course',cat:'المالية والمحاسبة',title:'الإكسل للمديرين والتحليل المالي',by:'م. خالد الشريف',role:'محلل مالي معتمد',price:79,old:99,rate:4.6,rc:479,views:24700,d:180,hrs:5,lessons:13,lvl:'مبتدئ',seed:'ma-excel',desc:'من جداول البيانات إلى لوحات التحليل: دوال متقدمة، Pivot Tables، ولوحات معلومات تفاعلية تدعم القرارات.'},
+{id:'ecom',type:'course',cat:'التسويق',title:'إطلاق متجرك الإلكتروني',by:'أ. سهيل الحمدني',role:'خبير تسويق مصرفي ورقمي',price:129,old:0,rate:4.8,rc:612,views:19900,d:21,hrs:6,lessons:17,lvl:'مبتدئ',seed:'ma-ecom',isNew:true,desc:'خطوة بخطوة لإطلاق متجرك الإلكتروني: اختيار المنتج، بناء المتجر، الدفع والشحن، وأول حملة تسويقية ناجحة.'},
+{id:'mkt-dip',type:'diploma',cat:'التسويق',title:'دبلوم التسويق الاحترافي التدريبي',by:'نخبة مدربي ماستري',role:'',price:775,old:0,rate:4.9,rc:511,views:39600,d:150,hrs:64,crs:12,lvl:'متوسط',seed:'ma-mktdip',best:true,desc:'برنامج مكثف من 12 دورة يبنيك مسوّقاً محترفاً: استراتيجية، محتوى، إعلانات، تحليلات، وإدارة علامة كاملة.'},
+{id:'sales-dip',type:'diploma',cat:'الأعمال',title:'إتقان المبيعات — الدفعة السادسة',by:'د. شاهر شهدي',role:'خبير استراتيجية وأداء',price:520,old:0,rate:4.8,rc:264,views:22800,d:90,weeks:5,sessions:8,lvl:'متوسط',seed:'ma-salesdip',desc:'دفعة مباشرة تفاعلية لبناء منظومة مبيعات: من الحملة الأولى إلى إغلاق الصفقات وإدارة العملاء — بإشراف مباشر.'},
+{id:'art-dip',type:'diploma',cat:'الرسم والإبداع',title:'دبلوم الرسم الاحترافي التدريبي',by:'أ. ليان الحربي',role:'فنانة تشكيلية',price:775,old:0,rate:4.9,rc:198,views:12400,d:120,hrs:52,crs:10,lvl:'متوسط',seed:'ma-artdip',desc:'رحلة من أساسيات الرسم إلى أسلوب فني متكامل: تظليل، تكوين، منظور، وتقييم دوري لأعمالك من فنانين محترفين.'},
+{id:'hr-dip',type:'diploma',cat:'الأعمال',title:'دبلوم إدارة الموارد البشرية',by:'أ. هند العتيبي',role:'مستشار موارد بشرية',price:690,old:850,rate:4.7,rc:142,views:8700,d:35,hrs:48,crs:9,lvl:'متوسط',seed:'ma-hrdip',isNew:true,desc:'دبلوم متكامل في إدارة الموارد البشرية: من التخطيط والاستقطاب إلى التعويضات وعلاقات الموظفين وأنظمة العمل.'},
+{id:'bundle-mkt',type:'bundle',cat:'التسويق',title:'باقة التسويق والتجارة الإلكترونية',by:'مجموعة من المدربين',role:'',price:625,old:930,rate:4.8,rc:377,views:35100,d:130,hrs:62,crs:9,trainers:4,lvl:'متوسط',seed:'ma-bmkt',best:true,desc:'9 دورات و4 مدربين في باقة واحدة تغطي رحلة التجارة الإلكترونية كاملة — وفّر 33٪ مع وصول لمدة عام كامل.'},
+{id:'bundle-str',type:'bundle',cat:'الإدارة والقيادة',title:'دبلوم التخطيط الاستراتيجي',by:'مجموعة من المدربين',role:'',price:459,old:650,rate:4.7,rc:208,views:17600,d:110,hrs:38,crs:6,trainers:2,lvl:'متوسط',seed:'ma-bstr',desc:'برنامج مكثف يمنحك عين الاستراتيجي: تحليل البيئة، صياغة الخيارات، وبناء مؤشرات أداء تُترجم الخطة إلى نتائج.'},
+{id:'cons-mkt',type:'consult',cat:'التسويق',title:'استشارة فردية: استراتيجية التسويق',by:'أ. سهيل الحمدني',role:'خبير تسويق مصرفي ورقمي',price:89,old:0,rate:4.9,rc:96,views:8200,d:45,dur:60,lvl:'جلسة 1:1',seed:'ma-cmkt',desc:'جلسة خاصة تراجع فيها الخبير استراتيجيتك التسويقية وقنواتك وحملاتك، وتخرج بخطة تحسين قابلة للتنفيذ فوراً.'},
+{id:'cons-str',type:'consult',cat:'الإدارة والقيادة',title:'مراجعة خطة العمل والأهداف',by:'د. شاهر شهدي',role:'خبير استراتيجية وأداء',price:149,old:0,rate:4.9,rc:74,views:5400,d:60,dur:90,lvl:'جلسة 1:1',seed:'ma-cstr',desc:'اعرض خطتك على خبير: نراجع الأهداف والفرضيات ومؤشرات الأداء معاً، ونخرج بنسخة محسّنة جاهزة للتنفيذ.'},
+{id:'cons-law',type:'consult',cat:'القانون',title:'استشارة نظام العمل والعقود',by:'أ. نايف',role:'مستشار قانوني',price:119,old:0,rate:4.8,rc:58,views:6100,d:70,dur:60,lvl:'جلسة 1:1',seed:'ma-claw',desc:'استشر مختصاً في نظام العمل: العقود، إنهاء الخدمة، المكافآت، أو أي إشكال قانوني يواجه منشأتك اليوم.'},
+{id:'cons-fin',type:'consult',cat:'المالية والمحاسبة',title:'قراءة القوائم واتخاذ القرار المالي',by:'م. خالد الشريف',role:'محلل مالي معتمد',price:99,old:0,rate:4.7,rc:41,views:3200,d:9,dur:60,lvl:'جلسة 1:1',seed:'ma-cfin',isNew:true,desc:'جلسة لفهم أرقامك: نقرأ قوائمك المالية معاً ونبني مؤشرات مبسطة تدعم قراراتك القادمة بثقة ووضوح.'}
+];
+const P=Object.fromEntries(CATALOG.map(i=>[i.id,i]));
+const TYPE_L={course:'دورة',diploma:'دبلوم',bundle:'باقة',consult:'استشارة'};
+
+/* =====================================================================
+   INSTRUCTORS REGISTRY (profiles for instructor pages)
+   ===================================================================== */
+const INSTRUCTORS={
+nayef:{id:'nayef',name:'أ. نايف',role:'مستشار قانوني ومدرّب معتمد',since:2016,students:9400,
+  expertise:['قانون العمل','العقود التجارية','الأنظمة السعودية','التحقيقات الجزائية'],
+  bio:['مستشار قانوني يعمل في الاستشارات التنظيمية للشركات منذ أكثر من 15 عاماً، وأشرف على مراجعة مئات العقود وسياسات الموارد البشرية في منشآت بمختلف أحجامها. يجمع بين العمق النظامي والعرض العملي المبسّط.',
+       'يؤمن أن القانون لا يجب أن يكون لغة معقدة؛ لذلك تصمم دوراته لتمنحك إجابات جاهزة للتطبيق من اليوم الأول، مدعومة بقوالب ونماذج قابلة للاستخدام المباشر في عملك.']},
+shahr:{id:'shahr',name:'د. شاهر شهدي',role:'خبير استراتيجية وأداء تنظيمي',since:2014,students:14800,
+  expertise:['التخطيط الاستراتيجي','أنظمة OKR','إدارة الأداء','المبيعات B2B'],
+  bio:['دكتوراه في إدارة الأداء التنظيمي، وساعد أكثر من 60 شركة عربية على بناء أنظمة أهداف ومؤشرات أداء فعلية تعمل — لا تُعلّق على الورق. مدرّب معتمد في منهجيات OKR وإدارة التغيير.',
+       'أسلوبه في التدريب قائم على ورشات تطبيقية داخل كل قسم: تخرج من كل درس بمخرج ملموس تستخدمه في عملك، لا بمفاهيم نظرية فقط.']},
+suhail:{id:'suhail',name:'أ. سهيل الحمدني',role:'خبير تسويق مصرفي ورقمي',since:2015,students:11200,
+  expertise:['التسويق المصرفي','الإعلانات المدفوعة','التجارة الإلكترونية','تحليل البيانات'],
+  bio:['قاد حملات تسويقية بميزانيات تتجاوز عشرة ملايين دولار في القطاعين المصرفي والتجارة الإلكترونية، وخبرته تجمع بين التسويق التقليدي المؤسسي وأدوات النمو الرقمي الحديثة.',
+       'دوراته معروفة بكثافتها العملية: كل استراتيجية تُشرح معها دراسة حالة عربية حقيقية، وكل قناة تسويقية يرافقها قالب تنفيذ جاهز.']},
+khaled:{id:'khaled',name:'م. خالد الشريف',role:'محلل مالي معتمد (CFA)',since:2018,students:6700,
+  expertise:['التحليل المالي','النمذجة المالية','الإكسل المتقدم','اتخاذ القرار المالي'],
+  bio:['محلل مالي معتمد عمل في بنوك الاستثمار وشركات الاستشارات المالية، وتخصص في تبسيط الأرقام لصنّاع القرار غير الماليين: المدراء، أصحاب الأعمال، ورواد المشاريع.',
+       'يشتهر بأسلوب "القصة خلف الرقم" — كل مؤشر مالي يُشرح عبر حالة واقعية حتى تراه في قوائمك أنت، لا في الكتب فقط.']},
+reem:{id:'reem',name:'أ. ريم القحطاني',role:'خبير صناعة محتوى وعلامات تجارية',since:2021,students:3900,
+  expertise:['استراتيجية المحتوى','الهوية اللفظية','كتابة الإعلانات','إدارة المنصات'],
+  bio:['بنحت وأدار محتوى أكثر من 30 علامة عربية في قطاعات متنوعة، وتخصص في تحويل الأصوات التجارية الجامدة إلى علامات قريبة ومؤثرة. كاتبة محتوى معتمدة ومنتجة محتوى تعليمي.',
+       'تؤمن أن المحتوى الجيد نظام وليس حظاً — ودوراتها تمنحك أنظمة جاهزة: تقاويم، قوالب، وأطر كتابة تستخدمها من أول أسبوع.']},
+hind:{id:'hind',name:'أ. هند العتيبي',role:'مستشار موارد بشرية تنفيذية',since:2017,students:5200,
+  expertise:['الاستقطاب والتوظيف','إدارة الأداء','التعويضات والمزايا','ثقافة الشركات'],
+  bio:['قادت وظائف الموارد البشرية في شركات نمو سريعة، وبنت من الصفر أنظمة توظيف وأداء وثقافة داخلية في بيئات عربية متنوعة. مستشار خارجي لعدة مجالس إدارات في ملفات الهيكل التنظيمي.',
+       'تدريبها عملي بطبعه: تمثيل أدوار للمقابلات، نماذج تقييم جاهزة، وسيناريوهات حقيقية من قاعة الاجتماعات — لا من الكتب.']},
+layan:{id:'layan',name:'أ. ليان الحربي',role:'فنانة تشكيلية ومدرّب رسم',since:2019,students:2800,
+  expertise:['أساسيات الرسم','التظليل والتكوين','المنظور','تطوير الأسلوب الفني'],
+  bio:['فنانة تشكيلية أقامت معارض شخصية وجماعية، وتخصص في تعليم الرسم للبالغين بمنهجية تدريجية تزيل عقدة "أنا لا أرسم". طلابها ينتجون أعمالاً معروضة منذ الشهر الثالث من التدريب.',
+       'كل وحدة في دبلومها تنتهي بتقييم شخصي لأعمالك مع ملاحظات محددة قابلة للتنفيذ — لأن التغذية الراجعة هي أسرع طريق التطور.']}
+};
+const INSTR_BY_NAME={'أ. نايف':'nayef','د. شاهر شهدي':'shahr','أ. سهيل الحمدني':'suhail','م. خالد الشريف':'khaled','أ. ريم القحطاني':'reem','أ. هند العتيبي':'hind','أ. ليان الحربي':'layan'};
+function getInstr(name){
+  const id=INSTR_BY_NAME[name];
+  if(!id)return null;
+  const reg=INSTRUCTORS[id];
+  const cs=CATALOG.filter(i=>i.by===name);
+  const rw=cs.reduce((s,i)=>s+i.rc,0);
+  const rt=rw?cs.reduce((s,i)=>s+i.rate*i.rc,0)/rw:reg.students?4.8:0;
+  return Object.assign({},reg,{courses:cs,reviewCount:rw,rating:rt});
+}
+
+/* ---------- Content pools ---------- */
+const LEARN={
+ 'القانون':['صياغة عقود عمل نظامية متوافقة مع الأنظمة','إدارة إجراءات إنهاء الخدمة بشكل قانوني','التعامل مع المخالفات والتحقيقات الجزائية','تفادي الغرامات عبر الالتزام الاستباقي','تطبيق أحدث التعديلات على حالات فعلية','بناء لائحة جزائية داخلية سليمة لمنشأتك'],
+ 'التسويق':['بناء استراتيجية تسويق متكاملة قابلة للقياس','إدارة حملات إعلانية بميزانيات ذكية','تحليل بيانات الجمهور وتحسين التحويل','صناعة محتوى يبني علامة تجارية قوية','أدوات وتقنيات حديثة مع تمارين تطبيقية','بناء قمع تسويقي من الوعي حتى الولاء'],
+ 'الإدارة والقيادة':['صياغة أهداف ذكية ومؤشرات أداء واضحة','قيادة فرق عالية الأداء بثقة','مواءمة الأهداف اليومية مع الاستراتيجية','أدوات متابعة وتقييم دورية','نماذج جاهزة للاستخدام في عملك مباشرة','إدارة اجتماعات وتقارير أداء فعّالة'],
+ 'الأعمال':['مهارات تفاوض وإقناع عملية','إدارة مشاريع بمنهجيات حديثة','قراءة الأرقام واتخاذ قرارات أسرع','بناء عادات إنتاجية للقادة','دراسات حالة من سوق العمل العربي','هيكلة العمليات التشغيلية للنمو'],
+ 'المالية والمحاسبة':['تحليل القوائم المالية بثقة','بناء ميزانيات وتوقعات مالية','مؤشرات مالية لاتخاذ القرار','أدوات إكسل متقدمة للتحليل','تقارير مالية تُقنع الإدارة والمستثمرين','اكتشاف تسريبات التكاليف في منشأتك'],
+ 'الرسم والإبداع':['أساسيات الرسم من الصفر باحترافية','تقنيات التظليل والتكوين والمنظور','تطوير أسلوب فني خاص بك','تقييم أعمالك وانتقادها بشكل بنّاء','ملف أعمال جاهز للعرض','عادات إنتاجية فنية مستدامة']
+};
+const LEARN_CONS=['جلسة خاصة عبر الفيديو مع الخبير مباشرة','تشخيص دقيق لتحديك الحالي','خطة عمل واضحة قابلة للتنفيذ فوراً','تقرير وتوصيات مكتوبة بعد الجلسة','سرية تامة لجميع المعلومات'];
+const LESSON_POOL=['مدخل ونظرة عامة على البرنامج','الأدوات والمنهجيات العملية','دراسة حالة من الواقع العربي','ورشة تطبيقية جماعية','أخطاء شائعة وكيف نتجنبها','قياس النتائج ومؤشرات الأداء','خطة تطبيق ما تعلمته','جلسة أسئلة وأجوبة مفتوحة'];
+const REQS=['لا تشترط خبرة سابقة — نبدأ من الأساسيات','جهاز حاسوب أو هاتف مع اتصال بالإنترنت','دفتر ملاحظات أو أداة تطبيق الملاحظات','الالتزام بأداء التمارين التطبيقية'];
+const TARGET={
+ 'القانون':['موظفو الموارد البشرية ومنسقو شؤون الموظفين','أصحاب الأعمال ومديرو المنشآت','خريجو القانون الراغبون في التطبيق العملي'],
+ 'التسويق':['أصحاب المتاجر والمشاريع الصغيرة','مسوّقون يرغبون في ترقية مهاراتهم','طلاب إدارة التسويق الباحثون عن تطبيق عملي'],
+ 'الإدارة والقيادة':['المديرون الجدد وقادة الفرق','مخططو الاستراتيجية ومكاتب التميز','أصحاب الأعمال في مرحلة النمو'],
+ 'الأعمال':['المهنيون الطامحون لتطوير مسارهم الوظيفي','قادة الفرق ومديرو المشاريع','كل من يبدأ في هذا المجال من الصفر'],
+ 'المالية والمحاسبة':['المدراء غير الماليين وصنّاع القرار','أصحاب الأعمال وروّاد المشاريع','المحاسبون الراغبون في الانتقال للتحليل'],
+ 'الرسم والإبداع':['المبتدئون تماماً بلا أي خبرة رسم','الهواة الراغبون في الاحتراف','الفنانون الباحثون لتطوير أسلوبهم الخاص'],
+ 'default':['المهنيون الطامحون لتطوير مسارهم الوظيفي','قادة الفرق والمديرون الجدد','كل من يريد البدء في هذا المجال من الصفر']
+};
+const RV_NAMES=['أحمد المطيري','نورة السالم','خالد العنزي','مي القحطاني','عبدالله الشمري','ريم الدوسري','طلال الحربي','هند العجمي','فيصل الزهراني','لمى الغامدي','سعود البقمي','دانة الكواري'];
+const RV_TEXTS=['شرح واضح ومنظم، والأمثلة العملية كانت الأهم عندي. أنصح به بشدة.','من أفضل ما قضيته في تدريب أونلاين — المحتوى محدّث والمدرب يجيب على الأسئلة بسرعة.','طبّقت ما تعلمته في عملي خلال أسبوعين وشفت فرق حقيقي في النتائج.','الجودة عالية والصوت والصورة ممتازين. تنظيم الدروس سهّل المتابعة جداً.','كنت أتوقع معلومات عامة، لكن البرنامج نزل للتطبيق والقوالب الجاهزة وفّرت علي وقتاً كبيراً.','المحتوى كثيف لكنه مبسّط، والمراجعة بعد كل قسم ساعدتني أثبّت المعلومة.','تجربة ممتازة — الجلسات التطبيقية والواجبات خلّت المعلومة تثبت فعلاً.','شهادة معتمدة وفّرت لي ترقية في العمل، والدعم من فريق المنصة سريع جداً.','أخذت أكثر من برنامج مع نفس المدرب، ومستوى الإخراج والتنظيم ثابت وممتاز.','أسلوب هادئ ومباشر، والأمثلة من السوق العربي قريبة من واقعنا.','استفدت حتى من قسم الأسئلة الشائعة داخل الدروس — تفاصيل مدروسة.','قيمة مقابل السعر ممتازة، خصوصاً مع الوصول لمدة عام كامل.'];
+const DATES=['قبل 3 أيام','قبل أسبوع','قبل أسبوعين','قبل شهر','قبل شهرين','قبل 4 أشهر'];
+const MO=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+
+/* ---------- Helpers ---------- */
+const fmtN=n=>n>=1000?(Math.round(n/100)/10)+'K':''+n;
+const EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const ini=s=>s.split(' ').pop()[0];
+const hash=s=>[...s].reduce((a,c)=>a+c.charCodeAt(0)*31,7);
+const fmtT=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+
+/* ---------- Toasts ---------- */
+const toasts=$('#toasts');
+function toast(msg,type='ok'){
+  if(toasts.children.length>=3)toasts.firstChild.remove();
+  const el=document.createElement('div');
+  el.className='toast'+(type==='info'?' info':'');
+  el.innerHTML=`<svg><use href="#${type==='info'?'i-info':'i-check'}"/></svg><span>${msg}</span>`;
+  toasts.appendChild(el);
+  setTimeout(()=>{el.classList.add('out');setTimeout(()=>el.remove(),320)},3200);
+}
+
+/* ---------- Overlays ---------- */
+const scrim=$('#scrim');
+let openLayer=null;
+function openLayerEl(el){closeLayers();openLayer=el;scrim.classList.add('show');el.classList.add('open');document.body.style.overflow='hidden'}
+function closeLayers(){
+  if(!openLayer)return;
+  openLayer.classList.remove('open');scrim.classList.remove('show');
+  document.body.style.overflow='';openLayer=null;}
+scrim.addEventListener('click',closeLayers);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLayers()});
+ $$('.modal [data-close]').forEach(b=>b.addEventListener('click',closeLayers));
+
+/* ---------- Cart ---------- */
+const drawer=$('#cartDrawer'),cartItems=$('#cartItems'),cartFoot=$('#cartFoot'),
+      cartCount=$('#cartCount'),cartTotal=$('#cartTotal');
+const cart=[];
+ $('#cartBtn').addEventListener('click',()=>openLayerEl(drawer));
+ $('#drawerClose').addEventListener('click',closeLayers);
+function renderCart(){
+  const n=cart.length;
+  cartCount.hidden=n===0;cartCount.textContent=n;
+  if(n===0){
+    cartItems.innerHTML=`<div class="dr-empty"><svg><use href="#i-cart"/></svg><b>سلتك فارغة</b><p>تصفح الدورات والدبلومات وأضف ما يناسب مسارك.</p><button class="btn btn-outline btn-sm" id="goCourses">تصفح الدورات</button></div>`;
+    cartFoot.style.display='none';
+    $('#goCourses').addEventListener('click',()=>{closeLayers();location.hash='#courses'});
+    return;
+  }
+  cartFoot.style.display='';
+  cartItems.innerHTML=cart.map(id=>{
+    const p=P[id];
+    return `<div class="dr-item">
+      <span class="dr-thumb"><img src="https://picsum.photos/seed/${p.seed}/120/120.jpg" alt=""></span>
+      <div class="dr-info"><b>${p.title}</b><small>${p.by}</small></div>
+      <span class="price" dir="ltr" style="font-size:14px">${p.price===0?'مجاني':'$'+p.price}</span>
+      <button class="dr-rm" data-rm="${id}" aria-label="إزالة"><svg class="ic-s"><use href="#i-close"/></svg></button>
+    </div>`;
+  }).join('');
+  cartTotal.textContent='$'+cart.reduce((s,id)=>s+P[id].price,0);
+}
+cartItems.addEventListener('click',e=>{
+  const rm=e.target.closest('[data-rm]');
+  if(rm){cart.splice(cart.indexOf(rm.dataset.rm),1);renderCart();toast('تمت إزالة العنصر من السلة','info')}
+});
+ $('#checkoutBtn').addEventListener('click',()=>toast('هذه نسخة معاينة — بوابة الدفع تُفعَّل عند الإطلاق','info'));
+function addToCart(id){
+  const p=P[id];if(!p)return;
+  if(cart.includes(id)){toast('هذا العنصر موجود في سلتك بالفعل','info');openLayerEl(drawer);return}
+  cart.push(id);renderCart();
+  cartCount.classList.remove('bump');void cartCount.offsetWidth;cartCount.classList.add('bump');
+  toast(p.price===0?'أُضيف البرنامج المجاني إلى سلتك':'تمت إضافة «'+p.title+'» إلى السلة');
+}
+renderCart();
+
+/* =====================================================================
+   VERTICAL CARD RENDERER (links to routed pages)
+   ===================================================================== */
+function metaBits(it){
+  const b=[];
+  if(it.type==='consult'){b.push(['i-clock',it.dur+' دقيقة'],['i-live','فيديو تفاعلي'])}
+  if(it.hrs)b.push(['i-clock',it.hrs+' ساعات']);
+  if(it.lessons)b.push(['i-book',it.lessons+' درساً']);
+  if(it.crs)b.push(['i-book',it.crs+' دورة داخلية']);
+  if(it.weeks)b.push(['i-clock',it.weeks+' أسابيع']);
+  if(it.sessions)b.push(['i-live',it.sessions+' جلسات مباشرة']);
+  if(it.trainers)b.push(['i-users',it.trainers+' مدربين']);
+  return b;
+}
+function metaHTML(it){return metaBits(it).map(([i,t])=>`<span><svg><use href="#${i}"/></svg> ${t}</span>`).join('')}
+function starsHTML(it){
+  return `<span class="stars"><svg class="st"><use href="#i-stars"/></svg><i class="st-top" style="width:${it.rate/5*100}%"><svg class="st"><use href="#i-stars"/></svg></i></span>
+  <span class="rate-num">${it.rate}</span><span class="rate-count">(${it.rc.toLocaleString('en-US')})</span>
+  <span class="hc-views"><svg><use href="#i-eye"/></svg> ${fmtN(it.views)} مشاهدة</span>`;
+}
+function priceHTML(it,big=false){
+  if(it.price===0)return '<span class="chip chip-ok">مجاني بالكامل</span>';
+  return `<span class="price${big?' big':''}" dir="ltr">$${it.price}</span>${it.old?`<s dir="ltr">$${it.old}</s>`:''}${it.type==='consult'?'<small>/ جلسة</small>':''}`;
+}
+function instrLink(name){
+  const id=INSTR_BY_NAME[name];
+  return id?`<a href="#/instructor/${id}">${name}</a>`:`<span>${name}</span>`;
+}
+function cardHTML(it,anim=true){
+  const infoTxt=it.type==='consult'?`${it.dur} دقيقة · جلسة خاصة`:it.hrs?`${it.hrs} ساعات تدريبية`:'';
+  const save=it.old?`<span class="chip chip-badge">وفّر <span dir="ltr">$${it.old-it.price}</span></span>`:'';
+  return `<article class="vcard${anim?' reveal':''}">
+    <a class="hc-media" href="#/course/${it.id}" aria-label="${it.title}">
+      <img loading="lazy" src="https://picsum.photos/seed/${it.seed}/640/360.jpg" alt="">
+      <span class="hc-type">${TYPE_L[it.type]}</span>
+      ${it.best?'<span class="chip chip-badge hc-best">الأكثر مبيعاً</span>':''}
+      <span class="hc-info">${infoTxt?`<svg><use href="#${it.type==='consult'?'i-clock':'i-play'}"/></svg> ${infoTxt}`:''}</span>
+    </a>
+    <div class="hc-body">
+      <div class="hc-tags"><span class="chip chip-line">${it.cat}</span><span class="chip chip-line">${it.lvl}</span>${it.isNew?'<span class="chip chip-accent">جديد</span>':''}</div>
+      <h3><a href="#/course/${it.id}">${it.title}</a></h3>
+      <p class="hc-by"><span class="ava">${ini(it.by)}</span> <b>${instrLink(it.by)}</b></p>
+      <div class="hc-rate">${starsHTML(it)}</div>
+      <p class="hc-meta">${metaHTML(it)}</p>
+      <p class="hc-desc">${it.desc}</p>
+      <div class="hc-foot">
+        <div class="hc-price-row">
+          <div class="hc-price">${priceHTML(it)}</div>
+          ${save}
+        </div>
+        <div class="hc-actions">
+          <a class="btn btn-primary btn-sm" href="#/course/${it.id}">عرض التفاصيل</a>
+          <button class="icon-btn-line" data-add="${it.id}" aria-label="أضف إلى السلة"><svg class="icon"><use href="#i-cart"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </article>`;
+}
+
+/* ---------- Landing sections render ---------- */
+function renderLanding(){
+  $('#landCourses').innerHTML=['law','okr','bank','saudi'].map(id=>cardHTML(P[id])).join('');
+  $('#landDips').innerHTML=CATALOG.filter(i=>i.type==='diploma').map(i=>cardHTML(i)).join('');
+  $('#landBundles').innerHTML=CATALOG.filter(i=>i.type==='bundle').map(i=>cardHTML(i)).join('');
+  $('#landCons').innerHTML=CATALOG.filter(i=>i.type==='consult').map(i=>cardHTML(i)).join('');
+}
+renderLanding();
+
+/* =====================================================================
+   SHARED BUILDERS — curriculum / reviews / related
+   ===================================================================== */
+function buildCurriculum(it){
+  if(it.type==='consult'){
+    const ag=[['تحديد الهدف وأولويات الجلسة',12],['تشخيص الوضع الحالي وتحليل الفجوات',25],['بناء خطة عمل ومسار تنفيذ واضح',18],['تقرير وتوصيات مكتوبة بعد الجلسة',5]];
+    return {secs:[{t:'أجندة الجلسة',les:ag.map((a,i)=>({t:a[0],min:a[1],prev:i===0}))}],total:it.dur};
+  }
+  const h=hash(it.id);
+  const defs=[['القسم الأول: التأسيس والمفاهيم',3],['القسم الثاني: التطبيق العملي',4],['القسم الثالث: الاحتراف والمشروع الختامي',3]];
+  let gi=0,total=0;
+  const secs=defs.map(([t,n],si)=>{
+    const les=[];
+    for(let k=0;k<n;k++){
+      const min=8+((h+(gi+k)*13)%35);total+=min;
+      les.push({t:LESSON_POOL[(gi+k)%LESSON_POOL.length],min,prev:si===0&&k===0});
+    }
+    gi+=n;return{t,les};
+  });
+  return {secs,total};
+}
+function roadmapHTML(cur){
+  const secs=cur.secs.map((s,i)=>{
+    const tot=s.les.reduce((a,l)=>a+l.min,0);
+    const rows=s.les.map(l=>`<div class="rd-les${l.prev?'':' locked'}">
+      <svg class="ic"><use href="#${l.prev?'i-play':'i-lock'}"/></svg><span>${l.t}</span>
+      ${l.prev?`<button class="rd-prev" data-lesson="${l.t}">معاينة</button>`:''}
+      <em>${l.min} د</em></div>`).join('');
+    return `<div class="rd-sec${i===0?' open':''}">
+      <button class="rd-head" aria-expanded="${i===0}">
+        <span class="rd-num">${String(i+1).padStart(2,'0')}</span><b>${s.t}</b>
+        <small dir="ltr">${s.les.length} × · ${tot}m</small>
+        <svg class="chev"><use href="#i-chev-down"/></svg>
+      </button>
+      <div class="rd-body"><div>${rows}</div></div></div>`;
+  }).join('');
+  const n=cur.secs.reduce((a,s)=>a+s.les.length,0);
+  return secs+`<p class="rd-foot"><svg><use href="#i-info"/></svg><span>${n} دروس إجمالاً · ${cur.total} دقيقة محتوى — المحتوى الكامل يُتاح بعد الاشتراك، والدروس المعلّمة بـ«معاينة» مجانية للجميع.</span></p>`;
+}
+function pickRating(rate,seed,i){
+  const v=(seed+i*37)%100;
+  const cut5=Math.round((rate-3)*28);
+  const cut4=cut5+(rate>=4.75?16:26);
+  return v<cut5?5:v<cut4?4:v<95?3:2;
+}
+function buildReviews(it,off=0){
+  const h=hash(it.id)+off;
+  const n=4+(h%3);
+  const items=[];
+  for(let i=0;i<n;i++){
+    items.push({r:pickRating(it.rate,h,i),
+      name:RV_NAMES[(h+i*5)%RV_NAMES.length],
+      date:DATES[(h+i*3)%DATES.length],
+      text:RV_TEXTS[(h+i*7)%RV_TEXTS.length],
+      help:2+((h+i*13)%38)});
+  }
+  return items;
+}
+function distFor(it){
+  const h=hash(it.id);
+  const p5=Math.min(88,Math.max(42,Math.round((it.rate-3)*30)));
+  const p4=Math.min(38,Math.max(8,Math.round((5-it.rate)*30)));
+  const p3=Math.max(2,10-(h%5));
+  const p2=Math.max(1,3-(h%3));
+  const p1=Math.max(0,100-p5-p4-p3-p2);
+  return [p5,p4,p3,p2,p1];
+}
+function reviewHTML(r,courseRef){
+  return `<div class="rv-item">
+    <span class="ava">${r.name.split(' ')[0][0]}</span>
+    <div class="rv-main">
+      <div class="rv-head"><b>${r.name}</b><span class="rv-date">${r.date}</span></div>
+      ${courseRef?`<p class="rv-course">${courseRef}</p>`:''}
+      <div class="rv-stars"><span class="stars"><svg class="st"><use href="#i-stars"/></svg><i class="st-top" style="width:${r.r/5*100}%"><svg class="st"><use href="#i-stars"/></svg></i></span></div>
+      <p class="rv-txt">${r.text}</p>
+      <div class="rv-help"><span>هل كان هذا التقييم مفيداً؟</span><button class="hlp">مفيد (<b>${r.help}</b>)</button></div>
+    </div>
+  </div>`;
+}
+function relatedFor(it){
+  const same=CATALOG.filter(x=>x.id!==it.id&&x.cat===it.cat);
+  const sameI=CATALOG.filter(x=>x.id!==it.id&&x.by===it.by&&!same.includes(x));
+  const rest=CATALOG.filter(x=>x.id!==it.id&&x.cat!==it.cat&&x.by!==it.by).sort((a,b)=>b.views-a.views);
+  return [...same,...sameI,...rest].slice(0,4);
+}
+
+/* =====================================================================
+   COURSE PAGE
+   ===================================================================== */
+const courseView=$('#courseView'),instrView=$('#instrView');
+
+function renderCourse(id){
+  const it=P[id];if(!it)return;
+  const prof=getInstr(it.by);
+  const cur=buildCurriculum(it);
+  const lesCount=cur.secs.reduce((a,s)=>a+s.les.length,0);
+  const h=hash(it.id);
+  const upd=MO[h%12]+' '+(2025-(it.d>360?1:0));
+  const learn=it.type==='consult'?LEARN_CONS:(LEARN[it.cat]||LEARN['الأعمال']);
+  const reqs=REQS.slice(0,3+(h%2));
+  const tgt=TARGET[it.cat]||TARGET['default'];
+  const firstPrev=cur.secs[0].les[0].t;
+  const durS=cur.total*60;
+  const lessonsMeta=it.type==='consult'?`<svg><use href="#i-live"/></svg> ${lesCount} محاور`
+    :`<svg><use href="#i-book"/></svg> ${lesCount} درساً`;
+  const durMeta=it.type==='consult'?`<svg><use href="#i-clock"/></svg> ${it.dur} دقيقة`:`<svg><use href="#i-clock"/></svg> ${it.hrs} ساعات`;
+
+  const includeItems=it.type==='consult'
+    ?[`جلسة فيديو خاصة مدتها ${it.dur} دقيقة`,'تقرير توصيات مكتوب بعد الجلسة (PDF)','إمكانية إعادة الجدولة حتى 12 ساعة قبل الموعد','متابعة أسئلة عبر الرسائل لأسبوع بعد الجلسة']
+    :[`${it.hrs} ساعات من المحتوى المرئي`,`${lesCount} درساً موزعة على ${cur.secs.length} أقسام`,'شهادة إتمام معتمدة قابلة للتحقق','وصول كامل لمدة عام كامل','المشاهدة من الجوال والتابلت والتلفاز'];
+
+  const byName=prof?`<a href="#/instructor/${prof.id}">${it.by}</a>`:`<span>${it.by}</span>`;
+
+  courseView.innerHTML=`
+  <section class="cp-hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="مسار التنقل">
+        <a href="#top">الرئيسية</a><svg><use href="#i-chev-left"/></svg>
+        <button data-open-cat="${it.cat}">${it.cat}</button><svg><use href="#i-chev-left"/></svg>
+        <span>${TYPE_L[it.type]}</span>
+      </nav>
+      <div class="cp-chips">
+        <span class="chip chip-ink">${TYPE_L[it.type]}</span>
+        ${it.best?'<span class="chip chip-badge">الأكثر مبيعاً</span>':''}
+        ${it.isNew?'<span class="chip chip-accent">جديد</span>':''}
+        ${it.price===0?'<span class="chip chip-ok">مجاني</span>':''}
+      </div>
+      <h1>${it.title}</h1>
+      <p class="cp-sub">${it.desc}</p>
+      <div class="cp-rate">
+        <span class="rate-num">${it.rate}</span>
+        <span class="stars"><svg class="st"><use href="#i-stars"/></svg><i class="st-top" style="width:${it.rate/5*100}%"><svg class="st"><use href="#i-stars"/></svg></i></span>
+        <span class="rate-count">(${it.rc.toLocaleString('en-US')} تقييم)</span>
+        <span class="sep">|</span>
+        <span style="display:inline-flex;align-items:center;gap:6px"><svg style="width:14px;height:14px"><use href="#i-eye"/></svg> ${it.views.toLocaleString('en-US')} مشاهدة</span>
+      </div>
+      <p class="cp-byline">يقدّمه <span class="ava">${ini(it.by)}</span> ${byName}${it.role?' — '+it.role:''}</p>
+      <div class="cp-meta">
+        <span><svg><use href="#i-target"/></svg> المستوى: ${it.lvl}</span>
+        <span>${durMeta}</span>
+        <span>${lessonsMeta}</span>
+        <span><svg><use href="#i-chat"/></svg> اللغة: العربية</span>
+        <span><svg><use href="#i-inf"/></svg> آخر تحديث: ${upd}</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container cp-layout">
+    <div class="cp-main">
+
+      <!-- Video preview -->
+      <section class="cp-sec pl-wrap">
+        <p class="pl-now"><svg><use href="#i-play"/></svg> المعاينة الحالية: <b id="plLesson">${firstPrev}</b></p>
+        <div class="player" id="player">
+          <img class="frame" src="https://picsum.photos/seed/${it.seed}/960/540.jpg" alt="">
+          <button class="pl-coverbtn" id="plCover" aria-label="تشغيل المعاينة"><span class="pl-big"><svg><use href="#i-play"/></svg></span></button>
+          <span class="chip chip-accent pl-tag">معاينة مجانية</span>
+          <span class="chip chip-ink pl-dur" id="plDur">${fmtT(durS)}</span>
+          <div class="pl-ctrl">
+            <button id="plToggle" aria-label="تشغيل / إيقاف"><svg id="plIcoPlay"><use href="#i-play"/></svg><svg id="plIcoPause" class="hidden"><use href="#i-pause"/></svg></button>
+            <div class="pl-bar" id="plBar"><i id="plFill"></i></div>
+            <span class="pl-time" id="plTime">0:00 / ${fmtT(durS)}</span>
+            <svg class="pl-vol"><use href="#i-vol"/></svg>
+            <span class="pl-q">1080p</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Outcomes -->
+      <section class="cp-sec">
+        <h2>${it.type==='consult'?'ما ستحصل عليه من الجلسة':'ما ستتعلمه'}</h2>
+        <div class="panel"><ul class="md-learn">${learn.map(l=>`<li><svg><use href="#i-check"/></svg><span>${l}</span></li>`).join('')}</ul></div>
+      </section>
+
+      <!-- Roadmap -->
+      <section class="cp-sec">
+        <h2>${it.type==='consult'?'أجندة الجلسة':'خطة البرنامج'}</h2>
+        <div id="rdWrap">${roadmapHTML(cur)}</div>
+      </section>
+
+      <!-- Requirements -->
+      <section class="cp-sec">
+        <h2>المتطلبات</h2>
+        <ul class="req">${reqs.map(r=>`<li><svg><use href="#i-check"/></svg><span>${r}</span></li>`).join('')}</ul>
+      </section>
+
+      <!-- Target students -->
+      <section class="cp-sec">
+        <h2>لمن هذه ${it.type==='consult'?'الجلسة':'الدورة'}؟</h2>
+        <ul class="tgt">${tgt.map(t=>`<li><svg><use href="#i-target"/></svg><span>${t}</span></li>`).join('')}</ul>
+      </section>
+
+      <!-- Instructor -->
+      ${prof?`
+      <section class="cp-sec">
+        <h2>عن المدرب</h2>
+        <div class="cp-inst">
+          <span class="ava">${ini(prof.name)}</span>
+          <div>
+            <h3>${prof.name}</h3>
+            <p class="role">${prof.role}</p>
+            <div class="hc-rate rate"><span class="stars"><svg class="st"><use href="#i-stars"/></svg><i class="st-top" style="width:${prof.rating/5*100}%"><svg class="st"><use href="#i-stars"/></svg></i></span><span class="rate-num">${prof.rating.toFixed(1)}</span><span class="rate-count">تقييم المدرب · ${fmtN(prof.students)} متدرب</span></div>
+            <p>${prof.bio[0]}</p>
+            <a class="btn btn-outline btn-sm" href="#/instructor/${prof.id}">عرض الملف الكامل <svg class="ic-s"><use href="#i-arrow-left"/></svg></a>
+          </div>
+        </div>
+      </section>`:''}
+
+      <!-- Reviews -->
+      <section class="cp-sec" id="cpReviews">
+        <h2>تقييمات المتدربين</h2>
+        <div class="rv-top">
+          <div class="rv-avgcol">
+            <span class="rv-avg">${it.rate}</span>
+            <span class="stars"><svg class="st"><use href="#i-stars"/></svg><i class="st-top" style="width:${it.rate/5*100}%"><svg class="st"><use href="#i-stars"/></svg></i></span>
+            <small>${it.rc.toLocaleString('en-US')} تقييم</small>
+          </div>
+          <div class="rv-bars">
+            ${distFor(it).map((p,i)=>`<div class="rv-bar"><span>${5-i}★</span><span class="track"><i style="width:${p}%"></i></span><b>${p}%</b></div>`).join('')}
+          </div>
+        </div>
+        <div id="rvList">${buildReviews(it).map(r=>reviewHTML(r)).join('')}</div>
+        <button class="btn btn-outline btn-sm" id="rvMore">عرض تقييمات إضافية <svg class="ic-s"><use href="#i-chev-down"/></svg></button>
+      </section>
+    </div>
+
+    <!-- Purchase sidebar -->
+    <aside class="cp-side">
+      <div class="buy">
+        <div class="buy-body">
+          <div class="buy-price">
+            ${it.price===0?'<span class="chip chip-ok" style="height:34px;font-size:15px">مجاني بالكامل</span>'
+              :`<span class="price big" dir="ltr">$${it.price}</span>${it.old?`<s dir="ltr">$${it.old}</s>`:''}`}
+            ${it.old?`<span class="chip chip-badge">وفّر <span dir="ltr">$${it.old-it.price}</span></span>`:''}
+          </div>
+          ${it.old?`<p class="buy-note"><svg><use href="#i-clock"/></svg> العرض ينتهي خلال ${2+(h%20)} ساعة</p>`:''}
+          <button class="btn btn-primary" id="cpAdd">${it.price===0?'سجّل مجاناً':(it.type==='consult'?'احجز الجلسة الآن':'أضف إلى السلة')}</button>
+          ${it.price!==0?'<button class="btn btn-outline" id="cpBuy">اشترِ الآن</button>':''}
+          <div class="buy-mini">
+            <button class="btn btn-outline" id="cpCopy"><svg class="ic-s"><use href="#i-link"/></svg> مشاركة</button>
+            <button class="btn btn-outline" id="favBtn" aria-label="أضف إلى المفضلة"><svg class="ic-s"><use href="#i-heart"/></svg> المفضلة</button>
+          </div>
+        </div>
+        <div class="buy-inc">
+          <h4>يشمل هذا ${TYPE_L[it.type]==='استشارة'?'الحجز':'البرنامج'}</h4>
+          <ul>${includeItems.map(x=>`<li><svg><use href="#i-check"/></svg><span>${x}</span></li>`).join('')}</ul>
+        </div>
+        <div class="buy-guar"><svg><use href="#i-shield"/></svg> ضمان استرداد خلال 30 يوماً</div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Related -->
+  <section class="sec band" id="cpRelated">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:var(--s-6)">
+        <div><span class="eyebrow">اقتراحات لك</span><h2 style="font-size:clamp(22px,2.8vw,30px)">برامج ذات صلة</h2></div>
+        <button class="btn btn-outline btn-sm" data-open-cat="${it.cat}">المزيد في ${it.cat}</button>
+      </div>
+      <div class="vgrid vgrid-4">${relatedFor(it).map(x=>cardHTML(x,false)).join('')}</div>
+    </div>
+  </section>`;
+
+  /* --- wire course page interactions --- */
+  // player
+  let pCur=0,pPlaying=false,pTimer=null;
+  const player=$('#player'),plFill=$('#plFill'),plTime=$('#plTime'),
+        plIcoPlay=$('#plIcoPlay'),plIcoPause=$('#plIcoPause');
+  function paint(){plFill.style.width=(pCur/durS*100)+'%';plTime.textContent=fmtT(pCur)+' / '+fmtT(durS)}
+  function setPlaying(v){
+    pPlaying=v;
+    player.classList.toggle('playing',v);
+    player.classList.toggle('started',player.classList.contains('started')||v);
+    plIcoPlay.classList.toggle('hidden',v);
+    plIcoPause.classList.toggle('hidden',!v);
+    if(v)player.classList.add('started');
+  }
+  function togglePlay(){
+    if(!pPlaying&&pCur>=durS)pCur=0;
+    setPlaying(!pPlaying);
+  }
+  player.addEventListener('click',e=>{if(e.target.closest('.pl-ctrl'))return;togglePlay()});
+  pTimer=setInterval(()=>{
+    if(!pPlaying)return;
+    pCur+=.2;
+    if(pCur>=durS){pCur=durS;setPlaying(false)}
+    paint();
+  },200);
+  paint();
+  $('#plBar').addEventListener('click',e=>{
+    const r=e.currentTarget.getBoundingClientRect();
+    pCur=Math.min(durS,Math.max(0,(r.right-e.clientX)/r.width*durS));
+    paint();
+  });
+  // roadmap
+  $('#rdWrap').addEventListener('click',e=>{
+    const head=e.target.closest('.rd-head');
+    if(head){
+      const sec=head.parentElement;
+      const open=sec.classList.toggle('open');
+      head.setAttribute('aria-expanded',open);
+      return;
+    }
+    const pv=e.target.closest('.rd-prev');
+    if(pv){
+      $('#plLesson').textContent=pv.dataset.lesson;
+      pCur=0;setPlaying(true);paint();
+      player.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  });
+  // reviews
+  $('#rvList').addEventListener('click',e=>{
+    const b=e.target.closest('.hlp');
+    if(b&&!b.classList.contains('did')){
+      b.classList.add('did');b.disabled=true;
+      const n=b.querySelector('b');n.textContent=+n.textContent+1;
+    }
+  });
+  $('#rvMore').addEventListener('click',function(){
+    buildReviews(it,100).forEach(r=>$('#rvList').insertAdjacentHTML('beforeend',reviewHTML(r)));
+    this.remove();
+  });
+  // buy actions
+  $('#cpAdd').addEventListener('click',()=>addToCart(id));
+  const buy=$('#cpBuy');
+  if(buy)buy.addEventListener('click',()=>{addToCart(id);openLayerEl(drawer)});
+  $('#cpCopy').addEventListener('click',()=>{
+    const url=location.origin+location.pathname+'#/course/'+id;
+    if(navigator.clipboard)navigator.clipboard.writeText(url).then(()=>toast('تم نسخ رابط البرنامج')).catch(()=>toast('تعذّر النسخ — انسخ الرابط من شريط العنوان','info'));
+    else toast('انسخ الرابط من شريط العنوان','info');
+  });
+  $('#favBtn').addEventListener('click',function(){
+    const on=this.classList.toggle('on');
+    toast(on?'أُضيف إلى المفضلة':'أُزيل من المفضلة',on?'ok':'info');
+  });
+}
+
+/* =====================================================================
+   INSTRUCTOR PAGE
+   ===================================================================== */
+function renderInstructor(iid){
+  const prof=getInstr(''); // placeholder to satisfy linters
+  const reg=INSTRUCTORS[iid];if(!reg)return;
+  const cs=reg.courses;
+  const first=reg.name.split(' ').pop();
+  const consult=cs.find(c=>c.type==='consult');
+  const topRev=[];
+  cs.slice(0,3).forEach(c=>{const r=buildReviews(c)[0];if(r)topRev.push({r,ref:c.title})});
+
+  instrView.innerHTML=`
+  <section class="ip-hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="مسار التنقل">
+        <a href="#top">الرئيسية</a><svg><use href="#i-chev-left"/></svg>
+        <span>المدربون</span><svg><use href="#i-chev-left"/></svg>
+        <span>${reg.name}</span>
+      </nav>
+      <div class="ip-top">
+        <span class="ip-ava">${ini(reg.name)}</span>
+        <div>
+          <h1>${reg.name}</h1>
+          <p class="role">${reg.role}</p>
+          <div class="hc-rate rate">
+            <span class="stars"><svg class="st"><use href="#i-stars"/></svg><i class="st-top" style="width:${reg.rating/5*100}%"><svg class="st"><use href="#i-stars"/></svg></i></span>
+            <span class="rate-num">${reg.rating.toFixed(1)}</span>
+            <span class="rate-count">${reg.reviewCount.toLocaleString('en-US')} تقييم</span>
+          </div>
+          <div class="ip-xp">${reg.expertise.map(x=>`<span class="chip chip-ghost">${x}</span>`).join('')}</div>
+        </div>
+      </div>
+      <div class="ip-stats">
+        <div class="ip-stat"><b dir="ltr">+${fmtN(reg.students)}</b><span>متدرب حول العالم العربي</span></div>
+        <div class="ip-stat"><b>${cs.length}</b><span>برنامج تدريبي</span></div>
+        <div class="ip-stat"><b>${reg.reviewCount.toLocaleString('en-US')}</b><span>تقييم موثّق</span></div>
+        <div class="ip-stat"><b dir="ltr">${reg.since}</b><span>ينشّر مع ماستري منذ</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-bottom:0">
+    <div class="container cp-sec">
+      <h2>نبذة عن المدرب</h2>
+      <div class="ip-bio">${reg.bio.map(p=>`<p>${p}</p>`).join('')}</div>
+      <div class="ip-facts">
+        <span><svg><use href="#i-chat"/></svg> لغة التدريب: العربية</span>
+        <span><svg><use href="#i-clock"/></svg> متوسط الرد على الأسئلة: خلال 24 ساعة</span>
+        <span><svg><use href="#i-award"/></svg> شهادات برامجه معتمدة من ماستري</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ipProgs" style="padding-top:var(--s-8)">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:var(--s-6)">
+        <div><span class="eyebrow">برامج المدرب</span><h2 style="font-size:clamp(22px,2.8vw,30px)">برامج ${reg.name} (${cs.length})</h2></div>
+      </div>
+      <div class="vgrid vgrid-3">${cs.map(c=>cardHTML(c,false)).join('')}</div>
+    </div>
+  </section>
+
+  <section class="sec band">
+    <div class="container cp-sec">
+      <h2>ماذا يقول متدربوه</h2>
+      <div>${topRev.map(t=>reviewHTML(t.r,'عن برنامج: '+t.ref)).join('')}</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="container">
+      <div class="cta-panel">
+        <span class="cta-water">؟</span>
+        <div>
+          <h2>جاهز تتعلّم مع ${first}؟</h2>
+          <p>انضم إلى آلاف المتدربين الذين طوّروا مساراتهم مع ${reg.name} — ابدأ بأي برنامج أدناه أو احجز جلسة خاصة.</p>
+          <button class="btn btn-light" data-scroll="#ipProgs">تصفح برامجه</button>
+          ${consult?`<a class="btn btn-ghost" href="#/course/${consult.id}">احجز جلسة خاصة</a>`
+                   :`<button class="btn btn-ghost" data-lead="تواصل مع ${reg.name}">تواصل معه</button>`}
+        </div>
+        <div class="cta-stats">
+          <div class="cta-stat"><b dir="ltr">${reg.rating.toFixed(1)}★</b><span>متوسط تقييم برامجه</span></div>
+          <div class="cta-stat"><b dir="ltr">+${fmtN(reg.students)}</b><span>متدرب استفاد من تدريبه</span></div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+/* ---------- Global click delegation ---------- */
+const modalVerify=$('#modalVerify'),modalLead=$('#modalLead'),modalAuth=$('#modalAuth');
+function openVerify(){
+  $('#verifyForm').classList.remove('hidden');$('#verifyResult').classList.add('hidden');
+  $('#verifyErr').textContent='';$('#certId').value='';openLayerEl(modalVerify);}
+function openLead(title){
+  $('#leadTitle').textContent=title;
+  $('#leadForm').classList.remove('hidden');$('#leadSuccess').classList.add('hidden');
+  $('#leadErr').textContent='';openLayerEl(modalLead);}
+
+document.addEventListener('click',e=>{
+  const add=e.target.closest('[data-add]');
+  if(add){addToCart(add.dataset.add);return}
+  const op=e.target.closest('[data-open]');
+  if(op){openCatalog(op.dataset.open==='all'?{}:{types:[op.dataset.open]});return}
+  const oc=e.target.closest('[data-open-cat]');
+  if(oc){openCatalog({cats:[oc.dataset.openCat]});return}
+  const sc=e.target.closest('[data-scroll]');
+  if(sc){const t=$(sc.dataset.scroll);if(t)t.scrollIntoView({behavior:'smooth'});return}
+  const lead=e.target.closest('[data-lead]');
+  if(lead){openLead(lead.dataset.lead);return}
+  if(e.target.closest('[data-verify]')){openVerify();return}
+  if(e.target.closest('[data-auth]')){$('#authErr').textContent='';openLayerEl(modalAuth);return}
+  const fl=e.target.closest('[data-faq]');
+  if(fl){const item=document.getElementById(fl.dataset.faq);
+    if(item){item.classList.add('open');item.querySelector('.faq-q').setAttribute('aria-expanded','true');
+      item.scrollIntoView({behavior:'smooth',block:'center'})}return}
+  if(e.target.closest('[data-cart]')){openLayerEl(drawer);return}
+  const nw=e.target.closest('[data-news]');
+  if(nw){closeLayers();$('#newsForm').scrollIntoView({behavior:'smooth',block:'center'});
+    setTimeout(()=>$('#newsEmail').focus({preventScroll:true}),500);return}
+});
+
+/* ---------- Header / mobile nav / dropdown ---------- */
+const header=$('#siteHeader'),mobileNav=$('#mobileNav');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>8),{passive:true});
+ $('#menuBtn').addEventListener('click',()=>mobileNav.classList.toggle('open'));
+ $$('[data-mclose]').forEach(el=>el.addEventListener('click',()=>mobileNav.classList.remove('open')));
+
+const catsDrop=$('#catsDrop'),catsBtn=$('#catsBtn');
+catsBtn.addEventListener('click',e=>{
+  e.stopPropagation();
+  const open=catsDrop.classList.toggle('open');
+  catsBtn.setAttribute('aria-expanded',open);
+});
+document.addEventListener('click',e=>{
+  if(!catsDrop.contains(e.target)){catsDrop.classList.remove('open');catsBtn.setAttribute('aria-expanded','false')}
+});
+ $$('.drop-item').forEach(it=>it.addEventListener('click',()=>catsDrop.classList.remove('open')));
+
+const CAT_N={};CATALOG.forEach(i=>CAT_N[i.cat]=(CAT_N[i.cat]||0)+1);
+ $$('[data-cnt]').forEach(el=>el.textContent=CAT_N[el.dataset.cnt]||0);
+
+/* =====================================================================
+   CATALOG VIEW — search · filters · sort · pagination
+   ===================================================================== */
+const PAGE=6,MAXP=800;
+const FS={q:'',types:new Set(),cats:new Set(),lvl:'all',free:false,max:MAXP,rated:false,sort:'views',page:1};
+const SORTS={
+  views:{f:(a,b)=>b.views-a.views},
+  rating:{f:(a,b)=>b.rate-a.rate||b.rc-a.rc},
+  new:{f:(a,b)=>a.d-b.d},
+  priceAsc:{f:(a,b)=>a.price-b.price},
+  priceDesc:{f:(a,b)=>b.price-a.price}
+};
+const TN={};CATALOG.forEach(i=>TN[i.type]=(TN[i.type]||0)+1);
+ $$('[data-tn]').forEach(el=>el.textContent=TN[el.dataset.tn]||0);
+ $$('[data-cn]').forEach(el=>el.textContent=CAT_N[el.dataset.cn]||0);
+
+function applyFilters(){
+  const q=FS.q.trim();
+  let list=CATALOG.filter(it=>{
+    if(q&&!(it.title+' '+it.by+' '+it.cat+' '+TYPE_L[it.type]).includes(q))return false;
+    if(FS.types.size&&!FS.types.has(it.type))return false;
+    if(FS.cats.size&&!FS.cats.has(it.cat))return false;
+    if(FS.lvl!=='all'&&it.type!=='consult'&&it.lvl!==FS.lvl)return false;
+    if(FS.free&&it.price!==0)return false;
+    if(FS.max<MAXP&&it.price>FS.max)return false;
+    if(FS.rated&&it.rate<4.5)return false;
+    return true;
+  });
+  list.sort(SORTS[FS.sort].f);
+  return list;
+}
+function renderCatalog(){
+  const list=applyFilters();
+  const total=list.length,pages=Math.max(1,Math.ceil(total/PAGE));
+  if(FS.page>pages)FS.page=pages;
+  const start=(FS.page-1)*PAGE,slice=list.slice(start,start+PAGE);
+  $('#resCount').innerHTML=total
+    ?`عرض <b>${start+1}–${Math.min(start+PAGE,total)}</b> من أصل <b>${total}</b> نتيجة`
+    :'لا توجد نتائج مطابقة';
+  $('#catGrid').innerHTML=slice.map(it=>cardHTML(it,false)).join('');
+  $('#catEmpty').classList.toggle('hidden',total>0);
+  renderPag(pages);
+  renderChips();
+}
+function renderPag(pages){
+  const el=$('#pag');
+  if(pages<=1){el.innerHTML='';return}
+  let nums=[];
+  if(pages<=7){for(let i=1;i<=pages;i++)nums.push(i)}
+  else{
+    const c=FS.page;nums=[1];
+    if(c>3)nums.push('…');
+    for(let i=Math.max(2,c-1);i<=Math.min(pages-1,c+1);i++)nums.push(i);
+    if(c<pages-2)nums.push('…');
+    nums.push(pages);
+  }
+  el.innerHTML=
+    `<button data-pg="prev" ${FS.page===1?'disabled':''} aria-label="السابق"><svg class="ic-s"><use href="#i-chev-right"/></svg> السابق</button>`+
+    nums.map(n=>n==='…'?'<span class="gap">…</span>':`<button data-pg="${n}" class="${n===FS.page?'on':''}">${n}</button>`).join('')+
+    `<button data-pg="next" ${FS.page===pages?'disabled':''} aria-label="التالي">التالي <svg class="ic-s"><use href="#i-chev-left"/></svg></button>`;
+}
+ $('#pag').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-pg]');
+  if(!b||b.disabled)return;
+  const v=b.dataset.pg;
+  if(v==='prev')FS.page--;else if(v==='next')FS.page++;else FS.page=+v;
+  renderCatalog();
+  $('#resTop').scrollIntoView({behavior:'smooth',block:'start'});
+});
+function renderChips(){
+  const a=[];
+  if(FS.q.trim())a.push({k:'q',l:`بحث: «${FS.q.trim()}»`});
+  FS.types.forEach(t=>a.push({k:'type:'+t,l:TYPE_L[t]}));
+  FS.cats.forEach(c=>a.push({k:'cat:'+c,l:c}));
+  if(FS.lvl!=='all')a.push({k:'lvl',l:'المستوى: '+FS.lvl});
+  if(FS.free)a.push({k:'free',l:'مجاني فقط'});
+  if(FS.max<MAXP)a.push({k:'max',l:'حتى $'+FS.max});
+  if(FS.rated)a.push({k:'rated',l:'4.5 نجوم وأعلى'});
+  $('#chips').innerHTML=a.map(c=>`<span class="fchip">${c.l}<button data-rmf="${c.k}" aria-label="إزالة"><svg><use href="#i-close"/></svg></button></span>`).join('');
+}
+ $('#chips').addEventListener('click',e=>{
+  const b=e.target.closest('[data-rmf]');
+  if(!b)return;
+  removeFilter(b.dataset.rmf);
+});
+function removeFilter(k){
+  if(k==='q'){FS.q='';$('#catSearch').value='';$('#catClear').classList.add('hidden')}
+  else if(k.startsWith('type:')){FS.types.delete(k.slice(5));const c=$(`[data-type="${k.slice(5)}"]`);if(c)c.checked=false}
+  else if(k.startsWith('cat:')){FS.cats.delete(k.slice(4));const c=$(`[data-cat="${k.slice(4)}"]`);if(c)c.checked=false}
+  else if(k==='lvl'){FS.lvl='all';const r=$('input[name=lvl][value=all]');if(r)r.checked=true}
+  else if(k==='free'){FS.free=false;$('#fFree').checked=false}
+  else if(k==='max'){FS.max=MAXP;$('#fMax').value=MAXP;$('#maxLab').textContent='بلا حد'}
+  else if(k==='rated'){FS.rated=false;$('#fRated').checked=false}
+  FS.page=1;renderCatalog();
+}
+function resetFilters(){
+  Object.assign(FS,{q:'',types:new Set(),cats:new Set(),lvl:'all',free:false,max:MAXP,rated:false,sort:'views',page:1});
+  syncInputs();
+}
+function syncInputs(){
+  $('#catSearch').value=FS.q;
+  $('#catClear').classList.toggle('hidden',!FS.q);
+  $$('[data-type]').forEach(c=>c.checked=FS.types.has(c.dataset.type));
+  $$('[data-cat]').forEach(c=>c.checked=FS.cats.has(c.dataset.cat));
+  const r=$(`input[name=lvl][value="${FS.lvl}"]`);if(r)r.checked=true;
+  $('#fFree').checked=FS.free;$('#fRated').checked=FS.rated;
+  $('#fMax').value=FS.max;$('#maxLab').textContent=FS.max>=MAXP?'بلا حد':'$'+FS.max;
+  $('#catSort').value=FS.sort;
+}
+function clearAllFilters(){resetFilters();renderCatalog();toast('تم مسح جميع عوامل التصفية','info')}
+ $('#clearAll').addEventListener('click',clearAllFilters);
+ $('#emptyClear').addEventListener('click',clearAllFilters);
+
+ $('#catAside').addEventListener('change',e=>{
+  const t=e.target;
+  if(t.dataset.type){t.checked?FS.types.add(t.dataset.type):FS.types.delete(t.dataset.type)}
+  else if(t.dataset.cat){t.checked?FS.cats.add(t.dataset.cat):FS.cats.delete(t.dataset.cat)}
+  else if(t.name==='lvl'){FS.lvl=t.value}
+  else if(t.id==='fFree'){FS.free=t.checked}
+  else if(t.id==='fRated'){FS.rated=t.checked}
+  else if(t.id==='fMax'){FS.max=+t.value;$('#maxLab').textContent=FS.max>=MAXP?'بلا حد':'$'+FS.max}
+  FS.page=1;renderCatalog();
+});
+let sTimer;
+ $('#catSearch').addEventListener('input',e=>{
+  clearTimeout(sTimer);
+  sTimer=setTimeout(()=>{
+    FS.q=e.target.value;FS.page=1;
+    $('#catClear').classList.toggle('hidden',!FS.q);
+    renderCatalog();
+  },220);
+});
+ $('#catClear').addEventListener('click',()=>{
+  FS.q='';$('#catSearch').value='';$('#catClear').classList.add('hidden');
+  FS.page=1;renderCatalog();$('#catSearch').focus();
+});
+ $('#catSort').addEventListener('change',e=>{FS.sort=e.target.value;FS.page=1;renderCatalog()});
+
+/* ---------- ROUTER — landing / catalog / course / instructor ---------- */
+const VIEWS=['landingView','catalogView','courseView','instrView'];
+function showView(name){
+  VIEWS.forEach(v=>$('#'+v).classList.toggle('hidden',v!==name));
+}
+function route(){
+  const h=decodeURIComponent(location.hash);
+  let m;
+  if((m=h.match(/^#\/course\/([\w-]+)$/))&&P[m[1]]){
+    showView('courseView');renderCourse(m[1]);window.scrollTo(0,0);return;
+  }
+  if((m=h.match(/^#\/instructor\/([\w-]+)$/))&&INSTRUCTORS[m[1]]){
+    showView('instrView');renderInstructor(m[1]);window.scrollTo(0,0);return;
+  }
+  if(h==='#catalog'){showView('catalogView');renderCatalog();window.scrollTo(0,0);return}
+  showView('landingView');
+  const id=h.slice(1);
+  if(id&&document.getElementById(id)){
+    requestAnimationFrame(()=>document.getElementById(id).scrollIntoView({behavior:'smooth'}));
+  }
+}
+addEventListener('hashchange',route);
+
+function openCatalog(preset={}){
+  resetFilters();
+  (preset.types||[]).forEach(t=>FS.types.add(t));
+  (preset.cats||[]).forEach(c=>FS.cats.add(c));
+  syncInputs();
+  if(location.hash==='#catalog'){showView('catalogView');renderCatalog();window.scrollTo(0,0)}
+  else location.hash='catalog';
+}
+ $('#searchBtn').addEventListener('click',()=>{
+  openCatalog({});
+  setTimeout(()=>$('#catSearch').focus({preventScroll:true}),400);
+});
+
+route(); // initial route
+
+/* ---------- Features stage ---------- */
+const stage=$('#featStage'),fTabs=$$('.f-tab'),fPanels=$$('.f-panel');
+let fIdx=0;
+function setFeature(i){
+  fIdx=i;
+  fTabs.forEach((t,k)=>{
+    const on=k===i;
+    t.classList.toggle('active',on);
+    t.setAttribute('aria-pressed',on);
+    if(on){const bar=t.querySelector('.f-prog i');bar.style.animation='none';void bar.offsetWidth;bar.style.animation='';}
+  });
+  fPanels.forEach((p,k)=>p.classList.toggle('active',k===i));
+}
+fTabs.forEach(t=>t.addEventListener('click',()=>setFeature(+t.dataset.ft)));
+fTabs.forEach(t=>t.querySelector('.f-prog i').addEventListener('animationend',()=>setFeature((fIdx+1)%fTabs.length)));
+stage.addEventListener('mouseenter',()=>stage.classList.add('paused'));
+stage.addEventListener('mouseleave',()=>stage.classList.remove('paused'));
+
+/* ---------- Testimonials slider ---------- */
+const tSlides=$$('#tSlides .t-slide'),tDots=$('#tDots'),tCount=$('#tCount');
+let tIdx=0;
+tSlides.forEach((_,i)=>{
+  const d=document.createElement('button');
+  d.setAttribute('aria-label','رأي '+(i+1));
+  d.addEventListener('click',()=>setSlide(i));
+  tDots.appendChild(d);
+});
+function setSlide(i){
+  tIdx=(i+tSlides.length)%tSlides.length;
+  tSlides.forEach((s,k)=>s.classList.toggle('active',k===tIdx));
+  $$('button',tDots).forEach((d,k)=>d.classList.toggle('active',k===tIdx));
+  tCount.textContent=String(tIdx+1).padStart(2,'0')+' / '+String(tSlides.length).padStart(2,'0');
+}
+ $('#tNext').addEventListener('click',()=>setSlide(tIdx+1));
+ $('#tPrev').addEventListener('click',()=>setSlide(tIdx-1));
+setSlide(0);
+
+/* ---------- Forms ---------- */
+ $('#verifyForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const v=$('#certId').value.trim();
+  if(!v){$('#verifyErr').textContent='أدخل رقم الشهادة أولاً.';return}
+  $('#verifyErr').textContent='';$('#certEcho').textContent=v.toUpperCase();
+  $('#verifyForm').classList.add('hidden');$('#verifyResult').classList.remove('hidden');
+});
+ $('#resetVerify').addEventListener('click',()=>{
+  $('#verifyResult').classList.add('hidden');$('#verifyForm').classList.remove('hidden');$('#certId').value='';
+});
+ $('#leadForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const n=$('#leadName').value.trim(),m=$('#leadEmail').value.trim();
+  if(n.length<2){$('#leadErr').textContent='أدخل اسمك الكامل.';return}
+  if(!EMAIL.test(m)){$('#leadErr').textContent='أدخل بريداً إلكترونياً صحيحاً.';return}
+  $('#leadErr').textContent='';
+  $('#leadForm').classList.add('hidden');$('#leadSuccess').classList.remove('hidden');
+  $('#leadForm').reset();
+});
+ $('#authForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const m=$('#authEmail').value.trim(),p=$('#authPass').value;
+  if(!EMAIL.test(m)){$('#authErr').textContent='أدخل بريداً إلكترونياً صحيحاً.';return}
+  if(p.length<6){$('#authErr').textContent='كلمة المرور يجب أن تكون 6 أحرف على الأقل.';return}
+  closeLayers();$('#authForm').reset();
+  $('#loginLink').textContent='حسابي';
+  toast('تم تسجيل الدخول بنجاح — أهلاً بعودتك');
+});
+ $('#newsForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const inp=$('#newsEmail'),err=$('#newsErr');
+  if(!EMAIL.test(inp.value.trim())){err.textContent='أدخل بريداً إلكترونياً صحيحاً.';return}
+  err.textContent='';
+  $('#newsForm').outerHTML='<p class="news-ok"><svg class="icon"><use href="#i-check"/></svg> تم الاشتراك! أول نشرة تصلك قريباً.</p>';
+  toast('تم تسجيل بريدك في النشرة البريدية');
+});
+
+/* ---------- Scroll reveal ---------- */
+const io=new IntersectionObserver(es=>es.forEach(en=>{
+  if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}
+}),{threshold:.1});
+ $$('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- Count-up stats ---------- */
+if(!REDUCED){
+  const cio=new IntersectionObserver(es=>es.forEach(en=>{
+    if(!en.isIntersecting)return;
+    const el=en.target,target=+el.dataset.count,pre=el.dataset.prefix||'',t0=performance.now();
+    (function tick(now){
+      const k=Math.min((now-t0)/1300,1),eased=1-Math.pow(1-k,3);
+      el.textContent=pre+Math.round(target*eased).toLocaleString('en-US');
+      if(k<1)requestAnimationFrame(tick);
+    })(t0);
+    cio.unobserve(el);
+  }),{threshold:.5});
+  $$('.stat-num').forEach(el=>cio.observe(el));
+}
+
+/* ---------- Hero parallax ---------- */
+const hv=$('#heroVisual');
+if(hv&&matchMedia('(hover:hover) and (pointer:fine)').matches&&!REDUCED){
+  hv.addEventListener('mousemove',e=>{
+    const r=hv.getBoundingClientRect();
+    hv.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5).toFixed(3));
+    hv.style.setProperty('--my',((e.clientY-r.top)/r.height-.5).toFixed(3));
+  });
+  hv.addEventListener('mouseleave',()=>{hv.style.setProperty('--mx',0);hv.style.setProperty('--my',0)});
+}
+})();
+</script>
+</body>
+</html>

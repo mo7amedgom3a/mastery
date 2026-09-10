@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Mastery Academy — Design System Tokens
+   Strict Notion Design System
+   ========================================================================== */
+
+:root {
+  /* ── Brand (Notion exact) ─────────────────────────────────────────────── */
+  --color-primary:        #0075de;
+  --color-primary-hover:  #005bab;
+  --color-primary-light:  #e8f4fd;
+
+  /* ── Surface (Notion exact) ───────────────────────────────────────────── */
+  --color-surface:        #ffffff;
+  --color-canvas:         #f6f5f4;
+  --color-hairline:       #e6e6e6;
+
+  /* ── Text (Notion exact) ──────────────────────────────────────────────── */
+  --color-ink:            rgba(0,0,0,0.95);
+  --color-ink-secondary:  #31302e;
+  --color-ink-muted:      #615d59;
+  --color-ink-faint:      #a39e98;
+  --color-on-primary:     #ffffff;
+
+  /* ── Sticker Palette (decorative only) ────────────────────────────────── */
+  --accent-purple:        #d6b6f6;
+  --accent-purple-deep:   #391c57;
+  --accent-pink:          #ff64c8;
+  --accent-orange:        #dd5b00;
+  --accent-orange-deep:   #793400;
+  --accent-teal:          #2a9d99;
+  --accent-green:         #1aae39;
+  --accent-sky:           #62aef0;
+  --accent-brown:         #523410;
+
+  /* ── Semantic ──────────────────────────────────────────────────────────── */
+  --color-success:        #1aae39;
+  --color-success-bg:     #f0fdf4;
+  --color-error:          #ef4444;
+  --color-warning:        #dd5b00;
+  --color-info:           #62aef0;
+
+  /* ── Typography (Notion exact) ────────────────────────────────────────── */
+  --font-display:         'Cairo', 'Noto Sans Arabic', 'Inter', -apple-system, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-body:            'Noto Sans Arabic', 'Inter', -apple-system, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-en:              'Inter', -apple-system, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  /* Notion hierarchy: tight, heavy, quiet-confident */
+  --fs-display:           4rem;       /* 64px — Notion display-1 */
+  --fs-display-2:         3.375rem;   /* 54px — Notion display-2 */
+  --fs-h1:                2.5rem;     /* 40px — Notion heading-1 */
+  --fs-h2:                1.625rem;   /* 26px — Notion heading-2 */
+  --fs-h3:                1.375rem;   /* 22px — Notion heading-3 */
+  --fs-title:             1.25rem;    /* 20px — Notion title */
+  --fs-body:              1rem;       /* 16px — Notion body-md */
+  --fs-body-sm:           0.9375rem;  /* 15px — Notion body-sm */
+  --fs-button:            1rem;       /* 16px — Notion button */
+  --fs-caption:           0.875rem;   /* 14px — Notion caption */
+  --fs-eyebrow:           0.75rem;    /* 12px — Notion eyebrow */
+
+  --fw-regular:           400;
+  --fw-medium:            500;
+  --fw-semibold:          600;
+  --fw-bold:              700;
+
+  --lh-tight:             1.0;
+  --lh-snug:              1.1;
+  --lh-normal:            1.5;
+  --lh-relaxed:           1.5;
+
+  /* Notion negative tracking at display sizes */
+  --ls-display:           -2.125px;
+  --ls-display-2:         -1.875px;
+  --ls-h1:                -1px;
+  --ls-h2:                -0.625px;
+  --ls-h3:                -0.25px;
+  --ls-title:             -0.125px;
+  --ls-eyebrow:           0.125px;
+
+  /* ── Spacing (8px base, Notion exact) ─────────────────────────────────── */
+  --sp-xxs:  4px;
+  --sp-xs:   8px;
+  --sp-sm:   12px;
+  --sp-md:   16px;
+  --sp-lg:   24px;
+  --sp-xl:   28px;
+  --sp-xxl:  32px;
+  --sp-3xl:  40px;
+  --sp-4xl:  48px;
+  --sp-5xl:  64px;
+  --sp-6xl:  80px;
+  --sp-7xl:  96px;
+
+  /* ── Numeric spacing aliases (used by layout/responsive) ──────────────── */
+  --sp-2:    8px;
+  --sp-3:    12px;
+  --sp-4:    16px;
+  --sp-5:    20px;
+  --sp-6:    24px;
+  --sp-8:    32px;
+  --sp-10:   40px;
+  --sp-12:   48px;
+  --sp-16:   64px;
+
+  /* ── Border Radius (Notion exact) ─────────────────────────────────────── */
+  --rounded-xs:    4px;
+  --rounded-sm:    5px;
+  --rounded-md:    8px;
+  --rounded-lg:    12px;
+  --rounded-xl:    16px;
+  --rounded-full:  9999px;
+
+  /* ── Elevation (Notion layered micro-shadows) ─────────────────────────── */
+  --shadow-none:   none;
+  --shadow-soft:   rgba(0,0,0,0.01) 0 0.175px 1.041px,
+                   rgba(0,0,0,0.02) 0 0.8px 2.925px,
+                   rgba(0,0,0,0.027) 0 2.025px 7.847px,
+                   rgba(0,0,0,0.04) 0 4px 18px;
+  --shadow-elevated: rgba(0,0,0,0.02) 0 1px 3px,
+                     rgba(0,0,0,0.03) 0 4px 12px,
+                     rgba(0,0,0,0.04) 0 12px 36px,
+                     rgba(0,0,0,0.05) 0 23px 52px;
+
+  /* ── Transitions ───────────────────────────────────────────────────────── */
+  --ease-default:  cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+
+  /* ── Z-Index ───────────────────────────────────────────────────────────── */
+  --z-dropdown:   100;
+  --z-sticky:     200;
+  --z-overlay:    300;
+
+  /* ── Layout ────────────────────────────────────────────────────────────── */
+  --container-max:    1200px;
+  --container-narrow: 960px;
+  --nav-height:       64px;
+  --section-gap:      104px;
+}
