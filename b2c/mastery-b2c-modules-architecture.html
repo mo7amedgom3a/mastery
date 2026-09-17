@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mastery B2C — عمارة الوحدات وطبقة التكامل مع LMS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f5f0; --bg-elevated:#ffffff; --bg-soft:#efece4; --text:#1c1a17; --text-dim:#5a564d;
+  --border:#ddd7c9; --accent:#0f6e5c; --accent-2:#c8622a; --accent-3:#3557a3; --chip-bg:#eae5d6;
+  --code-bg:#1c1a17; --code-text:#f0ede3;
+  --shadow: 0 1px 2px rgba(20,18,14,0.06), 0 8px 24px rgba(20,18,14,0.05);
+}
+:root:not([data-theme="light"]) { @media (prefers-color-scheme: dark){
+  --bg:#15161a; --bg-elevated:#1d1f24; --bg-soft:#22242a; --text:#eceae4; --text-dim:#a5a29a;
+  --border:#33353c; --accent:#3ecfa6; --accent-2:#f0925a; --accent-3:#87a6ee; --chip-bg:#282a31;
+  --code-bg:#0f1013; --code-text:#eceae4; --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 30px rgba(0,0,0,0.35);
+}}
+:root[data-theme="dark"]{
+  --bg:#15161a; --bg-elevated:#1d1f24; --bg-soft:#22242a; --text:#eceae4; --text-dim:#a5a29a;
+  --border:#33353c; --accent:#3ecfa6; --accent-2:#f0925a; --accent-3:#87a6ee; --chip-bg:#282a31;
+  --code-bg:#0f1013; --code-text:#eceae4; --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 30px rgba(0,0,0,0.35);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Tajawal','Segoe UI',sans-serif;line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px 100px;}
+header.hero{padding:52px 0 32px;border-bottom:1px solid var(--border);margin-bottom:34px;}
+.kicker{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.03em;color:var(--accent);background:var(--chip-bg);padding:5px 14px;border-radius:999px;margin-bottom:16px;}
+h1.title{font-size:clamp(26px,4vw,38px);font-weight:900;margin:0 0 12px;line-height:1.3;}
+.subtitle{color:var(--text-dim);font-size:17px;max-width:760px;margin:0 0 18px;}
+.linkback{font-size:13.5px;color:var(--accent-3);}
+nav.toc{background:var(--bg-elevated);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-bottom:44px;box-shadow:var(--shadow);}
+nav.toc h2{font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-dim);margin:0 0 14px;}
+nav.toc ol{columns:2;margin:0;padding-inline-start:20px;font-size:14.5px;}
+nav.toc li{margin-bottom:8px;}
+nav.toc a{color:var(--text);text-decoration:none;}
+nav.toc a:hover{color:var(--accent);}
+@media(max-width:640px){ nav.toc ol{columns:1;} }
+section{margin-bottom:56px;}
+h2.section-title{font-size:25px;font-weight:900;margin:0 0 6px;display:flex;align-items:center;gap:10px;}
+h2.section-title .num{color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:500;}
+.section-lede{color:var(--text-dim);font-size:15.5px;margin:0 0 22px;max-width:780px;}
+h3{font-size:19px;font-weight:700;margin:26px 0 10px;}
+h4{font-size:16px;font-weight:700;margin:0 0 4px;color:var(--text);}
+p{margin:0 0 14px;}
+ul,ol{padding-inline-start:22px;margin:0 0 16px;}
+li{margin-bottom:6px;}
+strong{color:var(--text);font-weight:700;}
+em.term{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:.9em;background:var(--chip-bg);padding:1px 6px;border-radius:5px;}
+.card{background:var(--bg-elevated);border:1px solid var(--border);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow);margin-bottom:16px;}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px;}
+.pill{background:var(--chip-bg);border:1px solid var(--border);padding:5px 13px;border-radius:999px;font-size:13px;color:var(--text-dim);}
+.pill.b2c{border-color:var(--accent);color:var(--accent);}
+.pill.lms{border-color:var(--accent-2);color:var(--accent-2);}
+table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+th,td{padding:10px 13px;text-align:right;border-bottom:1px solid var(--border);vertical-align:top;}
+th{background:var(--bg-soft);font-weight:700;font-size:13px;color:var(--text-dim);}
+tr:last-child td{border-bottom:none;}
+.table-scroll{overflow-x:auto;border-radius:12px;}
+.flow{background:var(--code-bg);color:var(--code-text);border-radius:12px;padding:20px 22px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:2.05;overflow-x:auto;margin:16px 0 22px;direction:ltr;text-align:left;}
+.flow .arrow{color:var(--accent);}
+.note{border-inline-start:4px solid var(--accent-3);background:var(--bg-soft);padding:14px 18px;border-radius:8px;font-size:14.5px;margin:16px 0;}
+.warn{border-inline-start:4px solid var(--accent-2);background:var(--bg-soft);padding:14px 18px;border-radius:8px;font-size:14.5px;margin:16px 0;}
+footer{text-align:center;color:var(--text-dim);font-size:13px;padding-top:30px;border-top:1px solid var(--border);}
+
+.module{background:var(--bg-elevated);border:1px solid var(--border);border-radius:16px;padding:26px 26px 22px;box-shadow:var(--shadow);margin-bottom:22px;}
+.module-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:6px;}
+.module-head h3{margin:0;font-size:21px;}
+.module-code{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-dim);background:var(--bg-soft);padding:3px 10px;border-radius:6px;}
+.module-purpose{color:var(--text-dim);font-size:14.5px;margin-bottom:16px;}
+.module-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:680px){.module-grid{grid-template-columns:1fr;}}
+.module-block h4{color:var(--accent-3);font-size:13px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;}
+.module-block ul{margin-bottom:0;font-size:14px;}
+.constraint{color:var(--accent-2);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="kicker">Mastery B2C · Architecture Deep-Dive</span>
+  <h1 class="title">عمارة الوحدات وطبقة التكامل مع الـLMS</h1>
+  <p class="subtitle">تعريف تفصيلي لكيفية تحويل موارد الـLMS (الدورات) وهويّته (الطلاب) إلى كيانات B2C عبر Abstraction Layer، وتحديد كل وحدة وظيفية وعلاقاتها ومنطقها التجاري وقيودها.</p>
+  <p class="linkback">امتداد لوثيقة <strong>Mastery B2C — Product Definition</strong> السابقة.</p>
+</header>
+
+<nav class="toc">
+  <h2>محتويات الوثيقة</h2>
+  <ol>
+    <li><a href="#concept">مفهوم طبقة التجريد (Abstraction Layer)</a></li>
+    <li><a href="#resource">Course → Resource</a></li>
+    <li><a href="#customer">Student → Customer</a></li>
+    <li><a href="#map">خريطة العلاقات بين الوحدات</a></li>
+    <li><a href="#m-cust">وحدة: Customer &amp; Identity</a></li>
+    <li><a href="#m-cat">وحدة: Catalog &amp; Resource</a></li>
+    <li><a href="#m-com">وحدة: Commerce Engine</a></li>
+    <li><a href="#m-ent">وحدة: Entitlement &amp; Access</a></li>
+    <li><a href="#m-lms">وحدة: LMS Integration Layer</a></li>
+    <li><a href="#m-ai">وحدة: AI Layer (B2C) مقابل AI Tutor (LMS)</a></li>
+    <li><a href="#m-cons">وحدة: Consultation Marketplace</a></li>
+    <li><a href="#m-sub">وحدة: Subscription Engine</a></li>
+    <li><a href="#m-cmty">وحدة: Community</a></li>
+    <li><a href="#m-grw">وحدة: Growth &amp; Loyalty (Referral / Wallet / Rewards)</a></li>
+    <li><a href="#m-dash">وحدة: Customer Dashboard (BFF)</a></li>
+    <li><a href="#sync">عقد المزامنة والـWebhooks</a></li>
+  </ol>
+</nav>
+
+<section id="concept">
+  <h2 class="section-title"><span class="num">01</span> مفهوم طبقة التجريد</h2>
+  <p class="section-lede">B2C لا يُعيد بناء الـLMS، بل يضع أمامه طبقتَي تجريد (Abstraction) تفصلان كل ما هو تجاري/تسويقي عمّا هو تعليمي بحت — بحيث يمكن تطوير أي منهما دون كسر الآخر.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h4 style="color:var(--accent)">Resource Abstraction</h4>
+      <p>الدورة/الدبلومة في الـLMS تصبح <em class="term">Resource</em> داخل B2C: مرجع خفيف يُشار إليه من داخل Product، بدل أن يُعامل الـProduct نفسه كأنه الدورة.</p>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--accent)">Customer Abstraction</h4>
+      <p>الطالب/المستخدم في الـLMS يصبح <em class="term">Customer</em> داخل B2C: هوية تجارية مستقلة مرتبطة بهوية التعلم عبر <em class="term">lms_user_id</em>، تحمل كل ما هو تجاري (سلة، طلبات، محفظة، نقاط) دون أن تُكرّر بيانات التعلم.</p>
+    </div>
+  </div>
+
+  <div class="flow">                B2C (Commerce & Discovery)
+                       │
+        ┌──────────────┼───────────────┐
+        ▼                              ▼
+     PRODUCT  ──references──▶      CUSTOMER
+        │                              │
+        │ wraps                       │ linked via lms_user_id
+        ▼                              ▼
+     RESOURCE ──lms_reference──▶   LMS COURSE      LMS STUDENT ◀── identity
+        │                              │
+        └──────────── LMS Adapter ─────┘
+                       │
+                       ▼
+              EXISTING LMS (Source of Truth
+              للمحتوى، التقدم، AI Tutor، الشهادات)</div>
+
+  <div class="note">القاعدة الحاكمة: <strong>لا تُخزَّن في B2C أي بيانات يملكها الـLMS بالفعل</strong> (محتوى، تقدم، شهادات) — تُقرأ عبر الـLMS Adapter عند الحاجة أو تُخزَّن كـCache مؤقت مع Webhooks لإبطاله. B2C يخزّن فقط <strong>المراجع + البيانات التجارية/التخصيصية</strong>.</div>
+</section>
+
+<section id="resource">
+  <h2 class="section-title"><span class="num">02</span> Course → Resource</h2>
+  <p class="section-lede">الهدف: يستطيع Product أن يُركّب من موردٍ واحد أو أكثر، وأن يُعاد استخدام نفس المورد في أكثر من منتج، دون أي اقتران مباشر بين منطق البيع ومنطق التعلم.</p>
+
+  <div class="table-scroll"><table>
+    <thead><tr><th>الحقل</th><th>المصدر</th><th>الوصف</th></tr></thead>
+    <tbody>
+      <tr><td>resource_id</td><td>B2C</td><td>معرّف B2C الداخلي للمورد</td></tr>
+      <tr><td>resource_type</td><td>B2C</td><td>course / diploma_module / live_session / exam_reference…</td></tr>
+      <tr><td>lms_reference_id</td><td>LMS</td><td>course_id الحقيقي في الـLMS</td></tr>
+      <tr><td>cached_metadata</td><td>LMS (Cache)</td><td>العنوان، المدرب، المدة، عدد الوحدات، حالة النشر — تُحدَّث عبر Webhook لا عبر نداء حي في كل طلب</td></tr>
+      <tr><td>last_synced_at</td><td>B2C</td><td>طابع زمني لآخر مزامنة مع الـLMS</td></tr>
+      <tr><td>commercial_owner_product_ids</td><td>B2C</td><td>قائمة المنتجات التي تستخدم هذا المورد (Course يُباع منفرداً + ضمن Diploma + ضمن Subscription Library)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>العلاقة Product ↔ Resource</h3>
+  <div class="flow">Course (Resource #1)  ──┐
+                        ├──▶ Product: "دورة React منفردة"      (سعر 199$)
+                        ├──▶ Product: "دبلوم Frontend"          (يحتوي 5 Resources)
+                        └──▶ Product: "Mastery Pro Subscription" (Catalog Access)</div>
+  <p>نفس المورد التعليمي (Course في الـLMS) يظهر داخل ثلاثة منتجات تجارية مختلفة بأسعار وشروط مختلفة، دون أي تعديل في الـLMS نفسه — وهذا يحقق مبدأ <strong>Course ≠ Product</strong> عملياً.</p>
+
+  <div class="warn"><strong>قيد:</strong> Resource لا يحمل أي منطق تعليمي (لا progress، لا completion، لا محتوى الدروس) — أي طلب لهذه البيانات يمر عبر LMS Adapter مباشرة وقت العرض، وليس من جدول Resource.</div>
+</section>
+
+<section id="customer">
+  <h2 class="section-title"><span class="num">03</span> Student → Customer</h2>
+  <p class="section-lede">الهوية التعليمية (من هو المتعلم، ما تقدمه، شهاداته) تبقى في الـLMS. الهوية التجارية (من يشتري، يملك محفظة، له نقاط، عرّف نفسه بهدف تعليمي معيّن) تعيش في B2C كـCustomer.</p>
+
+  <div class="table-scroll"><table>
+    <thead><tr><th>الحقل</th><th>المالك</th><th>الوصف</th></tr></thead>
+    <tbody>
+      <tr><td>customer_id</td><td>B2C</td><td>معرّف B2C الداخلي</td></tr>
+      <tr><td>lms_user_id</td><td>مرجع لـLMS</td><td>الربط بالهوية التعليمية الحقيقية</td></tr>
+      <tr><td>contact_info</td><td>B2C</td><td>البريد/الجوال المستخدَمان تجارياً، الدولة، العملة</td></tr>
+      <tr><td>learning_profile / skill_graph</td><td>B2C</td><td>الهدف، المجال، المهارات الدقيقة، المستوى، الساعات المتاحة يومياً — من مسار Smart Onboarding</td></tr>
+      <tr><td>cart / wishlist</td><td>B2C</td><td>سلة المشتريات وقائمة الرغبات</td></tr>
+      <tr><td>orders / entitlements</td><td>B2C</td><td>سجل الشراء وحقوق الوصول</td></tr>
+      <tr><td>wallet_balance</td><td>B2C</td><td>المحفظة الافتراضية (رصيد متاح/معلّق)</td></tr>
+      <tr><td>rewards_points</td><td>B2C</td><td>نقاط الولاء</td></tr>
+      <tr><td>referral_code / referred_by</td><td>B2C</td><td>بيانات الإحالة والعمولات</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Identity Linking Engine</h3>
+  <p>يمنع تكوّن أكثر من Customer لنفس الشخص عند استخدام قنوات دخول مختلفة (Email OTP ثم لاحقاً Google بنفس البريد). عند أول تسجيل يُنشأ <em class="term">Customer</em> ويُستدعى <em class="term">LMSAdapter.provisionUser()</em> لإنشاء/ربط الهوية التعليمية المقابلة، ويُخزَّن <em class="term">lms_user_id</em> في سجل الـCustomer.</p>
+
+  <h3>مصير بيانات Smart Onboarding (خريطة المهارات)</h3>
+  <div class="flow">Onboarding Answers (Goal, Domain, Skills, Level, Daily Hours)
+        │
+        ▼
+ Customer.learning_profile   (B2C — يُستخدم في AI Layer للتوصيات وRoadmap)
+        │
+        ▼ (اختياري لاحقاً)
+ LMSAdapter.syncLearnerContext()   (لو احتاج الـLMS نفس البيانات لتخصيص AI Tutor داخل الدرس)</div>
+  <div class="note">خريطة المهارات بيانات <strong>تسويقية/تخصيصية</strong> بطبيعتها (تقود التوصية والباقات) لذلك تعيش أساساً في B2C؛ تُشارَك مع الـLMS كحدث/مزامنة اختيارية فقط إذا احتاجها AI Tutor داخل الدرس — لا تُعاد كتابتها هناك كمصدر حقيقة.</div>
+</section>
+
+<section id="map">
+  <h2 class="section-title"><span class="num">04</span> خريطة العلاقات بين الوحدات</h2>
+  <p class="section-lede">11 وحدة وظيفية + طبقة عرض (Dashboard) تستهلكها جميعاً.</p>
+  <div class="flow">                         ┌────────────────────┐
+                         │   B2C ADMIN (ADM)  │
+                         └─────────┬──────────┘
+                                   │ يدير كل ما تحت
+     ┌─────────────┐        ┌─────▼──────┐        ┌──────────────┐
+     │ CUSTOMER &   │◀──────▶│  COMMERCE  │◀──────▶│  CATALOG &   │
+     │ IDENTITY     │  buyer │   ENGINE   │ product │  RESOURCE    │
+     │ (CUST)       │        │   (COM)    │         │  (CAT)       │
+     └──────┬───────┘        └─────┬──────┘         └──────┬───────┘
+            │                      │ order.paid            │ lms_reference
+            │              ┌───────▼────────┐               │
+            │              │  ENTITLEMENT   │               │
+            │              │  & ACCESS (ENT)│               │
+            │              └───────┬────────┘               │
+            │           ┌──────────┼───────────┐             │
+            │           ▼          ▼           ▼             ▼
+            │     SUBSCRIPTION CONSULTATION COMMUNITY   LMS INTEGRATION
+            │        (SUB)        (CONS)      (CMTY)       LAYER (LMSI)
+            │                                                 │
+            └───────────────┬─────────────────────────────────┘
+                             ▼
+                        AI LAYER (AI)  ◀── يقرأ CAT + CUST.learning_profile
+                             │              (+ قراءة تقدّم من LMSI عند الحاجة)
+                             ▼
+                    GROWTH & LOYALTY (GRW)
+                    (Referral / Wallet / Rewards)
+                             │
+                             ▼
+                  CUSTOMER DASHBOARD (DASH)
+                 يجمع كل ما سبق كطبقة عرض فقط</div>
+</section>
+
+<section id="m-cust">
+  <div class="module">
+    <div class="module-head"><h3>Customer &amp; Identity</h3><span class="module-code">CUST</span></div>
+    <p class="module-purpose">الهوية التجارية الموحّدة للعميل، ونقطة الربط الوحيدة بالهوية التعليمية في الـLMS.</p>
+    <div class="module-grid">
+      <div class="module-block"><h4>يملك</h4><ul><li>بيانات التواصل، الدولة، العملة</li><li>Learning Profile / Skill Graph</li><li>حالة الحساب (جديد / عائد)</li></ul></div>
+      <div class="module-block"><h4>يعتمد على</h4><ul><li>LMS Integration Layer (لإنشاء/ربط الهوية التعليمية)</li><li>Existing Authentication + Google OAuth</li></ul></div>
+      <div class="module-block"><h4>منطق العمل</h4><ul><li>توجيه ذكي: مستخدم قديم → الرئيسية، جديد → Onboarding</li><li>Identity Linking عند تعدد قنوات الدخول لنفس البريد</li><li>لا يُنشأ Customer دون محاولة Provisioning في الـLMS (Retry عند الفشل)</li></ul></div>
+      <div class="module-block"><h4>القيود</h4><ul><li class="constraint">لا يُخزَّن هنا أي سجل تعلم أو شهادة — مرجع فقط</li><li class="constraint">Passwordless إلزامي (OTP / Google) — لا كلمات مرور تقليدية جديدة</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="m-cat">
+  <div class="module">
+    <div class="module-head"><h3>Catalog &amp; Resource</h3><span class="module-code">CAT</span></div>
+    <p class="module-purpose">إدارة أنواع المنتجات التجارية (Product) وربطها بالموارد التعليمية (Resource) وبالخبراء.</p>
+    <div class="module-grid">
+      <div class="module-block"><h4>يملك</h4><ul><li>Product (Course/Diploma/Bundle/Subscription/Consultation/Live/Community/Add-on)</li><li>Resource (مراجع + Cache لبيانات الـLMS)</li><li>Instructor/Consultant Profiles، التصنيفات</li></ul></div>
+      <div class="module-block"><h4>يعتمد على</h4><ul><li>LMS Integration Layer لجلب/مزامنة بيانات الموارد</li></ul></div>
+      <div class="module-block"><h4>منطق العمل</h4><ul><li>Product واحد قد يشير لعدة Resources (Diploma) أو صفر (Consultation ليست مورداً تعليمياً)</li><li>نفس Resource يظهر ضمن أكثر من Product بأسعار/شروط مختلفة</li><li>تحديث Resource.cached_metadata عند وصول Webhook مثل <em class="term">course.updated</em></li></ul></div>
+      <div class="module-block"><h4>القيود</h4><ul><li class="constraint">Product Type جديد يُضاف دون إعادة هيكلة الجدول (Polymorphic/EAV محكوم)</li><li class="constraint">لا Business Logic تعليمي هنا (Curriculum التفصيلي يُعرض من الـLMS مباشرة عند الحاجة)</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="m-com">
+  <div class="module">
+    <div class="module-head"><h3>Commerce Engine</h3><span class="module-code">COM</span></div>
+    <p class="module-purpose">قلب العملية التجارية: التسعير، السلة، الدفع، الطلبات، العروض.</p>
+    <div class="module-grid">
+      <div class="module-block"><h4>يملك</h4><ul><li>Pricing/Geo Pricing، Cart، Checkout، Orders، Payments، Invoices، Refunds</li><li>Promotion Engine (كوبونات، عروض، Bundle discounts)</li></ul></div>
+      <div class="module-block"><h4>يعتمد على</h4><ul><li>Catalog (Product للتسعير)</li><li>Customer (المشتري، العملة، الدولة)</li><li>Growth &amp; Loyalty (استخدام رصيد المحفظة/النقاط كطريقة دفع جزئية)</li><li>Payment Orchestrator (Stripe/Tabby/Tamara)</li></ul></div>
+      <div class="module-block"><h4>منطق العمل</h4><ul><li>Master Price بعملة أساس، تحويل ديناميكي عبر Stripe Adaptive Pricing</li><li>عند <em class="term">order.paid</em> → إطلاق حدث يُستهلك من ENT وGRW وAnalytics بالتوازي (Event-driven)</li><li>Idempotency إلزامي على كل Webhook دفع (external_event_id)</li></ul></div>
+      <div class="module-block"><h4>القيود</h4><ul><li class="constraint">لا يُعتبر عدم نجاح خطوة لاحقة (LMS Enrollment مثلاً) فشلاً في الدفع نفسه</li><li class="constraint">لا بناء Payment Gateway أو Tax Engine داخلي</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="m-ent">
+  <div class="module">
+    <div class="module-head"><h3>Entitlement &amp; Access</h3><span class="module-code">ENT</span></div>
+    <p class="module-purpose">الفاصل الرسمي بين "دفع" و"وصول" — يقرر من يحق له ماذا، ولماذا، ومتى.</p>
+    <div class="module-grid">
+      <div class="module-block"><h4>يملك</h4><ul><li>Entitlement (Product, Start/Expiry Date, Extension History)</li><li>Access Extension Rules</li></ul></div>
+      <div class="module-block"><h4>يعتمد على</h4><ul><li>Commerce (order.paid) أو Subscription (benefits granted) أو Growth (منتج مجاني كـLead)</li></ul></div>
+      <div class="module-block"><h4>منطق العمل</h4><ul><li>Entitlement يُنشأ فوراً عند الدفع؛ تفعيله الفعلي (LMS Enrollment) قد يتأخر (Async) دون التأثير على حالة الطلب</li><li>عند فشل التفعيل: Fulfillment = Pending/Failed + Retry تلقائي + تنبيه تشغيلي</li><li>تمديد الوصول Product مستقل (Access Extension) وليس Hack داخل LMS</li></ul></div>
+      <div class="module-block"><h4>القيود</h4><ul><li class="constraint">مصدر الحقيقة الوحيد لسؤال "هل يملك هذا العميل حق الوصول لهذا المنتج؟" — لا تُستنتج هذه الإجابة من سجل الطلبات مباشرة</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="m-lms">
+  <div class="module">
+    <div class="module-head"><h3>LMS Integration Layer</h3><span class="module-code">LMSI</span></div>
+    <p class="module-purpose">البوابة الوحيدة لكل تواصل مع الـLMS — لا استدعاءات مباشرة متفرقة من أي وحدة أخرى.</p>
+    <div class="module-grid">
+      <div class="module-block"><h4>يوفر</h4><ul><li>LMSAdapter.getCourse() / createEnrollment() / revokeEnrollment() / getProgress() / getStartedStatus() / provisionUser()</li><li>استقبال Webhooks: course.started، course.completed، certificate.issued، course.updated</li></ul></div>
+      <div class="module-block"><h4>يخدم</h4><ul><li>CAT (بيانات الموارد)، ENT (Enrollment/Revoke)، CUST (Provisioning)، DASH (تقدّم/آخر درس)، AI (سياق تعلّم اختياري)</li></ul></div>
+      <div class="module-block"><h4>منطق العمل</h4><ul><li>كل قراءة متكررة (بطاقة Course في الكتالوج) تُخدَّم من Cache وليس نداء حي؛ القراءة الحية تُستخدَم فقط لبيانات لحظية (Progress عند فتح Dashboard)</li><li>Retry + Circuit breaker عند تعطل الـLMS API دون إسقاط العملية التجارية</li></ul></div>
+      <div class="module-block"><h4>القيود</h4><ul><li class="constraint">لا منطق تجاري هنا إطلاقاً — طبقة نقل بيانات فقط</li><li class="constraint">أي تغيير مستقبلي في الـLMS يُمتَص هنا دون إعادة كتابة بقية B2C</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="m-ai">
+  <div class="module">
+    <div class="module-head"><h3>AI Layer (B2C) — مقابل AI Tutor (LMS)</h3><span class="module-code">AI</span></div>
+    <p class="module-purpose">فصل صريح: كل ذكاء اصطناعي يخدم <strong>القرار التجاري/الاكتشافي قبل وحول التعلم</strong> يعيش في B2C، وكل ذكاء اصطناعي يخدم <strong>الطالب داخل الدرس نفسه</strong> يبقى ملكاً للـLMS.</p>
+
+    <div class="table-scroll"><table>
+      <thead><tr><th>الميزة</th><th>الملكية</th><th>الوصف</th></tr></thead>
+      <tbody>
+        <tr><td>المساعد العائم "اسأل ذكاء ماستري"</td><td><span class="pill b2c">B2C</span></td><td>دعم فوري عبر واجهة B2C: توجيه للمنتج المناسب، أسئلة الشراء/الحساب/الاشتراك، تسليم الطالب لصفحة الدرس عند الحاجة للدعم التعليمي</td></tr>
+        <tr><td>البحث الدلالي الذكي (Semantic Search)</td><td><span class="pill b2c">B2C</span></td><td>فهم النية النصية → ترشيح Resources/Products مناسبة من الكتالوج</td></tr>
+        <tr><td>AI Roadmap Planner (خطتي)</td><td><span class="pill b2c">B2C</span></td><td>توليد خطة أسابيع بناءً على تاريخ مستهدف، مبنية على Customer.learning_profile + كتالوج Resources — ناتجها Recommendation، لا محتوى تعليمي فعلي</td></tr>
+        <tr><td>خوارزمية الاقتراحات ("ماذا تتعلم بعدين"، "موصى به لك")</td><td><span class="pill b2c">B2C</span></td><td>تحليل Skill Graph + سجل الشراء/التصفح، قد تقرأ Progress من LMSI للسياق فقط (قراءة، لا كتابة)</td></tr>
+        <tr><td>AI Bundle Builder</td><td><span class="pill b2c">B2C</span></td><td>يقترح تركيبة منتجات؛ الخصم النهائي يُحسم دائماً عبر Promotion Engine لا عبر قرار الـAI وحده</td></tr>
+        <tr><td>AI Tutor داخل مشغّل الدرس</td><td><span class="pill lms">LMS</span></td><td>مساعدة الطالب أثناء استهلاك المحتوى نفسه (شرح، أسئلة على الدرس) — يُقدَّم بالكامل من الـLMS، B2C لا يستضيفه ولا يعيد بناءه</td></tr>
+        <tr><td>ملاحظات الفيديو المتزامنة، غرفة الأسئلة والمرفقات</td><td><span class="pill lms">LMS</span></td><td>جزء من Course Player، خارج نطاق B2C بالكامل</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="module-grid" style="margin-top:8px">
+      <div class="module-block"><h4>يعتمد على</h4><ul><li>CAT (بيانات Resources للترشيح)</li><li>CUST.learning_profile (الهدف/المستوى/الوقت)</li><li>LMSI (اختيارياً: Progress للسياق فقط)</li></ul></div>
+      <div class="module-block"><h4>منطق العمل</h4><ul><li>AI يقترح "الملاءمة" (Relevance)؛ محركات أخرى (Promotion Engine) تقرر "القيمة" (السعر/الخصم)</li><li>مخرجات AI Layer تُعرض دائماً كـ"اقتراح قابل للتعديل" لا كقرار نهائي مُلزم للعميل</li></ul></div>
+      <div class="module-block"><h4>القيود</h4><ul><li class="constraint">لا يُسمح لـAI Layer بتعديل الأسعار مباشرة</li><li class="constraint">لا ازدواجية مع AI Tutor: أي طلب مساعدة داخل صفحة الدرس نفسها يُوجَّه للـLMS لا يُعاد بناؤه في B2C</li></ul></div>
+      <div class="module-block"><h4>ميزات V1 المقترحة</h4><ul><li>Semantic Search + Roadmap Planner (أساسية)</li><li>AI Bundle Builder (V1.1/Growth Release حسب الأولوية المعتمدة سابقاً)</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="m-cons">
+  <div class="module">
+    <div class="module-head"><h3>Consultation Marketplace</h3><span class="module-code">CONS</span></div>
+    <p class="module-purpose">سوق مستقل منطقياً عن الدورات — منطق حجز/زمن مختلف تماماً عن منطق الكتالوج التعليمي.</p>
+    <div class="module-grid">
+      <div class="module-block"><h4>يملك</h4><ul><li>Consultant → Service → Availability → Booking</li><li>حالات الحجز وقواعد الإلغاء/الجدولة</li></ul></div>
+      <div class="module-block"><h4>يعتمد على</h4><ul><li>CUST (الحاجز)، COM (الدفع)، ENT (رصيد استشارات من اشتراك)، Google Meet (تكامل خارجي)</li></ul></div>
+      <div class="module-block"><h4>منطق العمل</h4><ul><li>Atomic Availability Check عند التأكيد لمنع الحجز المزدوج</li><li>Reschedule حتى 6 ساعات قبل الموعد، لا استرداد تلقائي عند إلغاء العميل، إلغاء المستشار → إعادة جدولة تلقائية</li></ul></div>
+      <div class="module-block"><h4>القيود</h4><ul><li class="constraint">لا Hold مؤقت طويل (10–15 دقيقة) على الموعد</li><li class="constraint">لا يُعامل كـResource تعليمي — لا علاقة له بـLMS Adapter</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="m-sub">
+  <div class="module">
+    <div class="module-head"><h3>Subscription Engine</h3><span class="module-code">SUB</span></div>
+    <p class="module-purpose">علاقة زمنية متجددة تمنح مجموعة Entitlements، لا عملية شراء لمرة واحدة.</p>
+    <div class="module-grid">
+      <div class="module-block"><h4>يملك</h4><ul><li>Subscription Plan Builder (Billing, Fixed Content, Choice Allowance, Catalog Access, Consultation Credits, Discounts)</li></ul></div>
+      <div class="module-block"><h4>يعتمد على</h4><ul><li>CAT (نطاق الوصول للكتالوج)، COM (الفوترة المتكررة)، ENT (منح/سحب الحقوق عند التجديد/الإلغاء)</li></ul></div>
+      <div class="module-block"><h4>منطق العمل</h4><ul><li>عند التجديد الناجح → تحديث Entitlements؛ عند الفشل → محاولات إعادة محاولة دفع (Dunning) قبل سحب الوصول</li></ul></div>
+      <div class="module-block"><h4>القيود</h4><ul><li class="constraint">لا يُعامَل كـBundle — العلاقة زمنية متجددة لا شراء واحد</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="m-cmty">
+  <div class="module">
+    <div class="module-head"><h3>Community</h3><span class="module-code">CMTY</span></div>
+    <p class="module-purpose">مساحة تواصل اجتماعي مرتبطة بالمنتج، وليست بديلاً عن الـLMS.</p>
+    <div class="module-grid">
+      <div class="module-block"><h4>يملك</h4><ul><li>General Spaces + Eligible Product/Cohort Spaces، Community Profile البسيط</li></ul></div>
+      <div class="module-block"><h4>يعتمد على</h4><ul><li>ENT (Community Entitlement عبر شراء/اشتراك/Bundle)</li></ul></div>
+      <div class="module-block"><h4>منطق العمل</h4><ul><li>الدخول للمساحات الخاصة بدفعة (Cohort) مرتبط مباشرة بحالة Entitlement الخاص بذلك المنتج</li></ul></div>
+      <div class="module-block"><h4>القيود</h4><ul><li class="constraint">V1: إنشاء المساحات محصور بالإدارة، لا بالأعضاء (قرار مفتوح سابقاً — الاتجاه المحافظ)</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="m-grw">
+  <div class="module">
+    <div class="module-head"><h3>Growth &amp; Loyalty</h3><span class="module-code">GRW</span></div>
+    <p class="module-purpose">ثلاث آليات مترابطة لكن منفصلة منطقياً: الإحالة (اكتساب)، المحفظة (قيمة مالية)، والمكافآت (نقاط ولاء).</p>
+    <div class="module-grid">
+      <div class="module-block"><h4>يملك</h4><ul><li><strong>Referral:</strong> رابط تتبع، لوحة نقرات/تسجيلات/عمولات</li><li><strong>Wallet:</strong> رصيد متاح/معلّق، سجل شفاف (شحن/استرداد/شراء)</li><li><strong>Rewards:</strong> نقاط تُكتسب من الشراء وتُستخدم جزئياً لاحقاً</li></ul></div>
+      <div class="module-block"><h4>يعتمد على</h4><ul><li>COM (استهلاك الرصيد/النقاط كطريقة دفع جزئية عند Checkout)</li><li>CUST (ربط الإحالة بحساب المُحيل)</li></ul></div>
+      <div class="module-block"><h4>منطق العمل</h4><ul><li>عمولة الإحالة تُحوَّل إلى: رصيد محفظة، أو فتح دورة، أو ترقية لباقة Pro — حسب قاعدة العرض</li><li>Checkout يدعم الدفع المدمج (رصيد محفظة + بطاقة بنكية) في عملية واحدة</li><li>النقاط تُخصَم من قيمة الطلب أولاً، والباقي يُدفَع، ثم تُكتسب نقاط على الجزء المدفوع فقط</li></ul></div>
+      <div class="module-block"><h4>القيود</h4><ul><li class="constraint">لا بناء Affiliate Platform كاملة بديلة عن Tolt — Tolt يبقى مصدر تتبع العمولات الخارجية إن استُخدم</li><li class="constraint">كل عملية شحن/خصم من المحفظة Auditable (من، متى، كم، لماذا)</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="m-dash">
+  <div class="module">
+    <div class="module-head"><h3>Customer Dashboard (BFF)</h3><span class="module-code">DASH</span></div>
+    <p class="module-purpose">طبقة عرض فقط (Backend-for-Frontend) — لا تملك بيانات مصدرية، بل تُجمِّع من الوحدات الأخرى في وقت العرض.</p>
+
+    <h4 style="margin-top:14px">تركيب كل شاشة من الوحدات المصدرية</h4>
+    <div class="table-scroll"><table>
+      <thead><tr><th>الشاشة</th><th>مصادر البيانات</th></tr></thead>
+      <tbody>
+        <tr><td>الرئيسية (Streak، استكمال التعلم، اقتراحات)</td><td>LMSI (Progress/Streak) + AI (اقتراحات) + ENT (المنتجات المملوكة)</td></tr>
+        <tr><td>"تعلّمي" My Learning (مؤشرات الأداء، تصفية)</td><td>ENT (ما يملكه العميل) + LMSI (نسب الإنجاز/الشهادات)</td></tr>
+        <tr><td>البحث الدلالي</td><td>AI + CAT</td></tr>
+        <tr><td>"خطتي" AI Roadmap</td><td>AI + CUST.learning_profile + CAT</td></tr>
+        <tr><td>الاستشارات الفردية</td><td>CONS + CAT (ملفات المستشارين)</td></tr>
+        <tr><td>مشغّل الدورة</td><td>تسليم كامل لواجهة الـLMS (Handoff) — لا تركيب من B2C</td></tr>
+        <tr><td>الإحالة والمحفظة</td><td>GRW</td></tr>
+        <tr><td>سلة المشتريات/قائمة الرغبات/الملف الشخصي التجاري</td><td>COM + CUST</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="note">مشغّل الدورة تحديداً هو نقطة <strong>Handoff</strong> صريحة: الدخول إليه من الـDashboard يُسلّم الجلسة للـLMS بالكامل (الفيديو، الملاحظات المتزامنة، الأسئلة والمرفقات، AI Tutor) — لا يُعاد بناء أي من هذه العناصر داخل B2C.</div>
+  </div>
+</section>
+
+<section id="sync">
+  <h2 class="section-title"><span class="num">16</span> عقد المزامنة والـWebhooks</h2>
+  <p class="section-lede">القائمة الأساسية للأحداث المتبادلة بين B2C والـLMS.</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th>الحدث</th><th>الاتجاه</th><th>الوحدة المستهلِكة في B2C</th></tr></thead>
+    <tbody>
+      <tr><td>course.updated / course.unpublished</td><td>LMS → B2C</td><td>CAT (تحديث Resource cache)</td></tr>
+      <tr><td>course.started</td><td>LMS → B2C</td><td>DASH (Continue Learning) + AI</td></tr>
+      <tr><td>course.completed</td><td>LMS → B2C</td><td>DASH + GRW (نقاط إتمام إن وُجدت) + CMTY (Alumni)</td></tr>
+      <tr><td>certificate.issued</td><td>LMS → B2C</td><td>DASH + ENT (سجل الشهادة المدفوعة/CPD)</td></tr>
+      <tr><td>order.paid</td><td>B2C داخلي</td><td>ENT، GRW، Analytics، Email، Invoice</td></tr>
+      <tr><td>LMSAdapter.createEnrollment()</td><td>B2C → LMS</td><td>يُستدعى من ENT بعد order.paid</td></tr>
+      <tr><td>LMSAdapter.provisionUser()</td><td>B2C → LMS</td><td>يُستدعى من CUST عند أول تسجيل</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn"><strong>قيد إلزامي:</strong> كل Webhook يحمل <em class="term">external_event_id</em> فريداً؛ المعالجة Idempotent بالكامل — لا Enrollment مزدوج، لا نقاط مكررة، لا Order مكرر عند إعادة إرسال نفس الحدث.</div>
+</section>
+
+<footer>
+  Mastery B2C — Module Architecture &amp; LMS Abstraction Layer
+</footer>
+</div>
+</body>
+</html>
