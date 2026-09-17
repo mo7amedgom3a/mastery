@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mastery B2C — وثيقة تعريف المنتج (PRD)</title>
+<title>Mastery B2C — وثيقة تعريف ورؤية المنتج الشاملة (Product Vision & Overview)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 .wrap{
-  max-width:980px;
+  max-width:1040px;
   margin:0 auto;
   padding:0 20px 100px;
 }
@@ -95,7 +95,7 @@ h1.title{
 .subtitle{
   color:var(--text-dim);
   font-size:18px;
-  max-width:680px;
+  max-width:820px;
   margin:0 0 22px;
 }
 .meta-row{
@@ -115,7 +115,7 @@ nav.toc{
   background:var(--bg-elevated);
   border:1px solid var(--border);
   border-radius:14px;
-  padding:20px 24px;
+  padding:22px 26px;
   margin-bottom:44px;
   box-shadow:var(--shadow);
 }
@@ -157,7 +157,7 @@ h2.section-title .num{
   color:var(--text-dim);
   font-size:15.5px;
   margin:0 0 22px;
-  max-width:760px;
+  max-width:840px;
 }
 h3{font-size:19px;font-weight:700;margin:26px 0 10px;}
 h4{font-size:16.5px;font-weight:700;margin:20px 0 8px;color:var(--accent-3);}
@@ -180,6 +180,11 @@ em.term{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:.92em;
   gap:16px;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 }
+.grid-3{
+  display:grid;
+  gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+}
 .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px;}
 .pill{
   background:var(--chip-bg);
@@ -188,6 +193,16 @@ em.term{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:.92em;
   border-radius:999px;
   font-size:13px;
   color:var(--text-dim);
+}
+.pill.accent{
+  border-color:var(--accent);
+  color:var(--accent);
+  font-weight:700;
+}
+.pill.accent-2{
+  border-color:var(--accent-2);
+  color:var(--accent-2);
+  font-weight:700;
 }
 
 table{
@@ -262,6 +277,14 @@ tr:last-child td{border-bottom:none;}
   font-size:14.5px;
   margin:16px 0;
 }
+.warn{
+  border-inline-start:4px solid var(--accent-2);
+  background:var(--bg-soft);
+  padding:14px 18px;
+  border-radius:8px;
+  font-size:14.5px;
+  margin:16px 0;
+}
 .principle-num{
   font-family:'IBM Plex Mono',monospace;
   color:var(--accent);
@@ -283,13 +306,14 @@ footer{
 <div class="wrap">
 
 <header class="hero">
-  <span class="kicker">Mastery B2C · Product Definition</span>
-  <h1 class="title">وثيقة تعريف منتج Mastery B2C</h1>
-  <p class="subtitle">تنظيم شامل لرؤية المنتج: المنظومات والوحدات، طبقة التكامل مع الـLMS والأطراف الخارجية، رحلة العميل، شخصيات المستخدمين، والنموذج التجاري.</p>
+  <span class="kicker">Mastery B2C · Strategic Product Vision &amp; Requirements</span>
+  <h1 class="title">وثيقة الرؤية والتعريف الشامل لمنتج Mastery B2C</h1>
+  <p class="subtitle">المرجع الاستراتيجي والتشغيلي الموحّد لقطاع الأفراد في ماستري أكاديمي: سياق التحول من متجر دورات إلى منظومة تجارة تعليمية عربية متكاملة، نماذج الإيرادات، رحلات العميل، القواعد التجارية، والحوكمة التشغيلية.</p>
   <div class="meta-row">
-    <span>Version 1.0 — منظَّمة</span>
+    <span>Version 2.0 — المرجع الاستراتيجي الشامل</span>
     <span>Arabic-first · RTL</span>
-    <span>Web · Mobile-critical</span>
+    <span>Web · Mobile-first</span>
+    <span>قطاع الأفراد (B2C)</span>
     <span>ماستري أكاديمي</span>
   </div>
 </header>
@@ -297,110 +321,199 @@ footer{
 <nav class="toc">
   <h2>محتويات الوثيقة</h2>
   <ol>
-    <li><a href="#intro">مقدمة وتعريف المشروع</a></li>
-    <li><a href="#principles">المبادئ المعمارية الأساسية</a></li>
-    <li><a href="#scope">نطاق المشروع (داخل / خارج)</a></li>
-    <li><a href="#personas">شخصيات المستخدمين (Personas)</a></li>
-    <li><a href="#modules">المنظومات والوحدات (Modules)</a></li>
-    <li><a href="#domain">نموذج البيانات المعماري (Domain Model)</a></li>
-    <li><a href="#lms">طبقة التكامل مع الـLMS</a></li>
-    <li><a href="#integrations">التكاملات مع الأطراف الخارجية</a></li>
-    <li><a href="#journeys">رحلات العميل (Customer Journeys)</a></li>
-    <li><a href="#admin">B2C Admin والعمليات اليومية</a></li>
-    <li><a href="#observability">الموثوقية والـObservability</a></li>
-    <li><a href="#goals">الأهداف التجارية والمقاييس</a></li>
-    <li><a href="#open">قرارات مفتوحة</a></li>
-    <li><a href="#definition">التعريف النهائي للمنتج</a></li>
+    <li><a href="#intro">مقدمة وسياق التحول الاستراتيجي</a></li>
+    <li><a href="#principles">المبادئ المعمارية والتجارية الحاكمة</a></li>
+    <li><a href="#scope">نطاق العمل (داخل وخارج النطاق)</a></li>
+    <li><a href="#segments">شرائح العملاء وشخصيات المستخدمين</a></li>
+    <li><a href="#revenue">نماذج الإيراد ومحفظة المنتجات التجارية</a></li>
+    <li><a href="#rules">سجل القواعد التجارية الحاكمة (Global Rules)</a></li>
+    <li><a href="#modules">المنظومات والوحدات الوظيفية التسع</a></li>
+    <li><a href="#truth">مصفوفة مرجعية البيانات والحوكمة (Source of Truth)</a></li>
+    <li><a href="#journeys">رحلات العميل والعمليات التجارية الأساسية</a></li>
+    <li><a href="#admin">مركز التحكم والعمليات التشغيلية (B2C Admin &amp; Ops)</a></li>
+    <li><a href="#observability">الموثوقية والشفافية التشغيلية (Observability &amp; Audit)</a></li>
+    <li><a href="#goals">الأهداف التجارية ومؤشرات النجاح (KPIs)</a></li>
+    <li><a href="#risks">إدارة المخاطر والاعتماديات والانتقال</a></li>
+    <li><a href="#open">القرارات التجارية والمنتجية المفتوحة</a></li>
+    <li><a href="#readiness">معايير الجاهزية للإطلاق (Go-Live Readiness)</a></li>
+    <li><a href="#definition">الخلاصة التنفيذية والتعريف النهائي للمنتج</a></li>
   </ol>
 </nav>
 
 <section id="intro">
-  <h2 class="section-title"><span class="num">01</span> مقدمة وتعريف المشروع</h2>
-  <p class="section-lede">إعادة بناء تجربة B2C في ماستري أكاديمي من الصفر — وليس تعديل النظام القديم — مع الحفاظ على الـLMS الحالي كمصدر حقيقة للمحتوى التعليمي.</p>
+  <h2 class="section-title"><span class="num">01</span> مقدمة وسياق التحول الاستراتيجي</h2>
+  <p class="section-lede">إعادة بناء شاملة لقطاع الأفراد في ماستري أكاديمي لنقله من نموذج بيع الدورات التقليدي المنفرد إلى <strong>Digital Learning Commerce Ecosystem</strong> متكامل ومستقل إدارياً وتشغيلياً.</p>
 
   <div class="card">
-    <p>ماستري أكاديمي منصة تعليم إلكتروني عربية تخدم الأفراد (B2C) والشركات (B2B). هذا المشروع يخص <strong>قطاع الأفراد فقط</strong>، ويهدف لبناء <em class="term">B2C Commerce &amp; Discovery Experience</em> جديدة بالكامل: كل ما يراه العميل الفردي قبل الشراء وأثناءه وبعده من الناحية التجارية، مع نظام إدارة (Admin) مستقل تماماً عن B2B.</p>
-    <p>حين يصل العميل إلى مرحلة <strong>استهلاك</strong> الدورة، يُسلَّم إلى الـLMS الموجود فعلياً. الـStudent Profile يبقى خارج النطاق أيضاً. المشروع لا يبني LMS جديداً، بل طبقة تجارية واكتشافية متكاملة تقف <strong>أمام</strong> الـLMS الحالي.</p>
-    <div class="flow">Discovery <span class="arrow">→</span> Evaluation <span class="arrow">→</span> Purchase <span class="arrow">→</span> Payment <span class="arrow">→</span> Access / Entitlement <span class="arrow">→</span> Handoff to Existing LMS or Service</div>
+    <p>تعمل ماستري أكاديمي في مجال التعليم الإلكتروني والمهني العربي وتقدم منتجات تعليمية متقدمة. يخدم قطاع الشركات (B2B) المؤسسات عبر اشتراكات تدريبية ومسارات وظيفية وتقارير أداء ومتابعة مدراء التدريب. أما <strong>قطاع الأفراد (B2C)</strong> فيخدم العميل الفردي الذي يكتشف المنتج بنفسه، يقيّمه، يشتريه من ماله الخاص، ويستهلكه لمنفعته المهنية والشخصية.</p>
+    <p>الوضع الحالي يعتمد على موقع وواجهات لا توفر المرونة الكافية لإطلاق اشتراكات مرنة، باقات ذكية، برامج تفاعلية مباشرة، استشارات مهنية، أو مجتمع تفاعلي. لذلك، اتُّخذ قرار استراتيجي حاسم: <strong>إعادة بناء B2C بالكامل من الصفر</strong> كنظام تشغيل تجاري وتعليمي متكامل يقف أمام الـLMS الحالي دون المساس بهيكل التعلم القائم.</p>
+    <div class="flow">Discovery <span class="arrow">→</span> Evaluation <span class="arrow">→</span> Purchase <span class="arrow">→</span> Payment <span class="arrow">→</span> Entitlement <span class="arrow">→</span> Fulfillment <span class="arrow">→</span> Learning Handoff <span class="arrow">→</span> Engagement <span class="arrow">→</span> Repeat Purchase</div>
   </div>
 
-  <h3>الأبعاد الثلاثة للمنتج</h3>
+  <h3>الفصل الاستراتيجي بين B2B و B2C</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4 style="color:var(--accent)">ماستري B2C (فريق قطاع الأفراد)</h4>
+      <p>طبيعة العمل: <strong>Digital Commerce + Learning Marketplace</strong>.</p>
+      <p>مسؤول عن: الاكتشاف، التسويق، الشراء، الدفع، الباقات، الاشتراكات، الاستشارات، المجتمع، المكافآت، والتجديد والشراء المتكرر.</p>
+      <div class="note"><strong>قاعدة الملكية:</strong> أي ميزة هدفها زيادة اكتشاف المنتج أو شرائه أو استهلاكه من قبل فرد يدفع من ماله الخاص ← <strong>ملك فريق B2C</strong>.</div>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--accent-3)">ماستري B2B (فريق قطاع المؤسسات)</h4>
+      <p>طبيعة العمل: <strong>Enterprise LMS + Workforce Development</strong>.</p>
+      <p>مسؤول عن: إدارة الشركات، الأقسام، الموظفين، مسارات التعلم المؤسسية، لوحات تحكم مدراء التدريب، وتقارير الكفاءة.</p>
+      <div class="note"><strong>قاعدة الملكية:</strong> أي ميزة هدفها إدارة تدريب موظفين تابعين لشركة أو إدارة حساب مؤسسي والتحكم بتعلمهم ← <strong>ملك فريق B2B</strong>.</div>
+    </div>
+  </div>
+
+  <h3>الخدمات المشتركة مقابل الخدمات المستقلة</h3>
+  <p>الفصل الإداري والتجاري لا يعني بناء جزر تقنية معزولة دون داعٍ؛ بل يُطبَّق المبدأ المعماري: <strong>"مستقل في منطق الأعمال (Business Logic)، مشترك عندما يكون الاشتراك منطقياً ويحقق الكفاءة"</strong>.</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th>المجال</th><th>حالة الخدمة</th><th>الجهة المسؤولة</th><th>التطبيق في قطاع B2C</th></tr></thead>
+    <tbody>
+      <tr><td>هوية المستخدم (User Identity)</td><td>خدمة مشتركة</td><td>نظام الهوية الموحّد</td><td>تسجيل دخول سلس Passwordless مع ربط الهوية التعليمية والتجارية</td></tr>
+      <tr><td>تخزين وتشغيل الفيديو (Video Infrastructure)</td><td>خدمة مشتركة</td><td>LMS Video Service</td><td>مشغّل الدرس واستهلاك المحتوى يبقى بالكامل في الـLMS</td></tr>
+      <tr><td>مستودع المحتوى والاختبارات (Content &amp; Exams)</td><td>خدمة مشتركة</td><td>LMS Core Engine</td><td>المقررات والدروس والاختبارات تُدار في الـLMS وتُعرَض مراجعها تجارياً في B2C</td></tr>
+      <tr><td>محرك الشهادات الرقمية (Certificates Engine)</td><td>خدمة مشتركة</td><td>LMS Engine</td><td>إصدار شهادات الإتمام الإلكترونية المعتمدة تلقائياً</td></tr>
+      <tr><td>الكتالوج والتسعير والعروض (Pricing &amp; Offers)</td><td><strong>مستقل تماماً لـ B2C</strong></td><td>B2C Commerce Engine</td><td>أسعار بالدولار والعملات المحلية، عروض، كوبونات، حزم خاصة بالأفراد</td></tr>
+      <tr><td>السلة والدفع والطلبات (Cart, Checkout &amp; Orders)</td><td><strong>مستقل تماماً لـ B2C</strong></td><td>B2C Commerce Engine</td><td>سلة موحدة، دفع مباشر عبر Stripe وTabby وTamara، سجل طلبات الأفراد</td></tr>
+      <tr><td>محرك الاشتراكات والباقات (Subscriptions &amp; Bundles)</td><td><strong>مستقل تماماً لـ B2C</strong></td><td>B2C Subscription Engine</td><td>اشتراكات شهرية وسنوية ونموذج Choose-X وباقات مجمعة متنوعة</td></tr>
+      <tr><td>سوق الاستشارات (Consultations Marketplace)</td><td><strong>مستقل تماماً لـ B2C</strong></td><td>B2C Consultation Module</td><td>جدولة المواعيد، الدفع، إنشاء اجتماعات Google Meet تلقائياً</td></tr>
+      <tr><td>مجتمع ماستري والمكافآت (Community &amp; Rewards)</td><td><strong>مستقل تماماً لـ B2C</strong></td><td>B2C Engagement Layer</td><td>مساحات تفاعلية، تشبيك مهني، ونقاط مكافآت لتحفيز تكرار الشراء</td></tr>
+      <tr><td>لوحة التحكم والإدارة (Admin Dashboard)</td><td><strong>مستقل تماماً لـ B2C</strong></td><td>B2C Admin Operating System</td><td>لوحة تحكم تشغيلية شاملة تتيح إدارة الأعمال دون الحاجة للمبرمج</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>مراحل تطور المنتج الخمس</h3>
   <div class="grid">
-    <div class="card"><h4>Commerce</h4><p>البيع، الأسعار، الاشتراكات، الدفع، الخصومات، الباقات، المكافآت.</p></div>
-    <div class="card"><h4>Discovery</h4><p>البحث، التصنيف، التوصية، صفحات المنتجات، الاستكشاف، المحتوى التسويقي.</p></div>
-    <div class="card"><h4>Services &amp; Ecosystem</h4><p>الاستشارات، البرامج المباشرة، مجتمع ماستري، الخدمات الإضافية.</p></div>
+    <div class="card"><h4>1. الأساس (Foundation)</h4><p>الهوية الموحدة، الكتالوج التجاري، العروض، الطلبات، حقوق الوصول (Entitlements)، وتكامل الـLMS الأساسي.</p></div>
+    <div class="card"><h4>2. التجارة (Commerce)</h4><p>صفحات المنتجات، البحث والتصفية، السلة، الدفع الموحد، الكوبونات، الاسترداد (Refunds)، والإدارة التجارية.</p></div>
+    <div class="card"><h4>3. محفظة المنتجات (Portfolio)</h4><p>الباقات المجمعة، الاشتراكات المرنة، نموذج Choose-X، البرامج المباشرة والدفعات، وسوق الاستشارات الفردية.</p></div>
+    <div class="card"><h4>4. المنظومة التفاعلية (Ecosystem)</h4><p>مجتمع ماستري التفاعلي، ونظام ولاء ومكافآت ماستري (Mastery Rewards) لرفع تكرار الشراء.</p></div>
+    <div class="card"><h4>5. النمو والذكاء (Growth &amp; AI)</h4><p>العروض المتقدمة، بناء صفحات الهبوط الترويجية، البحث الدلالي، ومساعد التوصيات وتوليد المسارات الذكية.</p></div>
   </div>
 </section>
 
 <section id="principles">
-  <h2 class="section-title"><span class="num">02</span> المبادئ المعمارية الأساسية</h2>
-  <p class="section-lede">القرارات التي تحكم كل ما يُبنى لاحقاً — لا يُعاد فتحها إلا عند تغيير جوهري في الاستراتيجية.</p>
+  <h2 class="section-title"><span class="num">02</span> المبادئ المعمارية والتجارية الحاكمة</h2>
+  <p class="section-lede">مبادئ أساسية تحسم الخلافات التصميمية والتقنية، وتضمن استقرار النظام التشغيلي والتجاري لسنوات قادمة.</p>
 
-  <div class="card"><p><span class="principle-num">01</span><strong>Course ≠ Product.</strong> الدورة في الـLMS هي Learning Entity (أصل تعليمي)، بينما المنتج التجاري Product هو ما يظهر في المتجر: السعر، صفحة البيع، العروض، مدة الوصول، الكوبونات. نفس الدورة يمكن بيعها بأسعار وباقات وعروض مختلفة دون لمس أصلها في الـLMS.</p></div>
+  <div class="card"><p><span class="principle-num">01</span><strong>Course ≠ Product (الدورة ليست المنتج).</strong> الدورة في الـLMS هي أصل تعليمي (Learning Resource)، بينما المنتج التجاري (Product) هو ما يُعرض في المتجر: العنوان البيعي، العروض، مدة الوصول، السعر، الكوبونات والشهادات المرفقة. نفس الدورة في الـLMS قد تُباع كدورة منفردة بسعر 100$، أو ضمن باقة دبلومة، أو كخيار ضمن اشتراك سنوي، أو مجاناً في حملة تسويقية دون تعديل كود الدورة في الـLMS.</p></div>
 
-  <div class="card"><p><span class="principle-num">02</span><strong>Purchase ≠ Access.</strong> عملية الشراء تُنتج <em class="term">Entitlement</em> (حق وصول) منفصل. هذا يسمح للنظام بمعرفة: ماذا يحق للعميل؟ من أي عملية؟ متى بدأ؟ متى ينتهي؟</p></div>
+  <div class="card"><p><span class="principle-num">02</span><strong>Purchase ≠ Access (الشراء ليس الوصول المباشر).</strong> إتمام الدفع يُنتج كياناً مستقلاً يُدعى <em class="term">Entitlement</em> (حق وصول). هذا الفصل يحمي حقوق العميل ويتيح للنظام معرفة: ما مصدر الحق؟ متى بدأ؟ متى ينتهي؟ هل هو من شراء مباشر، اشتراك، باقة، أم منحة إدارية؟</p></div>
 
-  <div class="card"><p><span class="principle-num">03</span><strong>Subscription ≠ Bundle.</strong> الـBundle مجموعة منتجات تُباع في عملية شراء واحدة. الـSubscription علاقة زمنية متجددة تمنح حقوقاً ومزايا (Entitlements) طوال مدة الاشتراك.</p></div>
+  <div class="card"><p><span class="principle-num">03</span><strong>Subscription ≠ Bundle (الاشتراك ليس باقة مجمعة).</strong> الباقة هي شراء دفعة واحدة لمجموعة منتجات تملكها مدى الحياة أو لعام كامل. الاشتراك هو علاقة مستمرة متجددة تمنح حقوقاً ومزايا تنتهي بانتهاء مدة الاشتراك ولا ترحّل مزاياه إلى فترات لاحقة.</p></div>
 
-  <div class="card"><p><span class="principle-num">04</span><strong>Community ≠ LMS.</strong> المجتمع مكان للتواصل والتعلم الاجتماعي؛ الـLMS مكان التعلم المنظم واستهلاك المحتوى.</p></div>
+  <div class="card"><p><span class="principle-num">04</span><strong>Community ≠ LMS (المجتمع ليس منصة التعلم).</strong> الـLMS مخصص لاستهلاك المحتوى المنظم، مشاهدة الدروس، أداء التمارين، والاختبارات. مجتمع ماستري مخصص للنقاش، التواصل، التشبيك المهني، ومشاركة الخبرات بين الطلاب والخبراء.</p></div>
 
-  <div class="card"><p><span class="principle-num">05</span><strong>B2C مستقل عن B2B.</strong> نظام إدارة مستقل، لا يعتمد تشغيله اليومي على Dashboard قطاع الشركات — لمنع أي تعديل بسيط في قطاع الأفراد من أن يصبح مرهوناً بفريق B2B.</p></div>
+  <div class="card"><p><span class="principle-num">05</span><strong>استقلالية B2C عن B2B.</strong> لا يجوز ربط أي ميزة تجارية أو تعديل سعر أو إطلاق عرض لقطاع الأفراد بفريق B2B أو لوحات تحكم الشركات لتجنب الاختناقات البرمجية والتشغيلية.</p></div>
 
-  <div class="note">القاعدة الذهبية للفصل: <strong>الـLMS يملك المحتوى التعليمي</strong> (Course ID، Modules، Lessons، Progress، Completion، Certificate Logic، Enrollment) — <strong>B2C يملك المعلومات التجارية والتسويقية</strong> (Sales Title/Description، SEO، Price، Offers، Coupons، Access Duration، CPD Options، Landing Page، Merchandising).</p></div>
+  <div class="card"><p><span class="principle-num">06</span><strong>مبدأ استمرارية الأعمال (Business Continuity Principle).</strong> إذا دفع العميل بنجاح، يجب ألا يؤدي أي فشل مؤقت في نظام خارجي (كخلل في الـLMS أو تعثر في خدمة الاجتماعات) إلى ضياع طلب العميل أو أمواله أو حقوقه. الطلب يُحفظ ويُسجل كمدفوع ناجح، وتُحال عملية التنفيذ (Fulfillment) إلى طابور إعادة المحاولة أو المتابعة التشغيلية الفورية.</p></div>
+
+  <div class="card"><p><span class="principle-num">07</span><strong>نزاهة السجل التجاري والأسعار (Price History Integrity).</strong> يحتفظ الطلب بلقطة كاملة وثابتة (Snapshot) لسعر الشروط والعروض وقت العملية. أي تعديل مستقبلي على سعر منتج أو إلغاء باقة لا يغير السجلات المالية والطلبات التاريخية السابقة أبداً.</p></div>
+
+  <div class="card"><p><span class="principle-num">08</span><strong>التقييمات والمراجعات داخلية حصراً (Internal Reviews Only).</strong> لحماية سمعة العلامة التجارية وتوجيه جهود التحسين نحو الجودة الفعلية: التقييمات محصورة بالعملاء المشترين الفعليين (Verified Buyers)، ولا تُعرض النجوم أو التقييمات علناً في صفحات البيع (Hidden from Public PDP)، بل تُوجَّه إلى لوحة تحليلات داخلية لفريق المنتجات والجودة.</p></div>
+
+  <div class="card"><p><span class="principle-num">09</span><strong>الذكاء الاصطناعي أداة ملاءمة وليس صانع قرارات مالية (AI for Relevance, Not Pricing).</strong> الـAI في B2C يُستخدم في التوصيات، البحث الدلالي، واقتراح الباقات الملائمة للعميل، ولا يملك صلاحية تحديد الأسعار أو تخطي القواعد التجارية لقسم التسويق.</p></div>
+
+  <div class="note">القاعدة الذهبية للفصل: <strong>الـLMS يملك المحتوى التعليمي والتقدم والشهادات</strong> — بينما <strong>B2C يملك التجربة التجارية والتسويقية والتسعير والاشتراكات والمجتمع والاستشارات والعمليات اليومية</strong>.</div>
 </section>
 
 <section id="scope">
-  <h2 class="section-title"><span class="num">03</span> نطاق المشروع</h2>
-  <p class="section-lede">تحديد صريح لمنع Scope Creep لاحقاً.</p>
+  <h2 class="section-title"><span class="num">03</span> نطاق العمل (داخل وخارج النطاق)</h2>
+  <p class="section-lede">تحديد واضح وصريح لحدود المشروع يمنع تشتت الجهود (Scope Creep) ويحدد التزامات الفريقين.</p>
 
   <div class="two-col">
     <div class="card">
-      <h4 style="color:var(--accent)">✓ داخل نطاق فريق B2C</h4>
+      <h4 style="color:var(--accent)">✓ داخل نطاق فريق تطوير B2C</h4>
       <ul>
-        <li>الموقع والواجهات العامة + الصفحة الرئيسية</li>
-        <li>البحث والاستكشاف، صفحات المنتجات (دورات، دبلومات، Bundles)</li>
-        <li>الاشتراكات، الاستشارات، البرامج المباشرة، Cohorts</li>
-        <li>مجتمع ماستري</li>
-        <li>Cart، Checkout، الدفع، الطلبات، Refunds</li>
-        <li>الأسعار، العروض، الخصومات، Coupons، Add-ons</li>
-        <li>الشهادات المدفوعة/CPD، Rewards</li>
-        <li>Affiliate Integration، CMS، Merchandising، SEO</li>
-        <li>Analytics، Full Observability</li>
-        <li>B2C Admin Dashboard</li>
-        <li>التكامل مع الـLMS ومع أنظمة الدفع والخدمات الخارجية</li>
+        <li>الموقع الإلكتروني والواجهات العامة وتجربة الجوال الكاملة.</li>
+        <li>البحث المتقدم، التصفية الذكية، والصفحات التعريفية للمنتجات (PDP).</li>
+        <li>تجارة الدورات، الدبلومات، والباقات المركبة (Bundles).</li>
+        <li>منظومة الاشتراكات المرنة (شهري، سنوي، ونموذج Choose-X).</li>
+        <li>البرامج التفاعلية المباشرة وإدارة الدفعات وقوائم الانتظار (Cohorts &amp; Waitlist).</li>
+        <li>سوق الاستشارات المهنية، حجز المواعيد، والتكامل مع Google Meet.</li>
+        <li>مجتمع ماستري (Mastery Community): مساحات عامة وخاصة وتواصل مهني.</li>
+        <li>سلة الشراء (Cart)، السداد السريع (Buy Now)، والدفع الموحد (Unified Checkout).</li>
+        <li>بوابات الدفع (Stripe بالبطاقات وApple/Google Pay، وTabby وTamara للتقسيط).</li>
+        <li>إدارة الطلبات، المدفوعات، وحالات الاسترداد الكامل والجزئي (Refunds).</li>
+        <li>محرك حقوق الوصول (Entitlement Engine) وتمديد الصلاحيات (Extensions).</li>
+        <li>برنامج مكافآت ماستري (Mastery Rewards) والتقسيم المالي (Split Payment).</li>
+        <li>محرك العروض الترويجية والكوبونات (Promotions &amp; Coupons Engine).</li>
+        <li>الشهادات المطبوعة والرقمية المعتمدة (CPD) ومتابعة الشحن الفعلي.</li>
+        <li>نظام إدارة المحتوى (CMS)، بنّاء صفحات الهبوط (Block-based Landing Pages)، وتوزيع المنتجات (Merchandising).</li>
+        <li>الحساب التجاري للعميل (Commercial Account) وسجل الفواتير.</li>
+        <li>لوحة تحكم B2C Admin المستقلة لإدارة العمليات بالكامل.</li>
+        <li>مركز متابعة الأعطال التشغيلية (Operations Center) والتدقيق (Audit Logs).</li>
+        <li>محرك المزامنة والتكامل مع الـLMS (LMS Adapter &amp; Webhooks).</li>
+        <li>التتبع التسويقي والتحليلي الكامل (GA4, Pixels, Observability).</li>
       </ul>
     </div>
     <div class="card">
-      <h4 style="color:var(--accent-2)">✕ خارج نطاق المشروع</h4>
-      <p><strong>الـLMS الحالي:</strong> Video Player، Lessons، Modules، Progress، Learning Dashboard، الاختبارات، Completion Logic — نتكامل معها عبر API فقط.</p>
-      <p><strong>Student Profile:</strong> البيانات الشخصية، إدارة كلمة المرور، My Courses، السجل التعليمي — موجود ولا يُعاد بناؤه (استثناء: Community Profile بسيط للتواصل).</p>
-      <p style="margin-top:16px"><strong>لا نبني:</strong></p>
+      <h4 style="color:var(--accent-2)">✕ خارج نطاق المشروع (Out of Scope)</h4>
       <ul>
-        <li>LMS جديد أو Student Profile جديد</li>
-        <li>Affiliate Platform بديلة عن Tolt</li>
-        <li>Payment Gateway أو Tax Engine أو Invoice Engine خاص (تكفي Stripe)</li>
-        <li>Video Conferencing خاص أو شبكة اجتماعية عامة</li>
-        <li>Microservices معقدة لمجرد التعقيد، أو AI Features بلا Business Use واضح</li>
+        <li><strong>إعادة بناء الـLMS:</strong> مشغل الفيديو (Video Player)، هيكل الدروس والوحدات، وتتبع نسبة مشاهدة الدقائق.</li>
+        <li><strong>محرك الاختبارات:</strong> بنك الأسئلة، الاختبارات القصيرة، والاختبارات النهائية المعتمدة.</li>
+        <li><strong>الملف التعليمي للطالب:</strong> سجل الدروس المكتملة وواجهات المذاكرة داخل الـLMS.</li>
+        <li><strong>منصة الشركات (B2B):</strong> لوحات التدريب المؤسسي، حسابات المنظمات، والمسارات الوظيفية للشركات.</li>
+        <li><strong>بناء بوابة دفع خاصة:</strong> الاعتماد على Stripe وTabby وTamara دون اختراع بوابات مالية.</li>
+        <li><strong>بناء محرك ضرائب أو فواتير مستقل:</strong> الاعتماد الكامل على Stripe Tax وفواتير Stripe المعتمدة.</li>
+        <li><strong>بناء منصة تسويق بالعمولة بديلة:</strong> الاعتماد على منصة Tolt كمرجع رسمي لبرنامج الإحالة والعمولات.</li>
+        <li><strong>بناء منصة اجتماعات مرئية خاصة:</strong> التكامل التلقائي مع Google Meet (أو Zoom) دون تطوير أداة اتصال.</li>
+        <li><strong>التقييمات العامة للجمهور:</strong> إلغاء إظهار النجوم والمراجعات على صفحات البيع العامة.</li>
+        <li><strong>بناء شبكة تواصل اجتماعي عامة:</strong> مجتمع ماستري مساحة تواصل مهني وتعلمي محصورة بالمشتركين.</li>
       </ul>
     </div>
   </div>
-  <div class="note">المبدأ الحاكم: <strong>نبني ما يمثل قيمة تنافسية لماستري، ونتكامل مع الأنظمة الجيدة فيما لا يمثل ميزة تنافسية.</strong></div>
+  <div class="note">المبدأ الاستراتيجي الذهبي: <strong>"نبني ونملك ما يمنح ماستري ميزة تنافسية وتجارية حقيقية، ونتكامل مع أفضل الأنظمة والحلول العالمية فيما عدا ذلك دون إعادة اختراع العجلة."</strong></div>
 </section>
 
-<section id="personas">
-  <h2 class="section-title"><span class="num">04</span> شخصيات المستخدمين (Personas)</h2>
-  <p class="section-lede">الفئات الأساسية التي يجب أن تصمَّم تجربة B2C من أجلها — على جانبي الطلب (العميل) والعرض (المدرب/المستشار/المسوق) وداخلياً (فريق التشغيل).</p>
+<section id="segments">
+  <h2 class="section-title"><span class="num">04</span> شرائح العملاء وشخصيات المستخدمين</h2>
+  <p class="section-lede">تصميم تجربة B2C يتم بناءً على فهم دقيق لشرائح السوق المهني العربي، مع تلبية احتياجات جميع أطراف المنظومة (المتعلم، الخبير، وفريق العمل).</p>
 
+  <h3>شرائح السوق المستهدفة (Market Segments)</h3>
+  <div class="grid-3">
+    <div class="card">
+      <h4>1. الموظفون (Employees)</h4>
+      <p>يسعون لاكتساب مهارات عملية فورية تساعدهم في الترقية وزيادة الدخل والحصول على شهادات مهنية معتمدة تدعم مسيرتهم.</p>
+    </div>
+    <div class="card">
+      <h4>2. المدراء والمشرفون (Managers)</h4>
+      <p>يحتاجون مهارات القيادة، إدارة الفرق، حل النزاعات، والتخطيط التشغيلي، ويفضلون الاستشارات المتخصصة والبرامج المباشرة.</p>
+    </div>
+    <div class="card">
+      <h4>3. الإدارة العليا (Executives)</h4>
+      <p>صناع قرار يبحثون عن حلول مركزة وجلسات استشارية فردية مع خبراء معتمدين لتطوير الأعمال وبناء الاستراتيجيات.</p>
+    </div>
+    <div class="card">
+      <h4>4. رواد الأعمال (Entrepreneurs)</h4>
+      <p>يبحثون عن باقات متكاملة تجمع التسويق، المبيعات، الإدارة المالية، وتأسيس المشاريع، مع الاستفادة من مجتمع ماستري للتشبيك.</p>
+    </div>
+    <div class="card">
+      <h4>5. أصحاب المشاريع (Business Owners)</h4>
+      <p>يحتاجون أدوات وحلولاً تطبيقية تنمي مبيعاتهم وتضبط سلاسل الإمداد والتسويق الرقمي لمنشآتهم الحالية.</p>
+    </div>
+    <div class="card">
+      <h4>6. المستقلون (Freelancers)</h4>
+      <p>يركزون على المهارات الرقمية العالية المطلوبة في سوق العمل الحر، ويفضلون الشراء المقسّط ونظام نقاط المكافآت.</p>
+    </div>
+    <div class="card">
+      <h4>7. المتحولون مهنياً (Career Switchers)</h4>
+      <p>يحتاجون مسارات تأهيلية طويلة ودبلومات شاملة تنقلهم من تخصص إلى آخر مع دعم التوجيه والارشاد المهني.</p>
+    </div>
+  </div>
+
+  <h3>شخصيات المستخدمين التفصيلية (Personas)</h3>
   <div class="grid">
     <div class="persona">
       <div class="avatar">🎯</div>
       <h4>سلمى — الموظفة الطموحة</h4>
       <div class="role">Buyer · Skill Upgrader</div>
       <dl>
-        <dt>الهدف</dt><dd>ترقية سريعة عبر اكتساب مهارة محددة (تسويق رقمي، إدارة مشاريع...) بشهادة معتمدة.</dd>
-        <dt>سلوك الشراء</dt><dd>حساسة للسعر، تقارن، تبحث بالكلمة المفتاحية أو بالتصنيف، تفضل الدفع بالتقسيط (Tabby/Tamara).</dd>
-        <dt>نقطة الاحتكاك</dt><dd>صعوبة التمييز بين دورة، دبلومة، وباقة — تحتاج Banner توضيحي وفلاتر واضحة.</dd>
-        <dt>المنتجات المرتبطة</dt><dd>Course، Bundle، Coupons، Rewards.</dd>
+        <dt>الهدف</dt><dd>ترقية سريعة في شركتها عبر إتقان مهارة محددة (مثل التسويق الرقمي أو تحليل البيانات) والحصول على اعتماد CPD معتمد.</dd>
+        <dt>سلوك الشراء</dt><dd>تقارن الخيارات، تبحث بالكلمة المفتاحية، تفضل الدفع بالتقسيط عبر Tabby أو Tamara، وتستفيد من الخصومات ونقاط المكافآت.</dd>
+        <dt>الحل في B2C</dt><dd>صفحات دورات شفافة، وضوح خيارات الشهادات (إلكترونية / مطبوعة)، وتجربة سداد مرنة بنقرة واحدة.</dd>
       </dl>
     </div>
 
@@ -409,391 +522,567 @@ footer{
       <h4>علي — المتحول المهني</h4>
       <div class="role">Buyer · Career Switcher</div>
       <dl>
-        <dt>الهدف</dt><dd>تأهيل شامل للانتقال لمجال جديد؛ يبحث عن مسار متكامل لا دورة واحدة.</dd>
-        <dt>سلوك الشراء</dt><dd>يقضي وقتاً أطول في الاستكشاف، يستخدم البحث بالنص الحر/الذكاء الاصطناعي لوصف حاجته بدل الكلمات المفتاحية.</dd>
-        <dt>نقطة الاحتكاك</dt><dd>لا يعرف أي Diploma تناسبه — يحتاج AI Bundle Builder أو توصية مبنية على الهدف والمستوى والوقت المتاح.</dd>
-        <dt>المنتجات المرتبطة</dt><dd>Diploma، Live Program، Subscription، Community (Cohort الخاص بدفعته).</dd>
+        <dt>الهدف</dt><dd>الانتقال الكامل لمجال تقني أو إداري جديد، ويبحث عن برنامج تعليمي مكثف ودبلومة متكاملة تضمن له الجاهزية.</dd>
+        <dt>سلوك الشراء</dt><dd>يستكشف خيارات متنوعة، يشارك في مجتمع ماستري للتواصل مع خريجي دفعات سابقة، ويفضل اشتراكات سنوية أو برامج تفاعلية مباشرة.</dd>
+        <dt>الحل في B2C</dt><dd>دبلومات مهنية واضحة، باقات مجمعة (Bundles)، ونموذج اشتراك Choose-X لاختيار مساره خطوة بخطوة.</dd>
       </dl>
     </div>
 
     <div class="persona">
       <div class="avatar">👔</div>
       <h4>عبدالعزيز — المدير التنفيذي</h4>
-      <div class="role">Buyer · Decision Maker</div>
+      <div class="role">Buyer · Executive Decision Maker</div>
       <dl>
-        <dt>الهدف</dt><dd>حل مشكلة محددة وعاجلة (قيادة فريق، تفاوض) عبر جلسة مباشرة مع خبير، لا عبر دورة مسجّلة.</dd>
-        <dt>سلوك الشراء</dt><dd>يبحث عن مستشار محدد أو تخصص، يحجز موعداً فورياً، أقل حساسية للسعر وأكثر حساسية للوقت.</dd>
-        <dt>نقطة الاحتكاك</dt><dd>لا يريد Hold طويل على الموعد، ويحتاج تأكيد فوري (Google Meet) وتذكيرات موثوقة.</dd>
-        <dt>المنتجات المرتبطة</dt><dd>Consultation، Subscription (رصيد استشارات ضمن باقة Pro).</dd>
+        <dt>الهدف</dt><dd>حل أزمة إدارية أو تفاوضية طارئة عبر جلسة توجيه فردية ومباشرة مع استشاري خبير، ولا وقت لديه للدورات المسجلة الطويلة.</dd>
+        <dt>سلوك الشراء</dt><dd>يبحث بالخبير وتخصصه، يحجز موعداً مؤكداً فوراً بالبطاقة أو Apple Pay، وتهمه الدقة وعدم تضارب المواعيد وسرعة التذكيرات.</dd>
+        <dt>الحل في B2C</dt><dd>سوق استشارات احترافي مع تقويم لحظي، تأكيد فوري عبر Google Meet، وإمكانية إعادة الجدولة الميسرة.</dd>
       </dl>
     </div>
 
     <div class="persona">
       <div class="avatar">🎓</div>
-      <h4>د. هند — المدربة / المستشارة</h4>
+      <h4>د. هند — المدربة والمستشارة</h4>
       <div class="role">Supply Side · Instructor &amp; Consultant</div>
       <dl>
-        <dt>الهدف</dt><dd>عرض خدماتها الاستشارية وبناء سمعتها المهنية عبر ماستري دون إدارة تقنية معقدة.</dd>
-        <dt>احتياجها</dt><dd>ملف شخصي احترافي، إدارة الـAvailability بنفسها، رؤية الحجوزات والتقييمات.</dd>
-        <dt>نقطة الاحتكاك</dt><dd>تعارض المواعيد إن لم يوجد Atomic Availability Check عند تأكيد الحجز.</dd>
-        <dt>المنتجات المرتبطة</dt><dd>Consultation Services، Instructor Profile، Reviews Dashboard.</dd>
+        <dt>الهدف</dt><dd>تسويق خبراتها ودوراتها وتقديم جلسات استشارية مدفوعة لجمهور ماستري الواسع دون الدخول في تفاصيل تقنية وفواتير معقدة.</dd>
+        <dt>احتياجها</dt><dd>ملف تعريفي فخم، ربط تلقائي ببرامجها ودوراتها، تحكم كامل بجدول مواعيدها المتاحة، واستقرار رابط الاجتماع.</dd>
+        <dt>الحل في B2C</dt><dd>صفحة خبير متكاملة (Public Expert Page)، إدارة التوفر بسهولة، وفحص ذري يمنع الحجز المزدوج لمواعيدها.</dd>
       </dl>
     </div>
 
     <div class="persona">
       <div class="avatar">📣</div>
       <h4>يوسف — المسوّق بالعمولة</h4>
-      <div class="role">Growth Partner · Affiliate</div>
+      <div class="role">Growth Partner · Affiliate Marketer</div>
       <dl>
-        <dt>الهدف</dt><dd>تحقيق عمولة عبر الترويج لمنتجات ماستري لجمهوره على وسائل التواصل.</dd>
-        <dt>احتياجه</dt><dd>رابط تتبع موثوق، تقارير تحويل شفافة (عبر Tolt)، صفحات هبوط مخصصة للحملات.</dd>
-        <dt>نقطة الاحتكاك</dt><dd>فقدان الإسناد (Attribution) بين نقرة الإعلان وإتمام الشراء.</dd>
-        <dt>المنتجات المرتبطة</dt><dd>Affiliate Codes، Campaign Landing Pages، Campaign Attribution.</dd>
+        <dt>الهدف</dt><dd>تحقيق دخل مجزٍ عبر الترويج لدورات ودبلومات ماستري لقاعدته الجماهيرية على منصات التواصل الاجتماعي.</dd>
+        <dt>احتياجه</dt><dd>روابط تتبع دقيقة، شفافية كاملة في احتساب المبيعات والعمولات، وصفحات هبوط مخصصة لكل حملة ترفع معدل التحويل.</dd>
+        <dt>الحل في B2C</dt><dd>تكامل سلس وموثوق مع منصة Tolt لالتقاط الإسناد (Attribution) وإرسال عمليات التحويل بدقة.</dd>
       </dl>
     </div>
 
     <div class="persona">
       <div class="avatar">🛠️</div>
-      <h4>فريق تشغيل ماستري</h4>
-      <div class="role">Internal · B2C Operations Team</div>
+      <h4>فريق عمليات وتشغيل ماستري</h4>
+      <div class="role">Internal · Operations, Support &amp; Marketing</div>
       <dl>
-        <dt>الهدف</dt><dd>تشغيل B2C يومياً (أسعار، عروض، Refunds، Banners) دون فتح Code أو الاعتماد على مبرمج.</dd>
-        <dt>احتياجه</dt><dd>B2C Admin شامل، Audit Log لكل تغيير مالي، تنبيهات عند فشل التنفيذ (Fulfillment).</dd>
-        <dt>نقطة الاحتكاك</dt><dd>طلبات "دُفعت ولم تُفعَّل" بلا رؤية واضحة للسبب — تحتاج Full Observability.</dd>
+        <dt>الهدف</dt><dd>إدارة المنظومة اليومية: إطلاق المنتجات، تعديل الأسعار والعروض، معالجة شكاوى العملاء، وتنفيذ الاسترداد دون الاعتماد على المطورين.</dd>
+        <dt>احتياجه</dt><dd>لوحة تحكم B2C مستقلة، شاشة عميل 360، طابور للمشاكل العالقة، وسجل تدقيق (Audit Log) صارم لكل حركة مالية.</dd>
+        <dt>الحل في B2C</dt><dd>نظام تشغيل تجاري متكامل يحتوي مركز معالجة الأعطال التشغيلية (Operations Center) ومراقبة لحظية كاملة.</dd>
       </dl>
     </div>
   </div>
 </section>
 
+<section id="revenue">
+  <h2 class="section-title"><span class="num">05</span> نماذج الإيراد ومحفظة المنتجات التجارية</h2>
+  <p class="section-lede">بنية تجارية متعددة الروافد تنقل ماستري من نموذج المعاملة الواحدة إلى تعظيم القيمة الدائمة للعميل (Customer Lifetime Value).</p>
+
+  <h3>نماذج الإيرادات الستة (Revenue Models)</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>1. الشراء لمرة واحدة (One-Time Purchase)</h4>
+      <p>شراء مباشر لدورة فردية، دبلومة مسجلة، باقة مجمعة، أو برنامج مباشر بدفعة واحدة.</p>
+    </div>
+    <div class="card">
+      <h4>2. الاشتراكات المتكررة (Recurring Subscriptions)</h4>
+      <p>إيرادات شهرية وسنوية متكررة ومستقرة (MRR / ARR) تتيح الوصول إلى مكتبات أو حصص محددة.</p>
+    </div>
+    <div class="card">
+      <h4>3. العضويات المستقلة (Membership)</h4>
+      <p>اشتراك مدفوع في مجتمع ماستري للاستفادة من الفعاليات الخاصة، مساحات النقاش، والتشبيك المهني.</p>
+    </div>
+    <div class="card">
+      <h4>4. إيرادات تمديد الوصول (Extension Revenue)</h4>
+      <p>رسوم تمديد صلاحية الوصول للمحتوى بعد انتهاء العام الأول (3 أشهر، سنة، أو مدى الحياة).</p>
+    </div>
+    <div class="card">
+      <h4>5. إيرادات الشهادات والخدمات المادية (Certifications)</h4>
+      <p>شراء الشهادات المطبوعة الفاخرة، اعتمادات التطوير المهني المستمر (CPD) الرقمية والمطبوعة، ورسوم الشحن الدولي.</p>
+    </div>
+    <div class="card">
+      <h4>6. إيرادات الخدمات المهنية (Professional Services)</h4>
+      <p>رسوم حجز الجلسات الاستشارية التخصصية الفردية مع الخبراء والمستشارين المعتمدين.</p>
+    </div>
+  </div>
+
+  <h3>محفظة المنتجات التجارية (Product Portfolio Breakdown)</h3>
+  <div class="table-scroll"><table>
+    <thead><tr><th>نوع المنتج</th><th>نموذج البيع</th><th>مدة الوصول الافتراضية</th><th>المزايا والشروط التجارية</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>الدورة التدريبية (Course)</strong></td>
+        <td>شراء لمرة واحدة (One-time)</td>
+        <td>سنة واحدة (365 يوماً)</td>
+        <td>شراء شهري ممنوع نهائياً. تشمل الشهادة الإلكترونية. تقبل التمديد بعد الانتهاء (3 أشهر، سنة، مدى الحياة). لا تتضمن دخول المجتمع تلقائياً.</td>
+      </tr>
+      <tr>
+        <td><strong>الدبلومة المهنية (Diploma)</strong></td>
+        <td>شراء لمرة واحدة أو قسط</td>
+        <td>سنة واحدة</td>
+        <td>تتكون من مساق واحد أو عدة مساقات مجمعة (Recorded, Live, Hybrid). تُعامل كمنتج تجاري مستقل في المتجر.</td>
+      </tr>
+      <tr>
+        <td><strong>البرنامج المباشر والدفعات (Live Programs &amp; Cohorts)</strong></td>
+        <td>حجز مقعد بالدفعة</td>
+        <td>مدة البرنامج + فترة وصول محددة</td>
+        <td>إدارة دقيقة للسعة الاستيعابية للمقاعد، دعم حالة "اكتمال العدد" (Sold Out)، وخاصية الانضمام لقائمة الانتظار (Waitlist).</td>
+      </tr>
+      <tr>
+        <td><strong>الباقات المجمعة (Composite Bundles)</strong></td>
+        <td>شراء لمرة واحدة بسعر مخفّض</td>
+        <td>حسب شروط مكونات الباقة</td>
+        <td>تركيبة حرة تجمع دورات، دبلومات، استشارة، واشتراك مجتمع. سعر الباقة مستقل عن مجموع الأسعار الفردية.</td>
+      </tr>
+      <tr>
+        <td><strong>الاشتراك الشهري والسنوي (Standard Subscription)</strong></td>
+        <td>دفع متكرر (Auto-renew)</td>
+        <td>مدة سريان الاشتراك فقط</td>
+        <td>تتيح الوصول للمكتبة الكاملة أو أقسام محددة. تنتهي الحقوق فور إلغاء أو انتهاء الاشتراك، ولا ترحل المزايا غير المستخدمة.</td>
+      </tr>
+      <tr>
+        <td><strong>اشتراك "اختر دوراتك" (Choose-X Subscription)</strong></td>
+        <td>اشتراك سنوي فقط (Annual Only)</td>
+        <td>سنة اشتراك كاملة</td>
+        <td>رصيد سنوي محدد (مثل 10 دورات سنوياً). اختيار تدريجي. إمكانية استبدال الدورة فقط قبل بدء دراستها (`learning_started=false`). لا ترحيل للمتبقي.</td>
+      </tr>
+      <tr>
+        <td><strong>الاستشارات الفردية (Consultations)</strong></td>
+        <td>حجز موعد وسداد إلكتروني</td>
+        <td>جلسة محددة بالتاريخ والوقت</td>
+        <td>ربط لحظي بجدول الخبير، فحص ذري لمنع التضارب، رابط Google Meet فوري، إعادة جدولة حتى 6 ساعات قبل الموعد، ولا استرداد تلقائي لإلغاء العميل.</td>
+      </tr>
+      <tr>
+        <td><strong>مجتمع ماستري (Mastery Community)</strong></td>
+        <td>منتج مستقل أو ميزة باقة</td>
+        <td>شهري أو سنوي</td>
+        <td>مساحات تفاعلية، تشبيك مهني، فعاليات حية، ومساحات خاصة بكل دفعة تدريبية. لا يُمنح تلقائياً عند شراء دورة مفردة.</td>
+      </tr>
+      <tr>
+        <td><strong>الشهادات المطبوعة واعتمادات CPD</strong></td>
+        <td>خدمة إضافية مدفوعة (Add-on)</td>
+        <td>منتج دائم</td>
+        <td>الشهادة الإلكترونية مشمولة؛ شهادة ماستري المطبوعة مدفوعة، اعتماد CPD الرقمي (مشمول أو مدفوع)، واعتماد CPD المطبوع مدفوع دائماً مع إدارة الشحن.</td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="rules">
+  <h2 class="section-title"><span class="num">06</span> سجل القواعد التجارية الحاكمة (Global Business Rules Catalogue)</h2>
+  <p class="section-lede">مصفوفة القواعد الصارمة التي تحكم تشغيل النظام، الفوترة، إدارة الحقوق، والتعاملات المالية دون استثناء.</p>
+
+  <div class="table-scroll"><table>
+    <thead><tr><th>المجال التجاري</th><th>القاعدة الصارمة المعتمدة</th><th>الهدف والمنطق التجاري</th></tr></thead>
+    <tbody>
+      <tr><td>مدة وصول الدورات</td><td>سنة كاملة افتراضياً (365 يوماً)</td><td>منع الوصول العشوائي غير المحدود وتأسيس إيرادات تمديد سنوية.</td></tr>
+      <tr><td>مدة وصول الدبلومات</td><td>سنة كاملة افتراضياً</td><td>إتاحة الوقت الكافي للإنهاء مع المحافظة على قيمة البرنامج.</td></tr>
+      <tr><td>خيارات تمديد الوصول (Extensions)</td><td>3 أشهر / 12 شهراً / مدى الحياة (Lifetime)</td><td>خيارات تسعيرية محددة تمنع الفوضى وتلبي رغبات التمديد المختلفة.</td></tr>
+      <tr><td>الشراء الشهري للدورات</td><td><strong>ممنوع نهائياً</strong></td><td>لا تباع الدورات الفردية باشتراك شهري، الاشتراكات الشهرية للباقات فقط.</td></tr>
+      <tr><td>الاشتراكات العامة</td><td>شهرية وسنوية مع تجديد تلقائي (Auto-renewal)</td><td>تأمين إيرادات متكررة مستقرة (MRR / ARR) مع تمكين الإلغاء في نهاية الفترة.</td></tr>
+      <tr><td>اشتراك Choose-X</td><td><strong>سنوي فقط (Annual Only)</strong></td><td>منع استغلال الحسابات شهرياً لاستهلاك دورات مكثفة ثم الإلغاء.</td></tr>
+      <tr><td>استبدال الدورات في Choose-X</td><td>مسموح به <strong>فقط قبل بدء التعلم</strong> (`learning_started=false`)</td><td>بمجرد فتح الدرس الأول تصبح الدورة محجوزة نهائياً من الرصيد السنوي.</td></tr>
+      <tr><td>ترحيل رصيد Choose-X</td><td><strong>غير مسموح إطلاقاً (No Rollover)</strong></td><td>عند حلول موعد التجديد السنوي يبدأ رصيد سنوي جديد وتلغى المتبقيات السابقة.</td></tr>
+      <tr><td>ترحيل مزايا الاشتراكات</td><td><strong>غير مسموح إطلاقاً (No Rollover)</strong></td><td>المزايا غير المستخدمة (استشارات، جلسات) تسقط بنهاية دورة الفوترة.</td></tr>
+      <tr><td>عضوية مجتمع ماستري</td><td><strong>لا تُمنح تلقائياً عند شراء دورة عادية</strong></td><td>الحفاظ على قيمة المجتمع كمنتج متميز مستقل أو ميزة خاصة للباقات والاشتراكات.</td></tr>
+      <tr><td>التقييمات والمراجعات</td><td>للعملاء المشترين الفعليين فقط (Verified Buyers)</td><td>منع التقييمات الوهمية أو الكيدية وضمان مصداقية التغذية الراجعة.</td></tr>
+      <tr><td>ظهور التقييمات</td><td><strong>داخلية فقط (Internal-only) — مخفية عن العامة</strong></td><td>حماية هوية المنتجات وتوجيه التقييم كأداة تطوير جودة لإدارة ماستري فقط.</td></tr>
+      <tr><td>اكتساب نقاط المكافآت (Earn)</td><td><strong>كل 1$ مدفوع فعلياً = 10 نقاط ماستري</strong></td><td>معادلة واضحة وسهلة الفهم تحفز العميل على تكرار الشراء.</td></tr>
+      <tr><td>استبدال نقاط المكافآت (Redemption)</td><td><strong>كل 1,000 نقطة = 10$ خصم في الفاتورة</strong></td><td>خصم مالي مباشر وشفاف على أي عملية شراء قادمة.</td></tr>
+      <tr><td>صلاحية نقاط المكافآت</td><td><strong>النقاط لا تنتهي صلاحيتها أبداً (No Expiry)</strong></td><td>بناء ثقة عميقة وتشجيع العميل على تجميع الرصيد والعودة في أي وقت.</td></tr>
+      <tr><td>السحب النقدي للمكافآت</td><td><strong>ممنوع منعاً باتاً (No Cash Out / No Independent Wallet)</strong></td><td>النقاط رصيد ولاء ترويجي مخصص للخصم عند الشراء فقط، وليست حساباً بنكياً.</td></tr>
+      <tr><td>الدفع المدمج (Split Payment)</td><td>مسموح (نقاط مكافآت + بطاقة دفع أو تقسيط)</td><td>تخفيض قيمة الفاتورة برصيد النقاط ودفع الباقي بوسائل الدفع الإلكترونية.</td></tr>
+      <tr><td>اكتساب النقاط في الدفع المدمج</td><td>تُكتسب النقاط <strong>على الجزء المدفوع مالياً فقط</strong></td><td>منع تدوير النقاط بشكل لا نهائي وحماية هامش الربحية.</td></tr>
+      <tr><td>إعادة جدولة الاستشارات</td><td>متاحة للعميل ذاتياً حتى <strong>6 ساعات قبل الموعد</strong></td><td>منع هدر وقت المستشارين مع إعطاء مرونة كافية للمستفيدين.</td></tr>
+      <tr><td>إلغاء الاستشارة من طرف العميل</td><td><strong>لا استرداد مالي تلقائي</strong></td><td>حماية جدول الخبير؛ يمكن تحويلها لإعادة جدولة بتدخل خدمة العملاء إذا لزم الأمر.</td></tr>
+      <tr><td>إلغاء الاستشارة من طرف المستشار</td><td>تأكيد الإلغاء وتمكين العميل من إعادة الحجز فوراً</td><td>حفظ حق العميل مع إشعاره الفوري والاعتذار وتوفير بدائل مناسبة.</td></tr>
+      <tr><td>بوابات الدفع الرسمية</td><td>Stripe (رئيسي) + Tabby وTamara (تقسيط إقليمي)</td><td>توفير خيارات دفع عالمية ومحلية تغطي بطاقات الائتمان ومدى وApple Pay وBNPL.</td></tr>
+      <tr><td>استمرارية المعاملات المالية</td><td>نجاح الدفع يثبت المعاملة ولا يلغيها أي تعطل خارجي</td><td>حماية أموال العميل وتفعيل الوصول اليدوي أو عبر طابور المعالجة الآلي فوراً.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
 <section id="modules">
-  <h2 class="section-title"><span class="num">05</span> المنظومات والوحدات (Modules)</h2>
-  <p class="section-lede">النظام مقسَّم إلى تسع منظومات رئيسية، كل منها تحتوي وحدات وظيفية محددة.</p>
+  <h2 class="section-title"><span class="num">07</span> المنظومات والوحدات الوظيفية التسع</h2>
+  <p class="section-lede">هيكلية المنتجات والوحدات الأساسية التي تتكامل لتشغيل قطاع الأفراد كمنظومة مستقلة قابلة للتوسع والتطوير المستمر.</p>
 
   <div class="grid">
-    <div class="card"><h4>A. Public Website &amp; Discovery</h4><p>الرئيسية، التصنيفات، صفحات البحث/الاستكشاف، صفحات المنتجات، Landing Pages، FAQ، About/Contact/Policies، SEO الديناميكي، التحقق من الشهادات (إن بقي في B2C).</p></div>
-    <div class="card"><h4>B. Product Catalog</h4><p>إدارة Product Types متعددة: Course، Diploma/Program، Bundle، Consultation، Subscription، Live Program، Community، Add-on. + Instructor/Consultant Management.</p></div>
-    <div class="card"><h4>C. Commerce Engine</h4><p>Pricing، Geo Pricing، Discounts، Coupons، Promo/Affiliate Codes، Cart، Checkout، Orders، Payments، Invoices، Refunds (كامل/جزئي)، Failed Payments &amp; Retry، Upsell/Cross-sell، Order Bumps، Abandoned Cart، Buy Now.</p></div>
-    <div class="card"><h4>D. Customer Acquisition &amp; Growth</h4><p>Wishlist، Recently Viewed، Related Products، Frequently Bought Together، Recommended For You، Bestseller/Trending/New/Free، Offers، Campaign Pages، Lead Capture، Newsletter، Referral، Affiliate، Reviews &amp; Social Proof، Campaign Attribution.</p></div>
-    <div class="card"><h4>E. Consultation Marketplace</h4><p>Consultant → Service → Duration/Price → Availability → Booking → Payment → Confirmation → Appointment، مع Reschedule/Cancel/Refund/No-show/Reminders/Timezone.</p></div>
-    <div class="card"><h4>F. Subscription System</h4><p>Subscription Builder (Billing، Fixed Content، Choice Allowance، Catalog Access، Consultation Credits، Live Programs، Certificate Benefits، Discounts) + Entitlement Engine.</p></div>
-    <div class="card"><h4>G. Community &amp; Rewards</h4><p><strong>Community:</strong> General Spaces + Eligible Product/Cohort Spaces (Engagement Product). <strong>Rewards:</strong> نقاط عند الشراء، استخدامها جزئياً في طلبات لاحقة (Retention Mechanism).</p></div>
-    <div class="card"><h4>H. B2C Admin &amp; Operations</h4><p>إدارة كاملة للمنتجات/الأسعار/العروض/الاشتراكات/الاستشارات/المجتمع/المكافآت/المحتوى التسويقي دون فتح Code (Operational Layer).</p></div>
-    <div class="card"><h4>I. Integration &amp; Measurement Layer</h4><p>LMS Adapter، Payment Orchestrator، Auth، Analytics، Full Observability، Audit، Notifications (Email/WhatsApp/Push).</p></div>
+    <div class="card">
+      <h4>A. واجهات المتجر والاستكشاف (Public Website &amp; Discovery)</h4>
+      <p>الواجهة الرئيسية، صفحات التصنيفات، محرك البحث الدلالي المتقدم، صفحات تعريف المنتجات (PDP)، بنّاء صفحات الهبوط الترويجية، الأسئلة الشائعة، التحقق من الشهادات، والتوافق الكامل مع محركات البحث (SEO).</p>
+    </div>
+    <div class="card">
+      <h4>B. كتالوج المنتجات والموارد (Product Catalog &amp; Resources)</h4>
+      <p>إدارة كافة أصناف المنتجات: الدورات، الدبلومات، الباقات، الاشتراكات، الاستشارات، البرامج المباشرة، والمجتمع، مع ربطها بالموارد التعليمية ومصادر الـLMS، وإدارة ملفات الخبراء والمستشارين.</p>
+    </div>
+    <div class="card">
+      <h4>C. محرك التجارة والسداد (Commerce Engine)</h4>
+      <p>محرك التسعير والعملات المحلية (Geo Pricing)، سلة الشراء، الشراء السريع بنقرة واحدة، السداد الموحد لكافة المنتجات، إدارة الكوبونات والعروض الترويجية، إدارة الطلبات، ومحرك بوابات الدفع (Payment Orchestrator).</p>
+    </div>
+    <div class="card">
+      <h4>D. محرك حقوق الوصول والتنفيذ (Entitlement &amp; Fulfillment Engine)</h4>
+      <p>منح وإدارة وتمديد حقوق الوصول للمنتجات والخدمات (Entitlements)، وتفكيك الطلبات المجمعة إلى مهام تنفيذية آلية تسجل المتعلم في الـLMS وتمنحه صلاحيات المجتمع والاستشارات بسلاسة وموثوقية.</p>
+    </div>
+    <div class="card">
+      <h4>E. سوق الاستشارات المهنية (Consultation Marketplace)</h4>
+      <p>منظومة حجز الجلسات الاستشارية: خدمات المستشارين، ضبط الجداول والتوفر، فحص التضارب اللحظي (Atomic Check)، السداد، التوليد التلقائي لروابط Google Meet، التذكيرات، وإعادة الجدولة والإلغاء.</p>
+    </div>
+    <div class="card">
+      <h4>F. محرك الاشتراكات المرنة (Subscription Engine)</h4>
+      <p>بناء باقات الاشتراكات المرنة وإدارتها: الفوترة الدورية (شهري وسنوي)، اشتراكات المكتبة الكاملة، نموذج "اختر دوراتك" (Choose-X) السنوي، إدارة التجديد التلقائي، والإلغاء في نهاية الفترة.</p>
+    </div>
+    <div class="card">
+      <h4>G. مجتمع ماستري ونظام المكافآت (Community &amp; Rewards)</h4>
+      <p>مساحات المجتمع العامة ومساحات الدفعات الخاصة (Cohorts)، الملف المهني للأعضاء، التشبيك، إلى جانب برنامج مكافآت ماستري الشامل لاكتساب واستبدال النقاط لدعم تكرار الشراء والولاء.</p>
+    </div>
+    <div class="card">
+      <h4>H. لوحة تشغيل B2C والعمليات (B2C Admin &amp; Operations Center)</h4>
+      <p>نظام تشغيل تجاري وإداري متكامل يمكّن فرق الأعمال من إدارة المنتجات، الأسعار، العروض، العملاء، ومتابعة طابور الأعطال التشغيلية (Needs Attention Queue) وسجلات التدقيق دون الحاجة للمبرمج.</p>
+    </div>
+    <div class="card">
+      <h4>I. طبقة التكامل والشفافية (Integration &amp; Observability)</h4>
+      <p>محول الـLMS (LMS Adapter)، تكامل بوابات الدفع والضرائب وفواتير Stripe، منصة Tolt للتسويق بالعمولة، منصات التتبع والتحليلات (GA4, Pixels)، والمراقبة اللحظية الشاملة لكافة العمليات الحساسة.</p>
+    </div>
   </div>
-
-  <h3>خريطة الوحدات إلى نطاق التحكم (Ownership Matrix)</h3>
-  <div class="table-scroll"><table>
-    <thead><tr><th>الوحدة</th><th>ما الذي تسيطر عليه</th></tr></thead>
-    <tbody>
-      <tr><td>Catalog Management</td><td>الدورات، الدبلومات، الباقات، التصنيفات</td></tr>
-      <tr><td>Instructor Management</td><td>المدربون والمستشارون</td></tr>
-      <tr><td>Pricing</td><td>الأسعار حسب الدول والعملات (Geo Pricing / PPP)</td></tr>
-      <tr><td>Promotions</td><td>الخصومات والكوبونات والعروض</td></tr>
-      <tr><td>Orders</td><td>الطلبات والمشتريات</td></tr>
-      <tr><td>Payments</td><td>المدفوعات والاسترداد</td></tr>
-      <tr><td>Customers</td><td>حسابات العملاء وسجل الشراء</td></tr>
-      <tr><td>Learning (عبر LMS Adapter)</td><td>التسجيل في الدورات، التقدم، الشهادات</td></tr>
-      <tr><td>Consultations</td><td>الاستشارات والحجوزات</td></tr>
-      <tr><td>Reviews</td><td>التقييمات والمراجعات</td></tr>
-      <tr><td>Affiliates</td><td>المسوّقون والعمولات (عبر Tolt)</td></tr>
-      <tr><td>Marketing</td><td>Banners، Landing Pages، Campaigns</td></tr>
-      <tr><td>CRM</td><td>Leads، العملاء، السلات المتروكة</td></tr>
-      <tr><td>Notifications</td><td>Email / WhatsApp / Push</td></tr>
-      <tr><td>Analytics</td><td>المبيعات، التحويل، سلوك المستخدم</td></tr>
-      <tr><td>SEO</td><td>Meta، Schema، URLs</td></tr>
-      <tr><td>Geo &amp; Currency</td><td>الدول والعملات والأسعار المحلية</td></tr>
-      <tr><td>AI</td><td>التوصيات والمساعد الذكي (Bundle Builder، Search Advisor)</td></tr>
-    </tbody>
-  </table></div>
 </section>
 
-<section id="domain">
-  <h2 class="section-title"><span class="num">06</span> نموذج البيانات المعماري</h2>
-  <p class="section-lede">القرار الأهم: فصل Product عن Entitlement، بحيث لا يُبرمَج النظام بمنطق "اشترى Course → افتح Course" مباشرة.</p>
-
-  <div class="flow">PRODUCT
-   │
-   ├── Course
-   ├── Diploma
-   └── Bundle ── Components
-        │
-        ▼
-      OFFER
-        │
-        ▼
-     CUSTOMER
-        │
-        ▼
-      ORDER
-        │
-        ▼
-     PAYMENT
-        │
-        ▼
-   ENTITLEMENT
-        │
-   ┌────┴──────┐
-   ▼           ▼
-  LMS      CONSULTATION</div>
-
-  <p>أما الاشتراك فيحتاج طبقة أكثر تقدماً — Subscription لا يمنح وصولاً مباشراً، بل يمنح <em class="term">Benefits/Entitlements</em>:</p>
-
-  <div class="flow">SUBSCRIPTION PLAN
-   │
-   ▼
-SUBSCRIPTION
-   │
-   ▼
-BENEFITS / ENTITLEMENTS
-   │
- ┌─┼────────┬───────────┐
- ▼ ▼        ▼           ▼
-Course  Diploma  Consultation  Discount</div>
-
-  <h3>مثال على فصل Product عن Course</h3>
-  <div class="card">
-    <p><strong>B2C Product ID:</strong> 8435 &nbsp;|&nbsp; <strong>Product Type:</strong> Course &nbsp;|&nbsp; <strong>LMS Reference:</strong> course_id = 1521</p>
-    <p style="margin-top:10px">هذا يسمح ببيع نفس الدورة: بسعر سعودي، بسعر أردني، ضمن Bundle، ضمن حملة، مع CPD، مع Lifetime Access، أو مجاناً في Promotion — بدون تغيير أصل الدورة في الـLMS.</p>
-  </div>
-
-  <h3>Entitlement كعنصر مركزي</h3>
-  <div class="flow">Customer
-   │
-   └── Entitlement
-          │
-          ├── Product
-          ├── Start Date
-          ├── Expiry Date
-          └── Extension History</div>
-  <p>مثال تطبيقي — <strong>Access Extension</strong>: مدة الوصول الافتراضية 365 يوماً، وقابلة للتمديد بسعر منفصل (مثال: 49$ لسنة إضافية) دون أن يكون ذلك Hack داخل الـLMS، بل Product/Feature أصيل في Commerce Engine.</p>
-
-  <h3>Subscription Builder</h3>
-  <p>في الـAdmin، إنشاء باقة اشتراك لا يقتصر على "اسم + سعر + شهري/سنوي"، بل يُبنى من مكوّنات:</p>
-  <div class="flow">Subscription Plan
- ├── Billing (Monthly/Annual, Price, Auto Renewal)
- ├── Fixed Content (Course A, Course B, Diploma C)
- ├── Choice Allowance (Choose 10 from Eligible Library X)
- ├── Catalog Access (All / Category / Selected Library)
- ├── Consultation Credits (2 Sessions)
- ├── Live Programs (1 Live Diploma)
- ├── Certificate Benefits (CPD Digital Included)
- └── Discounts (15% on non-included products)</div>
-</section>
-
-<section id="lms">
-  <h2 class="section-title"><span class="num">07</span> طبقة التكامل مع الـLMS</h2>
-  <p class="section-lede">الـLMS الحالي هو Source of Truth للمحتوى التعليمي — لا يُعاد بناؤه، بل يُغلَّف بطبقة تكامل واحدة (LMS Adapter) بدل استدعاءات متفرقة في كل مكان.</p>
-
-  <h3>LMS Adapter</h3>
-  <div class="flow">LMSAdapter.getCourse()
-LMSAdapter.createEnrollment()
-LMSAdapter.revokeEnrollment()
-LMSAdapter.getProgress()
-LMSAdapter.getStartedStatus()</div>
-  <p>والـLMS يرسل Webhooks للـB2C: <em class="term">course.started</em>، <em class="term">course.completed</em>، <em class="term">certificate.issued</em>. بهذا الفصل، إذا تغيّر الـLMS مستقبلاً، لا يُعاد بناء B2C بالكامل.</p>
-
-  <h3>ما يُقرأ من الـLMS عبر API</h3>
-  <div class="pill-row">
-    <span class="pill">Course ID</span><span class="pill">Instructor</span><span class="pill">Modules</span>
-    <span class="pill">Duration</span><span class="pill">Publishing Status</span><span class="pill">Learning/Started Status</span>
-    <span class="pill">Completion</span>
-  </div>
-  <p>بينما تبقى كل المعلومات التسويقية والتجارية (Sales Title، Description، Price، Offers…) داخل B2C حصرياً.</p>
-
-  <h3>مسار التسجيل (Enrollment)</h3>
-  <div class="flow">Payment Success
-   → Order Paid
-   → Create Entitlement
-   → LMS Enrollment
-   → Confirmation
-   → Access Course</div>
-  <div class="note">إذا نجح الدفع وفشل LMS Enrollment، <strong>لا يُعتبر الدفع فاشلاً</strong>. تصبح الحالة: <em class="term">Payment = Successful</em>، <em class="term">Order = Paid</em>، <em class="term">Fulfillment = Pending/Failed</em> — ثم إعادة محاولة (Retry) تلقائية، مع تنبيه للفريق التشغيلي مثل: "3 paid orders have pending fulfillment".</div>
-
-  <h3>Event Architecture (Modular Monolith · Event-driven داخلياً)</h3>
-  <p>عند وصول حدث <em class="term">order.paid</em>، لا تُكتب 25 خطوة داخل Payment Controller؛ بل ينطلق الحدث ويتعامل معه كل Module باستقلالية:</p>
-  <div class="flow">ORDER PAID
-   ├── Entitlement → grant access
-   ├── LMS → create enrollment
-   ├── Rewards → add points
-   ├── Analytics → record purchase
-   ├── Tolt → report conversion
-   ├── Email → send confirmation
-   └── Invoice → sync/display</div>
-
-  <h3>Idempotency</h3>
-  <p>كل Event خارجي (مثل Webhook من Stripe) يحمل <em class="term">external_event_id</em>، ويُتحقَّق من عدم معالجته سابقاً — لا Order مكرر، لا نقاط مكررة، لا Enrollment مكرر حتى لو تكرر إرسال نفس الـWebhook.</p>
-</section>
-
-<section id="integrations">
-  <h2 class="section-title"><span class="num">08</span> التكاملات مع الأطراف الخارجية</h2>
-  <p class="section-lede">مبدأ حاكم: لا نبني ما تبنيه أنظمة جيدة بالفعل. ندمج بدل أن نعيد الاختراع.</p>
+<section id="truth">
+  <h2 class="section-title"><span class="num">08</span> مصفوفة مرجعية البيانات والحوكمة (Source of Truth)</h2>
+  <p class="section-lede">تحديد المرجع النهائي لكل نوع من البيانات داخل المنظومة منعاً للتضارب وضماناً لسلامة العمليات التشغيلية والمالية.</p>
 
   <div class="table-scroll"><table>
-    <thead><tr><th>الطرف الخارجي</th><th>الغرض</th><th>ملاحظات معمارية</th></tr></thead>
+    <thead><tr><th>نطاق البيانات (Data Domain)</th><th>مرجع الحقيقة الرسمي (Source of Truth)</th><th>طبيعة الدور وحوكمة البيانات</th></tr></thead>
     <tbody>
-      <tr><td>Existing LMS</td><td>المحتوى، التقدم، التسجيل</td><td>عبر LMS Adapter + Webhooks، Source of Truth للتعلم</td></tr>
-      <tr><td>Existing Authentication</td><td>حسابات المستخدمين</td><td>يحتاج Identity Linking Engine لمنع تعدد الحسابات لنفس الشخص</td></tr>
-      <tr><td>Stripe</td><td>Payments / Billing / Tax / Invoices</td><td>Master Price بالدولار؛ Adaptive Pricing يعرض السعر بعملة العميل (SAR، AED ضمن العملات المدعومة)؛ Stripe Tax يحسب VAT/GST تلقائياً</td></tr>
-      <tr><td>Tabby</td><td>Buy Now Pay Later</td><td>مسار دفع مستقل ضمن Payment Orchestrator</td></tr>
-      <tr><td>Tamara</td><td>Buy Now Pay Later</td><td>مسار دفع مستقل ضمن Payment Orchestrator</td></tr>
-      <tr><td>Tolt</td><td>Affiliate Management</td><td>بديل عن بناء Affiliate Platform داخلية</td></tr>
-      <tr><td>Google</td><td>Authentication (Google Sign-in)</td><td>ضمن نموذج Passwordless</td></tr>
-      <tr><td>Google Meet</td><td>اجتماعات الاستشارات/المجتمع</td><td>يُنشأ تلقائياً عند تأكيد الحجز</td></tr>
-      <tr><td>Zoom</td><td>بديل محتمل للاجتماعات</td><td>تكامل عند الحاجة فقط</td></tr>
-      <tr><td>GA4 وغيرها</td><td>Analytics &amp; Marketing Platforms</td><td>Pixels + GA4 ضمن Full Observability</td></tr>
+      <tr>
+        <td><strong>المحتوى والمساقات التعليمية</strong></td>
+        <td><span class="pill accent-2">LMS الحالي</span></td>
+        <td>يملك وحدات الدورة، الدروس، الفيديو، المواد المرفقة، وبنوك الأسئلة والاختبارات.</td>
+      </tr>
+      <tr>
+        <td><strong>تقدم الطالب والإنجاز والشهادات الرقمية</strong></td>
+        <td><span class="pill accent-2">LMS الحالي</span></td>
+        <td>يملك نسب إكمال الدروس، نتائج الاختبارات، وتاريخ استحقاق شهادة الإتمام الإلكترونية.</td>
+      </tr>
+      <tr>
+        <td><strong>حدث بدء تعلم الدورة (`course.started`)</strong></td>
+        <td><span class="pill accent-2">LMS الحالي</span></td>
+        <td>المرجع الرسمي الذي يُخطر B2C لقفل إمكانية استبدال الدورة في اشتراك Choose-X.</td>
+      </tr>
+      <tr>
+        <td><strong>كتالوج المنتجات التجاري والتسويقي</strong></td>
+        <td><span class="pill accent">B2C Platform</span></td>
+        <td>يملك العناوين التسويقية، الأوصاف، وسائط الجذب، بنّاء صفحات الهبوط، والتصنيفات.</td>
+      </tr>
+      <tr>
+        <td><strong>الأسعار والعروض والكوبونات (Pricing &amp; Offers)</strong></td>
+        <td><span class="pill accent">B2C Platform</span></td>
+        <td>يملك التسعير بالدولار وبالعملات المحلية، قواعد الخصومات، وصلاحيات الكوبونات.</td>
+      </tr>
+      <tr>
+        <td><strong>الطلبات وحقوق الوصول (Orders &amp; Entitlements)</strong></td>
+        <td><span class="pill accent">B2C Platform</span></td>
+        <td>المرجع الوحيد لسجل المشتريات، وصلاحية وصول العميل للمنتجات وتاريخ انتهائها.</td>
+      </tr>
+      <tr>
+        <td><strong>مزايا وباقات الاشتراكات (Subscriptions)</strong></td>
+        <td><span class="pill accent">B2C Platform</span></td>
+        <td>يملك هيكل الباقات، محددات التجديد، والرصيد السنوي المتاح في نموذج Choose-X.</td>
+      </tr>
+      <tr>
+        <td><strong>المعاملات والتحصيلات المالية</strong></td>
+        <td><strong>بوابة الدفع (Payment Provider / Stripe)</strong></td>
+        <td>المرجع الحاسم لنجاح حركة السحب المالي، المبالغ المحصلة، والعمليات المعتمدة.</td>
+      </tr>
+      <tr>
+        <td><strong>الضرائب والفواتير والوصولات الرسمية</strong></td>
+        <td><strong>Stripe Tax &amp; Invoicing</strong></td>
+        <td>حساب ضريبة القيمة المضافة وإصدار الفواتير الضريبية المعتمدة رسمياً.</td>
+      </tr>
+      <tr>
+        <td><strong>نقاط الولاء والمكافآت (Mastery Rewards)</strong></td>
+        <td><span class="pill accent">B2C Platform</span></td>
+        <td>يملك حساب أرصدة النقاط، حركات الاكتساب، الاستبدال، والإلغاء عند الاسترداد.</td>
+      </tr>
+      <tr>
+        <td><strong>سوق الاستشارات وجداول الخبراء</strong></td>
+        <td><span class="pill accent">B2C Platform</span></td>
+        <td>يملك أوقات التوفر، الحجوزات المؤكدة، المواعيد المعاد جدولتها، وسجل الجلسات.</td>
+      </tr>
+      <tr>
+        <td><strong>مجتمع ماستري والمساحات التفاعلية</strong></td>
+        <td><span class="pill accent">B2C Platform</span></td>
+        <td>يملك صلاحيات العضوية، المساحات، المنشورات، التفاعلات، ومجموعات الدفعات.</td>
+      </tr>
+      <tr>
+        <td><strong>إسناد التسويق بالعمولة والشركاء (Affiliate)</strong></td>
+        <td><strong>منصة Tolt</strong></td>
+        <td>المصدر المعتمد لحساب النقرات، تتبع المسوقين، واحتساب نسب العمولات المستحقة.</td>
+      </tr>
     </tbody>
   </table></div>
-
-  <h3>Payment Orchestrator</h3>
-  <div class="flow">CHECKOUT
-   ├── Stripe
-   │    ├── Card
-   │    ├── Apple Pay
-   │    └── Google Pay
-   ├── Tabby
-   └── Tamara</div>
-  <p>طبقة <em class="term">Payment Adapter / Payment Orchestrator</em> تمنع ربط منطق الطلبات مباشرة بطريقة دفع واحدة — كل بوابة تُعامَل كمسار مستقل بحسب تكاملها الفعلي، لا بافتراض أن الكل يمر بنفس تدفق Stripe.</p>
-
-  <h3>Authentication</h3>
-  <p><strong>Passwordless first:</strong> Email → OTP، أو Mobile → OTP، أو Google Sign-in. يمكن تكوين السلة قبل التسجيل. يحتاج <em class="term">Identity Linking Engine</em> لتوحيد حساب دخل أولاً بالبريد ثم لاحقاً بـGoogle بنفس البريد.</p>
 </section>
 
 <section id="journeys">
-  <h2 class="section-title"><span class="num">09</span> رحلات العميل (Customer Journeys)</h2>
-  <p class="section-lede">المسارات الرئيسية عبر أنواع المنتجات المختلفة — كل رحلة يجب أن تبقى بسيطة ومستقرة تقنياً (Golden Path).</p>
+  <h2 class="section-title"><span class="num">09</span> رحلات العميل والعمليات التجارية الأساسية</h2>
+  <p class="section-lede">توثيق تسلسلي لتجربة العميل عبر مختلف أصناف المنتجات، يضمن تدفقاً سلساً وخالياً من الاحتكاك (Frictionless Journeys).</p>
 
-  <h3>1. رحلة شراء دورة / دبلومة (Golden Path)</h3>
-  <div class="flow">Visitor → Home/Landing → Search/Discovery → Product Page
-   → Add to Cart / Buy Now → Login/Register → Checkout
-   → Payment → Order Confirmation → Entitlement
-   → Enrollment → Go to Course → Existing LMS</div>
+  <h3>1. رحلة الشراء النموذجية لدورة أو دبلومة (Golden Purchase Path)</h3>
+  <div class="flow">الزائر يستكشف الموقع <span class="arrow">→</span> البحث أو التصفح <span class="arrow">→</span> صفحة تعريف الدورة (PDP)
+   <span class="arrow">→</span> إضافة للسلة أو "شراء الآن" <span class="arrow">→</span> تسجيل الدخول بدون كلمة مرور (OTP أو Google)
+   <span class="arrow">→</span> صفحة السداد الموحد <span class="arrow">→</span> اختيار طريقة الدفع (بطاقة / تقسيط / خصم بالنقاط)
+   <span class="arrow">→</span> نجاح عملية الدفع <span class="arrow">→</span> صفحة تأكيد الطلب المخصصة <span class="arrow">→</span> إنشاء حق الوصول (Entitlement)
+   <span class="arrow">→</span> تسجيل الطالب آلياً في الـLMS <span class="arrow">→</span> نقرة "ابدأ التعلم الآن" <span class="arrow">→</span> الانتقال السلس للدرس في الـLMS</div>
 
-  <h3>2. رحلة الاشتراك</h3>
-  <div class="flow">Discover Subscription → Compare Plans → Select Plan → Login
-   → Checkout → Payment → Subscription Active
-   → Grant Benefits/Entitlements → Select Products (if Choice Plan)
-   → Access Products → Renewal</div>
+  <h3>2. رحلة اشتراك "اختر دوراتك" (Choose-X Journey)</h3>
+  <div class="flow">استعراض باقة Choose-X السنوية <span class="arrow">→</span> فهم المزايا (10 دورات سنوياً) <span class="arrow">→</span> السداد السنوي
+   <span class="arrow">→</span> تفعيل الاشتراك ومنح رصيد الاختيار (Allowance) <span class="arrow">→</span> تصفح المكتبة واختيار الدورة الأولى
+   <span class="arrow">→</span> الدورة غير مبدوءة: يمكن استبدالها بدورة أخرى مجاناً
+   <span class="arrow">→</span> بدء أول درس في الـLMS (إطلاق حدث course.started) <span class="arrow">→</span> قفل الدورة وخصمها نهائياً من الرصيد
+   <span class="arrow">→</span> استهلاك الرصيد تدريجياً طوال العام <span class="arrow">→</span> التجديد السنوي برصيد جديد دون ترحيل للمتبقي</div>
 
-  <h3>3. رحلة الاستشارة</h3>
-  <div class="flow">Discover Consultant → Select Consultation → Choose Date/Time
-   → Login → Checkout → Payment → Booking Confirmation
-   → Meeting Creation (Google Meet) → Invitations → Reminders
-   → Consultation</div>
-  <p>حالات الحجز: <em class="term">Pending Payment → Confirmed → Rescheduled → Completed → No-show → Cancelled</em>. قواعد: إعادة الجدولة حتى 6 ساعات قبل الموعد، لا استرداد تلقائي عند إلغاء العميل، إلغاء المستشار يؤدي لإعادة جدولة تلقائية، وفحص <em class="term">Atomic Availability</em> عند التأكيد لمنع الحجز المزدوج لنفس الموعد.</p>
+  <h3>3. رحلة حجز الاستشارة المهنية (Consultation Booking Path)</h3>
+  <div class="flow">تصفح صفحة الخبير أو سوق الاستشارات <span class="arrow">→</span> اختيار نوع الخدمة والمدة <span class="arrow">→</span> اختيار اليوم والموعد المتاح
+   <span class="arrow">→</span> فحص ذري لمنع تضارب الموعد (Atomic Availability Check) <span class="arrow">→</span> السداد الإلكتروني
+   <span class="arrow">→</span> تأكيد الحجز وإنشاء اجتماع Google Meet فوراً <span class="arrow">→</span> إرسال الدعوات والتقويم للطرفين
+   <span class="arrow">→</span> تذكيرات قبل الموعد (واتساب وبريد) <span class="arrow">→</span> إمكانية إعادة الجدولة حتى 6 ساعات قبل الموعد
+   <span class="arrow">→</span> انعقاد الجلسة <span class="arrow">→</span> اكتمال الحجز</div>
 
-  <h3>4. رحلة Community</h3>
-  <div class="flow">Discover Community → Purchase / Receive via Subscription or Bundle
-   → Community Entitlement → Enter Community
-   → General Spaces → Eligible Product/Cohort Spaces → Connect & Participate</div>
+  <h3>4. رحلة برنامج مكافآت ماستري (Mastery Rewards Workflow)</h3>
+  <div class="flow">عملية شراء سابقة مدفوعة <span class="arrow">→</span> كسب نقاط (10 نقاط لكل 1$ مدفوع نقداً) <span class="arrow">→</span> تراكم النقاط بالحساب التجاري
+   <span class="arrow">→</span> سلة مشتريات جديدة <span class="arrow">→</span> خيار تفعيل استخدام النقاط عند الدفع (مثلاً 1,000 نقطة = 10$ خصم)
+   <span class="arrow">→</span> حجز النقاط مؤقتاً أثناء محاولة السداد <span class="arrow">→</span> نجاح سداد المبلغ المتبقي بالبطاقة
+   <span class="arrow">→</span> خصم النقاط نهائياً من الرصيد <span class="arrow">→</span> كسب نقاط جديدة فقط على الجزء النقدي المدفوع</div>
 
-  <h3>5. رحلة Rewards</h3>
-  <div class="flow">Purchase → Earn Points → Accumulate Points → Future Purchase
-   → Select Use Points → Deduct Eligible Points
-   → Pay Remaining Amount → Earn Points on Paid Portion</div>
+  <h3>5. رحلة تمديد الوصول بعد انتهاء الصلاحية (Access Extension)</h3>
+  <div class="flow">اقتراب انتهاء مدة الوصول للدورة (تنبيه قبل 30 و7 أيام) <span class="arrow">→</span> انتهاء صلاحية العام الأول
+   <span class="arrow">→</span> تحول زر صفحة الدورة تلقائياً من "ابدأ التعلم" إلى "مدد فترة الوصول"
+   <span class="arrow">→</span> اختيار باقة التمديد (3 أشهر / سنة كاملة / مدى الحياة) <span class="arrow">→</span> السداد السريع
+   <span class="arrow">→</span> تحديث سجل Entitlement وتمديد صلاحية التسجيل في الـLMS فوراً دون فقدان أي إنجاز سابق</div>
 
-  <h3>6. المنتجات المجانية (Lead Acquisition)</h3>
-  <p>تُستخدم كوسيلة Lead Acquisition / Sampling / Campaign / Onboarding. لا يحتاج العميل لدفع فعلي، لكن يجب أن يحصل على Order/Entitlement أو سجل مكافئ يوثّق سبب حصوله على المنتج.</p>
+  <h3>6. رحلة قوائم الانتظار للبرامج المباشرة (Waitlist Flow)</h3>
+  <div class="flow">تصفح صفحة برنامج تدريبي مباشر <span class="arrow">→</span> وصول المقاعد للحد الأقصى (Sold Out)
+   <span class="arrow">→</span> تحول زر الشراء إلى "انضم لقائمة الانتظار" <span class="arrow">→</span> تسجيل رغبة العميل ورقم هاتفه
+   <span class="arrow">→</span> فتح مقعد جديد أو إطلاق دفعة جديدة <span class="arrow">→</span> إشعار آلي فوري برابط حجز مباشر ذي أولوية زمنية</div>
 </section>
 
 <section id="admin">
-  <h2 class="section-title"><span class="num">10</span> B2C Admin والعمليات اليومية</h2>
-  <p class="section-lede">الهدف: <strong>يستطيع فريق أعمال ماستري تشغيل B2C يومياً دون الاعتماد على المبرمج في العمليات التجارية العادية.</strong></p>
-  <div class="pill-row">
-    <span class="pill">إطلاق Product</span><span class="pill">تغيير سعر</span><span class="pill">إنشاء Bundle</span>
-    <span class="pill">إنشاء Subscription</span><span class="pill">إنشاء Offer</span><span class="pill">تعديل Banner</span>
-    <span class="pill">إضافة Cohort</span><span class="pill">إدارة Consultation</span><span class="pill">إدارة Community</span>
-    <span class="pill">تنفيذ Refund</span><span class="pill">مراقبة Orders</span><span class="pill">إدارة Rewards</span>
-    <span class="pill">قراءة Analytics</span>
+  <h2 class="section-title"><span class="num">10</span> مركز التحكم والعمليات التشغيلية (B2C Admin &amp; Ops)</h2>
+  <p class="section-lede">نظام تشغيل تجاري متكامل (Operating System) يمكّن فرق التسويق، خدمة العملاء، العمليات، والمالية من إدارة المنظومة باستقلالية كاملة.</p>
+
+  <div class="card">
+    <p>الهدف الأساسي من بناء لوحة تحكم B2C مستقلة هو <strong>تمكين فريق الأعمال من تشغيل قطاع الأفراد يومياً دون فتح الكود أو الاعتماد على المطورين</strong>. اللوحة ليست مجرد صفحات CRUD بسيطة، بل شاشة قيادة استراتيجية للأعمال ومتابعة لحظية للإيرادات والأعطال.</p>
   </div>
-  <p>كل ذلك دون فتح Code.</p>
+
+  <h3>مكونات لوحة التحكم الرئيسية (B2C Admin Modules)</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>لوحة الأداء الرئيسية (Executive KPIs)</h4>
+      <p>الإيرادات اليومية والشهرية، عدد الطلبات، متوسط قيمة السلة (AOV)، معدل التحويل (Conversion Rate)، السلات المتروكة، وأداء المنتجات الأعلى مبيعاً.</p>
+    </div>
+    <div class="card">
+      <h4>قائمة المهام العاجلة (Needs Attention Queue)</h4>
+      <p>شاشة طوارئ تعرض لحظياً: عمليات الشراء التي تعثر تفعيلها في الـLMS، تعثر إنشاء روابط Meet، فشل الاسترداد المالي، وطلبات شحن الشهادات المعلقة.</p>
+    </div>
+    <div class="card">
+      <h4>شاشة العميل الشاملة (Customer 360)</h4>
+      <p>عرض تفصيلي للعميل من نافذة واحدة: إجمالي الإنفاق، سجل الطلبات، الاشتراكات الفعالة، حقوق الوصول، رصيد النقاط، مواعيد الاستشارات، وتاريخ التواصل.</p>
+    </div>
+    <div class="card">
+      <h4>إدارة الكتالوج والتسعير (Catalog &amp; Pricing)</h4>
+      <p>إنشاء ونشر وأرشفة المنتجات، تحديد الأسعار بالعملات المختلفة، إنشاء الباقات المجمعة، إدارة الدفعات التدريبية المباشرة، وضبط خيارات الشهادات.</p>
+    </div>
+    <div class="card">
+      <h4>إدارة العروض والتسويق (Promotions &amp; CMS)</h4>
+      <p>إطلاق حملات الخصم المئوية والمقطوعة، إنشاء الكوبونات وشروطها، جدولة البانرات في الصفحة الرئيسية، وبناء صفحات الهبوط للمواسم الإعلانية.</p>
+    </div>
+    <div class="card">
+      <h4>المالية والاسترداد (Finance &amp; Refunds)</h4>
+      <p>معاينة أثر الاسترداد المالي (Refund Impact Preview) قبل تنفيذه، رد المبالغ جزئياً أو كلياً، استرجاع النقاط تلقائياً، وسحب صلاحيات الوصول المقابلة.</p>
+    </div>
+  </div>
+
+  <h3>الأدوار والصلاحيات الصارمة (RBAC &amp; Sensitive Operations)</h3>
+  <p>يتم تطبيق مبدأ الامتيازات الأقل (Least Privilege). لا يحق لأي موظف تنفيذ عمليات حساسة دون صلاحيات صريحة مسجلة وموثقة:</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th>الدور الوظيفي (Role)</th><th>نطاق الصلاحيات الطبيعي</th><th>العمليات المقيدة والممنوعة عنه</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Super Admin</strong></td><td>كامل الصلاحيات والتحكم الإداري والأمني العام</td><td>لا توجد قيود برمجية</td></tr>
+      <tr><td><strong>Product Manager</strong></td><td>إنشاء المنتجات، ضبط الباقات، الدبلومات، والمحتوى</td><td>ممنوع من تنفيذ استرداد مالي أو تغيير صلاحيات أمنية</td></tr>
+      <tr><td><strong>Marketing Team</strong></td><td>إدارة الحملات، الكوبونات، صفحات الهبوط، والبانرات</td><td>ممنوع من تعديل الأسعار الأساسية أو إصدار مبالغ مستردة</td></tr>
+      <tr><td><strong>Customer Support</strong></td><td>عرض بيانات العملاء، حل مشكلات الوصول، إعادة إرسال الإشعارات</td><td>ممنوع من منح وصول مدى الحياة دون اعتماد، وممنوع من تعديل الكتالوج</td></tr>
+      <tr><td><strong>Finance Specialist</strong></td><td>معاينة التقارير المالية، متابعة تسويات البنوك، وتنفيذ الاسترداد المعتمد</td><td>ممنوع من تعديل المنتجات أو محتوى المتجر</td></tr>
+      <tr><td><strong>Consultation Manager</strong></td><td>إدارة جداول الخبراء، إعادة الجدولة، وحل نزاعات المواعيد</td><td>ممنوع من الصلاحيات المالية خارج نطاق الاستشارات</td></tr>
+      <tr><td><strong>Operations Team</strong></td><td>إعادة معالجة مهام التنفيذ المعلقة (Retry Failed Fulfillment)</td><td>ممنوع من تغيير الأسعار أو السياسات التسويقية</td></tr>
+    </tbody>
+  </table></div>
 </section>
 
 <section id="observability">
-  <h2 class="section-title"><span class="num">11</span> الموثوقية والـObservability</h2>
-  <p class="section-lede">Non-Functional Requirement أساسي منذ اليوم الأول، وليست إضافة لاحقة.</p>
+  <h2 class="section-title"><span class="num">11</span> الموثوقية والشفافية التشغيلية (Observability &amp; Audit)</h2>
+  <p class="section-lede">بنية قياس ومراقبة شاملة تضمن اكتشاف أي خلل ومعالجته قبل أن يشعر به العميل، مع توثيق محاسبي صارم لكافة الحركات الحساسة.</p>
 
   <div class="grid">
-    <div class="card"><h4>Technical Observability</h4><p>Logs، Metrics، Distributed Traces، Exceptions، API/DB Latency، Uptime، Error Rate.</p></div>
-    <div class="card"><h4>Commerce Observability</h4><p>Payment Failures، Webhook Failures، Duplicate Payments، Enrollment/Refund Failures، Subscription Renewal Failures.</p></div>
-    <div class="card"><h4>User Journey Observability</h4><p>Search، Product View، Wishlist، Add to Cart، Checkout، Payment، Purchase.</p></div>
-    <div class="card"><h4>Audit Log</h4><p>من غيّر السعر؟ من نفّذ Refund؟ من أضاف نقاطاً؟ من أوقف Coupon؟ من غيّر موعد استشارة؟ — كل تغيير مالي أو صلاحية يجب أن يكون Auditable.</p></div>
+    <div class="card">
+      <h4>المراقبة التجارية (Commerce Observability)</h4>
+      <p>تتبع فوري لمعدل نجاح الدفعات، تنبيهات عند تكرار فشل البطاقات، رصد تعطل Webhooks، وتتبع الطلبات المكتملة مالياً والتي تنتظر تفعيل التعلم.</p>
+    </div>
+    <div class="card">
+      <h4>سجل التدقيق الشامل (Audit Trail)</h4>
+      <p>توثيق غير قابل للمسح لكل حركة حساسة: <strong>من الفاعل؟ ما الحركة؟ متى وقعت؟ ما القيمة السابقة والجديدة؟ وما السبب؟</strong> (تغيير أسعار، استرداد أموال، منح وصول يدوي، وتعديل نقاط الولاء).</p>
+    </div>
+    <div class="card">
+      <h4>الربط التشغيلي الموحّد (Correlation IDs)</h4>
+      <p>كل معاملة مالية أو تجارية تحمل معرّفات موحدة (<em class="term">order_id</em>, <em class="term">customer_id</em>, <em class="term">request_id</em>, <em class="term">event_id</em>) تتيح تتبع مسار أي عميل من الإعلان وحتى استهلاك الدرس خلال ثوانٍ معدودة.</p>
+    </div>
+    <div class="card">
+      <h4>تتبع التسويق والتحليلات (Marketing Analytics)</h4>
+      <p>تكامل قياسي مع GA4، Google Ads، Meta Pixel، TikTok Pixel، وMicrosoft Clarity لتتبع مسار التحويل (Conversion Funnel) من المشاهدة وحتى الشراء بدقة.</p>
+    </div>
   </div>
-
-  <p>كل عملية مهمة تحمل: <em class="term">request_id، user_id، order_id، event_id، timestamp، module، status، duration، error</em> — بحيث عند مشكلة مثل "العميل دفع ولم يحصل على الدورة"، يمكن تتبع السلسلة كاملة بالـOrder ID.</p>
 </section>
 
 <section id="goals">
-  <h2 class="section-title"><span class="num">12</span> الأهداف التجارية والمقاييس</h2>
-  <p class="section-lede">النظام لا يُقاس فقط بكونه أسرع وأجمل، بل بأثره التجاري المباشر.</p>
-
-  <div class="pill-row">
-    <span class="pill">Conversion Rate</span><span class="pill">Average Order Value</span>
-    <span class="pill">Repeat Purchase Rate</span><span class="pill">Customer Lifetime Value</span>
-    <span class="pill">Subscription Revenue (MRR/ARR)</span><span class="pill">Cross-product Adoption</span>
-    <span class="pill">Cart Recovery</span><span class="pill">Operational Efficiency</span>
-  </div>
+  <h2 class="section-title"><span class="num">12</span> الأهداف التجارية ومؤشرات النجاح (KPIs)</h2>
+  <p class="section-lede">لا يُقاس نجاح منصة B2C بجمال الواجهات فحسب، بل بالأثر المالي والنمو التشغيلي المستدام الذي تحققه لأكاديمية ماستري.</p>
 
   <div class="table-scroll"><table>
-    <thead><tr><th>المجال</th><th>مؤشرات أساسية</th></tr></thead>
+    <thead><tr><th>محور القياس</th><th>المؤشر التجاري (KPI)</th><th>الهدف الاستراتيجي من المنصة الجديدة</th></tr></thead>
     <tbody>
-      <tr><td>Acquisition</td><td>Visitors, Sources</td></tr>
-      <tr><td>Discovery</td><td>Search Usage, Product Views</td></tr>
-      <tr><td>Conversion</td><td>Add-to-Cart, Checkout, Purchase Conversion</td></tr>
-      <tr><td>Revenue</td><td>Revenue, Orders, AOV</td></tr>
-      <tr><td>Customer</td><td>New vs Returning</td></tr>
-      <tr><td>Retention</td><td>Repeat Purchase</td></tr>
-      <tr><td>Subscription</td><td>MRR/ARR, Renewal, Cancellation</td></tr>
-      <tr><td>Live</td><td>Cohort Fill Rate</td></tr>
-      <tr><td>Consultation</td><td>Bookings, Completion</td></tr>
-      <tr><td>Community</td><td>Active Members, Engagement</td></tr>
-      <tr><td>Rewards</td><td>Points Earned/Used, Repeat Purchase</td></tr>
-      <tr><td>Payments</td><td>Success/Failure Rate</td></tr>
-      <tr><td>Operations</td><td>Failed Fulfillments</td></tr>
-      <tr><td>Technical</td><td>Errors, Latency, Uptime</td></tr>
+      <tr><td><strong>المبيعات والتحويل</strong></td><td>معدل التحويل العام (Conversion Rate)</td><td>زيادة التحويل عبر السداد السريع Passwordless وخيارات التقسيط وتخفيف الاحتكاك.</td></tr>
+      <tr><td><strong>قيمة السلة</strong></td><td>متوسط قيمة الطلب (Average Order Value - AOV)</td><td>رفع متوسط السلة عبر الباقات المركبة (Bundles)، العروض الإضافية (Order Bumps)، والشهادات المطبوعة.</td></tr>
+      <tr><td><strong>الولاء والتكرار</strong></td><td>معدل الشراء المتكرر (Repeat Purchase Rate)</td><td>تحفيز إعادة الشراء بفضل برنامج مكافآت ماستري، عروض التمديد، ومجتمع الخريجين.</td></tr>
+      <tr><td><strong>القيمة الدائمة</strong></td><td>القيمة الدائمة للعميل (Customer Lifetime Value - LTV)</td><td>نقل العميل من مشترٍ لدورة واحدة إلى مشترك سنوي ومستفيد دائم من الاستشارات والمجتمع.</td></tr>
+      <tr><td><strong>الإيرادات المتكررة</strong></td><td>نمو الاشتراكات (MRR &amp; ARR)</td><td>بناء تدفقات نقدية مستمرة ومستقرة عبر الاشتراكات الشهرية ونموذج Choose-X السنوي.</td></tr>
+      <tr><td><strong>الموثوقية المالية</strong></td><td>معدل نجاح الدفع (Payment Success Rate)</td><td>تقليل عمليات الدفع الفاشلة عبر توفير خيارات محلية وتنسيق ذكي بين البوابات.</td></tr>
+      <tr><td><strong>الكفاءة التشغيلية</strong></td><td>تذاكر الدعم لكل 100 طلب (Support Tickets per Order)</td><td>خفض الشكاوى عبر الأتمتة الكاملة لمنح الوصول والتأكيد اللحظي وتوضيح شروط الشراء.</td></tr>
+      <tr><td><strong>البرامج الحية</strong></td><td>نسبة إشغال الدفعات (Cohort Fill Rate)</td><td>تعظيم الاستفادة من المقاعد المتاحة وإدارة قوائم الانتظار بفاعلية.</td></tr>
+      <tr><td><strong>الاستشارات</strong></td><td>نمو إيرادات الاستشارات ونسبة الالتزام</td><td>تقليل التغيب عن المواعيد (No-show) وضمان استقرار اجتماعات Google Meet.</td></tr>
     </tbody>
   </table></div>
+</section>
 
-  <p>Cross-product Adoption يعني تحريك العميل عبر المسار: <strong>Course → Diploma → Community → Consultation → Subscription</strong>.</p>
+<section id="risks">
+  <h2 class="section-title"><span class="num">13</span> إدارة المخاطر والاعتماديات والانتقال</h2>
+  <p class="section-lede">تحليل استباقي للتحديات المحتملة ووضع خطط التخفيف لضمان إطلاق سلس وآمن دون انقطاع للأعمال.</p>
+
+  <div class="table-scroll"><table>
+    <thead><tr><th>الخطر المحتمل</th><th>مستوى الأثر</th><th>خطة التخفيف والوقاية (Mitigation Strategy)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>توسع نطاق العمل (Scope Creep)</strong></td>
+        <td>مرتفع</td>
+        <td>الالتزام الصارم بحدود V1 المؤطرة في هذه الوثيقة وتأجيل الميزات الإضافية لمراحل النمو اللاحقة (R2/R3).</td>
+      </tr>
+      <tr>
+        <td><strong>فقدان حركة بحث Google (SEO Loss)</strong></td>
+        <td>حرج</td>
+        <td>إعداد خطة هجرة SEO تفصيلية تتضمن خرائط إعادة التوجيه الكاملة (301 Redirect Mapping) والحفاظ على بنية الروابط وعناصر Schema.</td>
+      </tr>
+      <tr>
+        <td><strong>تعثر مزامنة الـLMS القائم</strong></td>
+        <td>مرتفع</td>
+        <td>عزل B2C عن أخطاء الـLMS عبر طبقة LMS Adapter وطوابير إعادة المحاولة (Retry Queues) دون التأثير على إتمام الدفع.</td>
+      </tr>
+      <tr>
+        <td><strong>تعقيد ترحيل بيانات العملاء السابقة</strong></td>
+        <td>مرتفع</td>
+        <td>خطة مطابقة ومصالحة بيانات (Data Reconciliation) لترحيل حسابات الطلاب القائمة وربطها بالهوية التجارية الجديدة قبل الإطلاق.</td>
+      </tr>
+      <tr>
+        <td><strong>مشكلات بوابات الدفع والتقسيط</strong></td>
+        <td>متوسط</td>
+        <td>بناء طبقة تجريد بوابات الدفع (Payment Orchestrator) وإجراء اختبارات مكثفة لسيناريوهات Webhooks المتعثرة وفروق العملات.</td>
+      </tr>
+    </tbody>
+  </table></div>
 </section>
 
 <section id="open">
-  <h2 class="section-title"><span class="num">13</span> قرارات مفتوحة (Open Product Decisions)</h2>
-  <p class="section-lede">تفاصيل ثانوية لا تؤثر على البنية الأساسية، ويمكن حسمها لاحقاً عند تصميم كل Module دون إعادة فتح تعريف المنتج بالكامل.</p>
-  <ul>
-    <li><strong>Community:</strong> هل الاشتراك المنفرد شهري وسنوي، أم نموذج واحد فقط؟</li>
-    <li><strong>Community Spaces:</strong> هل يُنشئها الأعضاء بأنفسهم أم الإدارة فقط؟ (الاتجاه المحافظ في V1: تحت سيطرة ماستري)</li>
-    <li><strong>Alumni:</strong> هل يبقى العضو في Alumni Space بعد انتهاء وصول البرنامج أم يفقد الوصول بالكامل؟</li>
-    <li><strong>Rewards:</strong> تم حسم الدفع الجزئي بالنقاط؛ يبقى تحديد سلوك الحالة عندما تكفي نقاط العميل 100% من قيمة الطلب.</li>
-    <li><strong>AI Bundle Builder:</strong> الفكرة معتمدة ضمن الرؤية، لكن موعد الإطلاق (V1 أم V1.1/Growth Release) يُحدَّد أثناء Prioritization — AI يقرر الملاءمة، Promotion Engine يقرر الخصم.</li>
-  </ul>
+  <h2 class="section-title"><span class="num">14</span> القرارات التجارية والمنتجية المفتوحة</h2>
+  <p class="section-lede">نقاط تفصيلية معرّفة بدقة يترك حسمها النهائي للإدارة التجارية أثناء دورة التطوير دون تعطيل البنية الأساسية.</p>
+
+  <div class="card">
+    <h4>1. شراء باقة تحتوي منتجاً يملكه العميل مسبقاً (Bundle Existing Ownership)</h4>
+    <p>إذا اشترى العميل باقة تضم دورة يملكها مسبقاً: هل يُمنح خصماً تلقائياً يعادل قيمة دورته؟ أم يحصل على تمديد لصلاحيتها لعام إضافي؟ أم يُتاح له استبدالها بدورة أخرى معادلة؟ (الاتجاه المفضل لـ V1: تمديد الصلاحية لعام إضافي كخيار افتراضي بسيط وعادل).</p>
+  </div>
+
+  <div class="card">
+    <h4>2. نموذج فوترة مجتمع ماستري المستقل (Community Billing Cadence)</h4>
+    <p>هل يُطرح اشتراك المجتمع المنفرد بنموذج شهري وسنوي معاً، أم يُكتفى باشتراك سنوي فقط لضمان جدية والتزام الأعضاء؟ (الاتجاه المقترح: إتاحة النموذجين مع ميزة سعرية مشجعة جداً للاشتراك السنوي).</p>
+  </div>
+
+  <div class="card">
+    <h4>3. استمرار وصول خريجي الدفعات لمساحة المجتمع (Alumni Space Access)</h4>
+    <p>بعد انتهاء فترة البرنامج التدريبي المباشر: هل يفقد الخريج الوصول لمساحة دفعته؟ أم يبقى الوصول متاحاً مدى الحياة للحفاظ على شبكة العلاقات؟ (الاتجاه الموصى به: بقاء الوصول لمساحة الخريجين الخاصة بدفعته مجاناً لتعزيز الولاء).</p>
+  </div>
+
+  <div class="card">
+    <h4>4. تجزئة استبدال نقاط المكافآت (Rewards Redemption Granularity)</h4>
+    <p>هل يُشترط استبدال النقاط بمضاعفات الـ 1,000 نقطة فقط (10$، 20$، 30$)، أم يُسمح للعميل باستبدال أي رصيد يملكه فوق حد أدنى محدد (مثلاً 1,350 نقطة = 13.5$)؟ (الاتجاه المعتمد لـ V1: مضاعفات الألف نقطة لتبسيط الحسابات البرمجية والذهنية).</p>
+  </div>
+
+  <div class="card">
+    <h4>5. تسعير الشحن للشهادات المطبوعة (Printed Certificate Shipping Model)</h4>
+    <p>هل تكون رسوم الشحن الدولي ثابتة موحدة على مستوى الدول، أم متغيرة ديناميكياً بحسب عنوان التوصيل الفعلي؟ (الاتجاه الموصى به: تحديد سعر شحن مقطوع وثابت للدول الأكثر طلباً).</p>
+  </div>
+</section>
+
+<section id="readiness">
+  <h2 class="section-title"><span class="num">15</span> معايير الجاهزية للإطلاق (Go-Live Readiness)</h2>
+  <p class="section-lede">قائمة التحقق الحتمية التي لا يُعتمد إطلاق المنصة رسمياً للجمهور قبل اكتمال جميع عناصرها بنجاح تام.</p>
+
+  <div class="two-col">
+    <div class="card">
+      <h4 style="color:var(--accent)">من جانب تجربة العميل (Customer Side)</h4>
+      <ul>
+        <li>عمل واختبار رحلة الشراء النموذجية (Golden Journey) من البداية للنهاية دون أي خطأ.</li>
+        <li>دقة تسجيل الدخول بالبريد والجوال وGoogle ودمج السلات المجهولة بسلاسة.</li>
+        <li>نجاح مدفوعات البطاقات ومدى وApple Pay وتقسيط Tabby وTamara.</li>
+        <li>التحقق التام من منح حقوق الوصول (Entitlement) وتزامن التسجيل في الـLMS فورياً.</li>
+        <li>اختبار حجز المواعيد وتوليد رابط Google Meet تلقائياً في التقويمات.</li>
+        <li>استقرار ووضوح تصفح المنصة وتجربة السداد على مختلف هواتف الجوال (Mobile-first).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--accent-3)">من جانب إدارة وتشغيل الأعمال (Business Side)</h4>
+      <ul>
+        <li>تمكين فريق الأعمال من إنشاء المنتجات، تعديل الأسعار، وإطلاق العروض دون مساعدة برمجية.</li>
+        <li>اختبار سيناريوهات الاسترداد المالي الكامل والجزئي وانعكاسها على النقاط والصلاحيات.</li>
+        <li>فاعلية قائمة "Needs Attention" في التقاط وإعادة معالجة أي تعطل في مهام التنفيذ.</li>
+        <li>اكتمال خطة ترحيل روابط الـSEO وتأكيد خلو الموقع من أي روابط مكسورة.</li>
+        <li>تدقيق ومطابقة ترحيل بيانات وحسابات العملاء السابقين وصلاحياتهم القائمة.</li>
+        <li>جاهزية وتدريب طواقم خدمة العملاء والمبيعات والعمليات على لوحة تحكم B2C Admin.</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section id="definition">
-  <h2 class="section-title"><span class="num">14</span> التعريف النهائي للمنتج</h2>
+  <h2 class="section-title"><span class="num">16</span> الخلاصة التنفيذية والتعريف النهائي للمنتج</h2>
   <div class="card" style="border-inline-start:4px solid var(--accent)">
-    <p><strong>Mastery B2C</strong> هي منظومة تجارة تعليمية رقمية للأفراد تتيح اكتشاف وشراء واستهلاك منظومة واسعة من المنتجات والخدمات التعليمية، بما فيها الدورات والدبلومات والبرامج المباشرة والباقات والاشتراكات والاستشارات والمجتمع والخدمات الإضافية.</p>
-    <p>تتولى المنصة إدارة رحلة العميل التجارية منذ اكتشاف المنتج وحتى الدفع ومنحه حق الوصول، بينما تستفيد من الـLMS الحالي في استهلاك المحتوى التعليمي.</p>
-    <p>وتوفر لماستري نظام إدارة مستقل يسمح لفريق الأعمال بالتحكم بالمنتجات والأسعار والعروض والاشتراكات والعملاء والاستشارات والمجتمع والمكافآت والمحتوى التسويقي والعمليات اليومية دون الاعتماد المستمر على الفريق التقني.</p>
+    <p><strong>Mastery B2C</strong> هي منظومة تجارة تعليمية رقمية متكاملة مخصصة للأفراد في الوطن العربي، تدمج بين <strong>التجارة السلسة، الاكتشاف الذكي، الخدمات المهنية التفاعلية، مجتمع التعلم، وبرامج الولاء</strong>.</p>
+    <p>تتولى المنصة قيادة رحلة العميل منذ لحظة الاكتشاف الأولى والتقييم، مروراً بالسداد المرن وبناء الباقات والاشتراكات، ووصولاً إلى منح حقوق الوصول وإدارة العلاقة المستمرة والخدمات الاستشارية، بينما تستند إلى الـLMS القائم كمرجع موثوق لاستهلاك المناهج والمحتوى التعليمي.</p>
+    <p>ومن خلال <strong>B2C Admin مستقل تماماً</strong> كمركز قيادة للأعمال، تمنح المنصة فريق ماستري القدرة الكاملة على تسريع وتيرة النمو التجاري، تحسين معدلات التحويل وقيمة العميل، وإدارة كافة الأنشطة التشغيلية بمرونة وكفاءة عالية دون ارتهان مستمر للمبرمجين.</p>
   </div>
 
-  <h3>منظومة المنتجات النهائية</h3>
+  <h3>الهيكل النهائي للمنظومة (Mastery B2C Ecosystem)</h3>
   <div class="grid">
-    <div class="card"><h4>Learning Products</h4><p>Courses / Diplomas / Live Programs</p></div>
-    <div class="card"><h4>Commerce Products</h4><p>Bundles / Subscriptions</p></div>
-    <div class="card"><h4>Professional Services</h4><p>Consultations</p></div>
-    <div class="card"><h4>Engagement Product</h4><p>Mastery Community</p></div>
-    <div class="card"><h4>Retention Mechanism</h4><p>Mastery Rewards</p></div>
-    <div class="card"><h4>Growth Mechanism</h4><p>Promotions / Upsells / Cross-sells / Affiliate / SEO / Search</p></div>
-    <div class="card"><h4>Fulfillment Layer</h4><p>Entitlements + LMS Integration</p></div>
-    <div class="card"><h4>Operational Layer</h4><p>B2C Admin</p></div>
-    <div class="card"><h4>Measurement Layer</h4><p>Analytics + Full Observability + Audit</p></div>
+    <div class="card"><h4>Learning Products</h4><p>Courses / Diplomas / Live Programs &amp; Cohorts</p></div>
+    <div class="card"><h4>Commerce Solutions</h4><p>Composite Bundles / Subscriptions (Standard &amp; Choose-X)</p></div>
+    <div class="card"><h4>Professional Services</h4><p>Expert Consultations Marketplace &amp; Google Meet</p></div>
+    <div class="card"><h4>Engagement Product</h4><p>Mastery Community (Spaces, Cohorts &amp; Networking)</p></div>
+    <div class="card"><h4>Retention Engine</h4><p>Mastery Rewards (Earn &amp; Split Payment) + Extensions</p></div>
+    <div class="card"><h4>Growth &amp; Discovery</h4><p>Promotions, SEO, Tolt Affiliate &amp; Semantic Search</p></div>
+    <div class="card"><h4>Fulfillment Backbone</h4><p>Entitlement Engine + LMS Integration Adapter</p></div>
+    <div class="card"><h4>Operational Operating System</h4><p>B2C Admin + Operations Center + Customer 360</p></div>
+    <div class="card"><h4>Measurement &amp; Trust</h4><p>Observability + Audit Trail + Stripe Invoicing &amp; Tax</p></div>
   </div>
 
-  <div class="note">هذه هي الصورة التي يجب أن يفهمها أي Product Manager، UX Designer، Developer، Investor، أو موظف جديد قبل بدء العمل على المشروع.</div>
+  <div class="note">هذه الوثيقة تمثل المرجع الشامل والأعلى لرؤية وتصميم ونطاق قطاع الأفراد (Mastery B2C)، وهي الأساس المعتمد لبناء متطلبات العمل، تجربة المستخدم (UI/UX)، وخطط الإطلاق والتطوير.</div>
 </section>
 
 <footer>
-  Mastery B2C — Product Definition Document · منظَّمة من مواد Product Vision وLanding Page Requirements
+  Mastery Academy B2C — Strategic Product Vision &amp; Requirements Document · قطاع الأفراد في ماستري أكاديمي
 </footer>
 </div>
 </body>
