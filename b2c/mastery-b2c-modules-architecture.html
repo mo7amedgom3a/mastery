@@ -62,11 +62,177 @@ th,td{padding:10px 13px;text-align:right;border-bottom:1px solid var(--border);v
 th{background:var(--bg-soft);font-weight:700;font-size:13px;color:var(--text-dim);}
 tr:last-child td{border-bottom:none;}
 .table-scroll{overflow-x:auto;border-radius:12px;}
-.flow{background:var(--code-bg);color:var(--code-text);border-radius:12px;padding:20px 22px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:2.05;overflow-x:auto;margin:16px 0 22px;direction:ltr;text-align:left;}
+.flow{background:var(--code-bg);color:var(--code-text);border-radius:12px;padding:20px 22px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:2.05;overflow-x:auto;margin:16px 0 22px;direction:ltr;text-align:left;white-space:pre-wrap;word-break:break-word;}
 .flow .arrow{color:var(--accent);}
 .note{border-inline-start:4px solid var(--accent-3);background:var(--bg-soft);padding:14px 18px;border-radius:8px;font-size:14.5px;margin:16px 0;}
 .warn{border-inline-start:4px solid var(--accent-2);background:var(--bg-soft);padding:14px 18px;border-radius:8px;font-size:14.5px;margin:16px 0;}
 footer{text-align:center;color:var(--text-dim);font-size:13px;padding-top:30px;border-top:1px solid var(--border);}
+
+/* Visual Architecture Diagrams & Connectors */
+.arch-container {
+  background: var(--bg-elevated);
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  padding: 26px 22px;
+  margin: 22px 0 28px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.arch-node {
+  background: var(--bg-soft);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  position: relative;
+}
+.arch-node.accent {
+  border-color: var(--accent);
+  background: rgba(15, 110, 92, 0.07);
+}
+.arch-node.accent-2 {
+  border-color: var(--accent-2);
+  background: rgba(200, 98, 42, 0.07);
+}
+.arch-node.accent-3 {
+  border-color: var(--accent-3);
+  background: rgba(53, 87, 163, 0.07);
+}
+.arch-node .node-tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--chip-bg);
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+.arch-node .node-title {
+  font-weight: 900;
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.arch-node .node-sub {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.arch-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+@media(max-width: 680px){ .arch-row-2 { grid-template-columns: 1fr; } }
+
+.arch-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  width: 100%;
+}
+@media(max-width: 768px){ .arch-row-3 { grid-template-columns: 1fr; } }
+
+.arch-row-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+@media(max-width: 860px){ .arch-row-4 { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width: 480px){ .arch-row-4 { grid-template-columns: 1fr; } }
+
+.arch-arrow-down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0;
+}
+.arch-arrow-down .arrow-line {
+  width: 2px;
+  height: 18px;
+  background: var(--border);
+}
+.arch-arrow-down .arrow-badge {
+  background: var(--chip-bg);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 999px;
+  margin: 3px 0;
+  white-space: nowrap;
+}
+.arch-arrow-down .arrow-head {
+  color: var(--accent);
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Sequential Step Chains */
+.journey-chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 16px 0 24px;
+}
+.journey-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px 6px 12px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.journey-step .step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--chip-bg);
+  color: var(--accent);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+}
+.journey-arrow {
+  color: var(--accent);
+  font-weight: 900;
+  font-size: 16px;
+}
+@media(max-width: 640px){
+  .journey-chain {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .journey-arrow {
+    text-align: center;
+    transform: rotate(90deg);
+  }
+}
 
 .module{background:var(--bg-elevated);border:1px solid var(--border);border-radius:16px;padding:26px 26px 22px;box-shadow:var(--shadow);margin-bottom:22px;}
 .module-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:6px;}
@@ -136,21 +302,57 @@ footer{text-align:center;color:var(--text-dim);font-size:13px;padding-top:30px;b
     </div>
   </div>
 
-  <div class="flow">                 MASTERY B2C (Commerce, Discovery & Operations)
-                       │
-        ┌──────────────┴───────────────┐
-        ▼                              ▼
-     PRODUCT                        CUSTOMER
-        │                              │
-        │ references                   │ linked via lms_user_id
-        ▼                              ▼
-     RESOURCE ──lms_reference──▶   LMS STUDENT ◀── Identity System
-        │                              │
-        └──────────── LMS Adapter ─────┘
-                       │
-                       ▼
-             EXISTING LMS CORE ENGINE
-       (المصدر المعتمد للمحتوى والتقدم والاختبارات)</div>
+  <div class="arch-container">
+    <div class="arch-node accent" style="max-width: 520px;">
+      <span class="node-tag">MASTERY B2C</span>
+      <div class="node-title">منظومة التجارة والاكتشاف والعمليات التشغيلية</div>
+      <div class="node-sub">Commerce, Discovery &amp; Operations Layer</div>
+    </div>
+
+    <div class="arch-arrow-down">
+      <div class="arrow-line"></div>
+      <span class="arrow-badge">طبقة التجريد المزدوجة</span>
+      <div class="arrow-head">▼</div>
+    </div>
+
+    <div class="arch-row-2">
+      <!-- Column 1: Resource Abstraction -->
+      <div class="arch-node" style="text-align: right; padding: 18px 20px;">
+        <span class="node-tag">1. RESOURCE ABSTRACTION</span>
+        <div class="node-title">PRODUCT (المنتج التجاري)</div>
+        <div class="node-sub" style="margin-bottom: 10px;">العنوان التسويقي، السعر، العروض، والكوبونات في متجر B2C</div>
+        <div style="background: var(--bg-elevated); border: 1px dashed var(--border); border-radius: 8px; padding: 10px; margin-top: 8px;">
+          <div style="font-size: 11px; color: var(--accent); font-weight: 700;">يغلف ويشير إلى ↴</div>
+          <div style="font-weight: 700; font-size: 13.5px; color: var(--text);">RESOURCE (المورد التعليمي)</div>
+          <div style="font-size: 11.5px; color: var(--text-dim);">مرجع خفيف يحمل <code class="term">course_id</code> في قاعدة الـ LMS</div>
+        </div>
+      </div>
+
+      <!-- Column 2: Customer Abstraction -->
+      <div class="arch-node" style="text-align: right; padding: 18px 20px;">
+        <span class="node-tag">2. CUSTOMER ABSTRACTION</span>
+        <div class="node-title">CUSTOMER (العميل التجاري)</div>
+        <div class="node-sub" style="margin-bottom: 10px;">سلة الشراء، الطلبات، رصيد النقاط، والاشتراكات في B2C</div>
+        <div style="background: var(--bg-elevated); border: 1px dashed var(--border); border-radius: 8px; padding: 10px; margin-top: 8px;">
+          <div style="font-size: 11px; color: var(--accent-3); font-weight: 700;">يرتبط عبر <code class="term">lms_user_id</code> ↴</div>
+          <div style="font-weight: 700; font-size: 13.5px; color: var(--text);">LMS STUDENT (هوية التعلم)</div>
+          <div style="font-size: 11.5px; color: var(--text-dim);">حساب الطالب التعليمي وسجل دراسته وشهاداته</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-arrow-down">
+      <div class="arrow-line"></div>
+      <span class="arrow-badge">بوابة التواصل الآمن (LMS Adapter Layer)</span>
+      <div class="arrow-head">▼</div>
+    </div>
+
+    <div class="arch-node accent-2" style="max-width: 520px;">
+      <span class="node-tag">SOURCE OF TRUTH</span>
+      <div class="node-title">EXISTING LMS CORE ENGINE</div>
+      <div class="node-sub">منصة التعلم القائمة (المصدر المعتمد للمحتوى والتقدم والاختبارات ومشغل الفيديو)</div>
+    </div>
+  </div>
 
   <div class="note">القاعدة المعمارية الذهبية: <strong>لا تُخزَّن في B2C أي بيانات يملكها الـLMS بالفعل</strong> (مثل الفيديوهات، تقدم المشاهدة، إجابات الامتحانات). B2C يخزن فقط <strong>المراجع التعليمية + البيانات التجارية والتسويقية والمالية</strong>.</div>
 </section>
@@ -171,11 +373,42 @@ footer{text-align:center;color:var(--text-dim);font-size:13px;padding-top:30px;b
   </table></div>
 
   <h3>العلاقة المرنة: Product ↔ Resource</h3>
-  <div class="flow">Course Resource #101 ──┐
-                        ├──▶ Product A: "دورة التسويق الرقمي" (شراء منفرد - 150$)
-                        ├──▶ Product B: "دبلومة التسويق الشاملة" (تضم 5 موارد تعليمية)
-                        ├──▶ Product C: "باقة رواد الأعمال" (دورة + استشارة + مجتمع)
-                        └──▶ Product D: "اشتراك Choose-X السنوي" (خيار من 10 دورات)</div>
+  <div class="arch-container">
+    <div class="arch-node accent-2" style="max-width: 420px;">
+      <span class="node-tag">LMS ORIGIN</span>
+      <div class="node-title">Course Resource #101</div>
+      <div class="node-sub">الأصل التعليمي في الـ LMS (مثال: مقرر التسويق الرقمي المعتمد)</div>
+    </div>
+
+    <div class="arch-arrow-down">
+      <div class="arrow-line"></div>
+      <span class="arrow-badge">يُسوّق ويُباع ضمن منتجات تجارية متعددة (Course ≠ Product)</span>
+      <div class="arrow-head">▼</div>
+    </div>
+
+    <div class="arch-row-4">
+      <div class="arch-node" style="padding: 12px 14px;">
+        <span class="node-tag">PRODUCT A</span>
+        <div class="node-title" style="font-size: 13.5px;">دورة منفردة</div>
+        <div class="node-sub">شراء لمرة واحدة بسعر 150$ مع وصول لمدة عام كامل</div>
+      </div>
+      <div class="arch-node" style="padding: 12px 14px;">
+        <span class="node-tag">PRODUCT B</span>
+        <div class="node-title" style="font-size: 13.5px;">دبلومة شاملة</div>
+        <div class="node-sub">ضمن حزمة مهنية تضم 5 مقررات ومشاريع تطبيقية</div>
+      </div>
+      <div class="arch-node" style="padding: 12px 14px;">
+        <span class="node-tag">PRODUCT C</span>
+        <div class="node-title" style="font-size: 13.5px;">باقة رواد الأعمال</div>
+        <div class="node-sub">حزمة مجمعة تجمع الدورة مع جلسة استشارة وعضوية مجتمع</div>
+      </div>
+      <div class="arch-node" style="padding: 12px 14px;">
+        <span class="node-tag">PRODUCT D</span>
+        <div class="node-title" style="font-size: 13.5px;">اشتراك Choose-X</div>
+        <div class="node-sub">أحد الخيارات الـ 10 السنوية المتاحة للمشترك</div>
+      </div>
+    </div>
+  </div>
   <p>بهذا التجريد يتحقق المبدأ التجاري: <strong>Course ≠ Product</strong>. نفس المقرر التعليمي يُسوّق بأسعار وباقات وشروط مختلفة تماماً دون تكرار المحتوى في الـLMS.</p>
 </section>
 
@@ -208,25 +441,27 @@ footer{text-align:center;color:var(--text-dim);font-size:13px;padding-top:30px;b
   <h2 class="section-title"><span class="num">04</span> سلسلة المعاملات الأساسية وتبعية البناء (Core Transaction Spine)</h2>
   <p class="section-lede">العمود الفقري المعماري للمنصة: سلسلة التبعيات الحتمية التي يجب أن تُبنى وتستقر أولاً قبل بناء أي ميزات إضافية.</p>
 
-  <div class="flow">Identity (المستخدم والهوية)
-   ↓
-Product (المنتج التجاري)
-   ↓
-Offer (العرض والتسعير)
-   ↓
-Cart (سلة الشراء)
-   ↓
-Checkout (السداد الموحد)
-   ↓
-Order (إنشاء الطلب وتجميد الأسعار)
-   ↓
-Payment (التأكيد المالي Idempotent)
-   ↓
-Entitlement (منح حقوق الوصول)
-   ↓
-Fulfillment Engine (توزيع مهام التنفيذ)
-   ↓
-LMS Adapter (تسجيل الطالب بالدورة)</div>
+  <div class="journey-chain">
+    <div class="journey-step"><span class="step-num">1</span> الهوية (Identity)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">2</span> المنتج (Product)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">3</span> العرض (Offer)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">4</span> السلة (Cart)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">5</span> السداد الموحد (Checkout)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">6</span> الطلب (Order)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">7</span> الدفع (Payment)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">8</span> حقوق الوصول (Entitlement)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">9</span> محرك التنفيذ (Fulfillment)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">10</span> تسجيل الـ LMS (Enrollment)</div>
+  </div>
 
   <div class="warn"><strong>قاعدة معمارية صارمة:</strong> هذه السلسلة هي <strong>Core Spine</strong>. لا يجوز البدء ببناء أدوات متقدمة مثل ذكاء اقتراح الباقات أو مجتمع ماستري قبل أن تكتمل هذه السلسلة وتعمل بنجاح تام End-to-End.</div>
 
@@ -253,38 +488,125 @@ LMS Adapter (تسجيل الطالب بالدورة)</div>
   <h2 class="section-title"><span class="num">05</span> خريطة العلاقات بين الوحدات الوظيفية</h2>
   <p class="section-lede">الهيكل التفاعلي لربط وحدات المنظومة من لوحة الإدارة وحتى واجهات المستخدم والتكاملات الخارجية.</p>
 
-  <div class="flow">                           ┌───────────────────────────────┐
-                           │   B2C ADMIN & OPERATIONS      │
-                           │   (ADM / OPS / SEC / AUD)     │
-                           └───────────────┬───────────────┘
-                                           │ يدير ويوجه
-      ┌───────────────┐            ┌───────▼───────┐            ┌───────────────┐
-      │ CUSTOMER &    │◀──────────▶│ COMMERCE &    │◀──────────▶│ CATALOG &     │
-      │ IDENTITY      │   المشتري  │ ORDERS        │   المنتج   │ RESOURCES     │
-      │ (CUST)        │            │ (COM)         │            │ (CAT)         │
-      └───────┬───────┘            └───────┬───────┘            └───────┬───────┘
-              │                            │ order.paid                 │
-              │                            ▼                            │
-              │                    ┌───────────────┐                    │
-              │                    │ ENTITLEMENTS  │                    │
-              │                    │ & ACCESS (ENT)│                    │
-              │                    └───────┬───────┘                    │
-              │                            │                            │
-              │         ┌──────────────────┼──────────────────┐         │
-              │         ▼                  ▼                  ▼         ▼
-              │   FULFILLMENT        SUBSCRIPTIONS      CONSULTATIONS  LMS ADAPTER
-              │   ENGINE (FUL)       & CHOOSE-X (SUB)   MARKET (CONS)  LAYER (LMSI)
-              │         │                  │                  │         │
-              │         ├──────────────────┴──────────────────┤         │
-              │         ▼                                     ▼         ▼
-              │   COMMUNITY SPACES                     EXTENSIONS &  EXISTING LMS
-              │   & COHORTS (CMTY/COH)                 ADD-ONS (EXT) CORE ENGINE
-              │                                                         │
-              └────────────────────────────┬────────────────────────────┘
-                                           ▼
-                                 CUSTOMER COMMERCIAL
-                                 ACCOUNT & DASH (DASH)
-                                 (شاشة العميل التجارية الموحدة)</div>
+  <div class="arch-container">
+    <!-- Tier 1: Operating System / Admin -->
+    <div class="arch-node accent" style="max-width: 520px; border-width: 2px;">
+      <span class="node-tag">OPERATING SYSTEM</span>
+      <div class="node-title">B2C ADMIN &amp; OPERATIONS</div>
+      <div class="node-sub">لوحة الإدارة والتحكم والعمليات التشغيلية · ADM / OPS / SEC / AUD</div>
+    </div>
+
+    <!-- Connector -->
+    <div class="arch-arrow-down">
+      <div class="arrow-line"></div>
+      <span class="arrow-badge">يدير ويوجه كافة الوحدات والعمليات</span>
+      <div class="arrow-head">▼</div>
+    </div>
+
+    <!-- Tier 2: Core Triangle -->
+    <div class="arch-row-3">
+      <div class="arch-node">
+        <span class="node-tag">CUST</span>
+        <div class="node-title">CUSTOMER &amp; IDENTITY</div>
+        <div class="node-sub">بيانات المشتري، الهوية، ودمج السلات</div>
+      </div>
+      <div class="arch-node accent" style="border-width: 2px;">
+        <span class="node-tag">COM</span>
+        <div class="node-title">COMMERCE &amp; ORDERS</div>
+        <div class="node-sub">السداد الموحد، التسعير، وإدارة الطلبات</div>
+      </div>
+      <div class="arch-node">
+        <span class="node-tag">CAT</span>
+        <div class="node-title">CATALOG &amp; RESOURCES</div>
+        <div class="node-sub">كتالوج المنتجات، الموارد، والخبراء</div>
+      </div>
+    </div>
+
+    <!-- Connector: order.paid -->
+    <div class="arch-arrow-down">
+      <div class="arrow-line"></div>
+      <span class="arrow-badge">عند نجاح السداد (order.paid)</span>
+      <div class="arrow-head">▼</div>
+    </div>
+
+    <!-- Tier 3: Entitlements -->
+    <div class="arch-node accent-3" style="max-width: 480px; border-width: 2px;">
+      <span class="node-tag">ENT</span>
+      <div class="node-title">ENTITLEMENTS &amp; ACCESS ENGINE</div>
+      <div class="node-sub">إدارة وتوثيق حقوق الوصول وتحديد الصلاحيات وسجلات التمديد</div>
+    </div>
+
+    <!-- Connector -->
+    <div class="arch-arrow-down">
+      <div class="arrow-line"></div>
+      <span class="arrow-badge">تفعيل الحقوق عبر المحركات المتخصصة</span>
+      <div class="arrow-head">▼</div>
+    </div>
+
+    <!-- Tier 4: Execution / Specialized Engines -->
+    <div class="arch-row-4">
+      <div class="arch-node">
+        <span class="node-tag">FUL</span>
+        <div class="node-title">FULFILLMENT</div>
+        <div class="node-sub">تفكيك وتنفيذ مهام الطلب المركب</div>
+      </div>
+      <div class="arch-node">
+        <span class="node-tag">SUB</span>
+        <div class="node-title">SUBSCRIPTIONS</div>
+        <div class="node-sub">الاشتراكات المرنة وباقة Choose-X</div>
+      </div>
+      <div class="arch-node">
+        <span class="node-tag">CONS</span>
+        <div class="node-title">CONSULTATIONS</div>
+        <div class="node-sub">سوق الاستشارات وحجز Google Meet</div>
+      </div>
+      <div class="arch-node accent-2">
+        <span class="node-tag">LMSI</span>
+        <div class="node-title">LMS ADAPTER</div>
+        <div class="node-sub">بوابة التكامل مع الـ LMS القائم</div>
+      </div>
+    </div>
+
+    <!-- Connector -->
+    <div class="arch-arrow-down">
+      <div class="arrow-line"></div>
+      <span class="arrow-badge">ربط المخرجات والخدمات التكميلية</span>
+      <div class="arrow-head">▼</div>
+    </div>
+
+    <!-- Tier 5: Ecosystem & Extensions -->
+    <div class="arch-row-3">
+      <div class="arch-node">
+        <span class="node-tag">CMTY / COH</span>
+        <div class="node-title">COMMUNITY &amp; COHORTS</div>
+        <div class="node-sub">مساحات المجتمع، الدفعات، والتشبيك</div>
+      </div>
+      <div class="arch-node">
+        <span class="node-tag">EXT / ADD</span>
+        <div class="node-title">EXTENSIONS &amp; CERTIFICATES</div>
+        <div class="node-sub">تمديد الوصول والشهادات المطبوعة و CPD</div>
+      </div>
+      <div class="arch-node accent-2">
+        <span class="node-tag">LMS CORE</span>
+        <div class="node-title">EXISTING LMS ENGINE</div>
+        <div class="node-sub">استهلاك المحتوى، الفيديوهات، والامتحانات</div>
+      </div>
+    </div>
+
+    <!-- Connector -->
+    <div class="arch-arrow-down">
+      <div class="arrow-line"></div>
+      <span class="arrow-badge">عرض كافة التعاملات في الحساب التجاري الموحد</span>
+      <div class="arrow-head">▼</div>
+    </div>
+
+    <!-- Tier 6: Customer Dashboard -->
+    <div class="arch-node accent" style="max-width: 540px; border-width: 2px;">
+      <span class="node-tag">DASH</span>
+      <div class="node-title">CUSTOMER COMMERCIAL ACCOUNT &amp; DASHBOARD</div>
+      <div class="node-sub">شاشة العميل التجارية الموحدة (الطلبات، الاشتراكات، الاستشارات، والمكافآت)</div>
+    </div>
+  </div>
 </section>
 
 <section id="m-cust">

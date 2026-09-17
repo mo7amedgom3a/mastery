@@ -242,8 +242,64 @@ tr:last-child td{border-bottom:none;}
   margin:16px 0 22px;
   direction:ltr;
   text-align:left;
+  white-space:pre-wrap;
+  word-break:break-word;
 }
 .flow .arrow{color:var(--accent);}
+
+/* Visual Step Chains for Journeys */
+.journey-chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 14px 0 22px;
+}
+.journey-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px 6px 12px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.journey-step .step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--chip-bg);
+  color: var(--accent);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+}
+.journey-arrow {
+  color: var(--accent);
+  font-weight: 900;
+  font-size: 16px;
+}
+@media(max-width: 640px){
+  .journey-chain {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .journey-arrow {
+    text-align: center;
+    transform: rotate(90deg);
+  }
+}
 
 .persona{
   background:var(--bg-elevated);
@@ -347,7 +403,25 @@ footer{
   <div class="card">
     <p>تعمل ماستري أكاديمي في مجال التعليم الإلكتروني والمهني العربي وتقدم منتجات تعليمية متقدمة. يخدم قطاع الشركات (B2B) المؤسسات عبر اشتراكات تدريبية ومسارات وظيفية وتقارير أداء ومتابعة مدراء التدريب. أما <strong>قطاع الأفراد (B2C)</strong> فيخدم العميل الفردي الذي يكتشف المنتج بنفسه، يقيّمه، يشتريه من ماله الخاص، ويستهلكه لمنفعته المهنية والشخصية.</p>
     <p>الوضع الحالي يعتمد على موقع وواجهات لا توفر المرونة الكافية لإطلاق اشتراكات مرنة، باقات ذكية، برامج تفاعلية مباشرة، استشارات مهنية، أو مجتمع تفاعلي. لذلك، اتُّخذ قرار استراتيجي حاسم: <strong>إعادة بناء B2C بالكامل من الصفر</strong> كنظام تشغيل تجاري وتعليمي متكامل يقف أمام الـLMS الحالي دون المساس بهيكل التعلم القائم.</p>
-    <div class="flow">Discovery <span class="arrow">→</span> Evaluation <span class="arrow">→</span> Purchase <span class="arrow">→</span> Payment <span class="arrow">→</span> Entitlement <span class="arrow">→</span> Fulfillment <span class="arrow">→</span> Learning Handoff <span class="arrow">→</span> Engagement <span class="arrow">→</span> Repeat Purchase</div>
+    <div class="journey-chain">
+      <div class="journey-step"><span class="step-num">1</span> Discovery (الاكتشاف)</div>
+      <div class="journey-arrow">←</div>
+      <div class="journey-step"><span class="step-num">2</span> Evaluation (التقييم)</div>
+      <div class="journey-arrow">←</div>
+      <div class="journey-step"><span class="step-num">3</span> Purchase (الشراء)</div>
+      <div class="journey-arrow">←</div>
+      <div class="journey-step"><span class="step-num">4</span> Payment (السداد)</div>
+      <div class="journey-arrow">←</div>
+      <div class="journey-step"><span class="step-num">5</span> Entitlement (منح الوصول)</div>
+      <div class="journey-arrow">←</div>
+      <div class="journey-step"><span class="step-num">6</span> Fulfillment (التنفيذ)</div>
+      <div class="journey-arrow">←</div>
+      <div class="journey-step"><span class="step-num">7</span> Learning Handoff (التعلم)</div>
+      <div class="journey-arrow">←</div>
+      <div class="journey-step"><span class="step-num">8</span> Engagement (المجتمع)</div>
+      <div class="journey-arrow">←</div>
+      <div class="journey-step"><span class="step-num">9</span> Repeat Purchase (تكرار الشراء)</div>
+    </div>
   </div>
 
   <h3>الفصل الاستراتيجي بين B2B و B2C</h3>
@@ -827,42 +901,100 @@ footer{
   <p class="section-lede">توثيق تسلسلي لتجربة العميل عبر مختلف أصناف المنتجات، يضمن تدفقاً سلساً وخالياً من الاحتكاك (Frictionless Journeys).</p>
 
   <h3>1. رحلة الشراء النموذجية لدورة أو دبلومة (Golden Purchase Path)</h3>
-  <div class="flow">الزائر يستكشف الموقع <span class="arrow">→</span> البحث أو التصفح <span class="arrow">→</span> صفحة تعريف الدورة (PDP)
-   <span class="arrow">→</span> إضافة للسلة أو "شراء الآن" <span class="arrow">→</span> تسجيل الدخول بدون كلمة مرور (OTP أو Google)
-   <span class="arrow">→</span> صفحة السداد الموحد <span class="arrow">→</span> اختيار طريقة الدفع (بطاقة / تقسيط / خصم بالنقاط)
-   <span class="arrow">→</span> نجاح عملية الدفع <span class="arrow">→</span> صفحة تأكيد الطلب المخصصة <span class="arrow">→</span> إنشاء حق الوصول (Entitlement)
-   <span class="arrow">→</span> تسجيل الطالب آلياً في الـLMS <span class="arrow">→</span> نقرة "ابدأ التعلم الآن" <span class="arrow">→</span> الانتقال السلس للدرس في الـLMS</div>
+  <div class="journey-chain">
+    <div class="journey-step"><span class="step-num">1</span> استكشاف الموقع</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">2</span> البحث والتصفح</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">3</span> صفحة تعريف الدورة (PDP)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">4</span> إضافة للسلة / شراء الآن</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">5</span> تسجيل الدخول (OTP / Google)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">6</span> السداد الموحد (بطاقة / تقسيط / مكافآت)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">7</span> تأكيد الطلب وحق الوصول (Entitlement)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">8</span> التسجيل الآلي في الـ LMS</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">9</span> بدء التعلم الفوري</div>
+  </div>
 
   <h3>2. رحلة اشتراك "اختر دوراتك" (Choose-X Journey)</h3>
-  <div class="flow">استعراض باقة Choose-X السنوية <span class="arrow">→</span> فهم المزايا (10 دورات سنوياً) <span class="arrow">→</span> السداد السنوي
-   <span class="arrow">→</span> تفعيل الاشتراك ومنح رصيد الاختيار (Allowance) <span class="arrow">→</span> تصفح المكتبة واختيار الدورة الأولى
-   <span class="arrow">→</span> الدورة غير مبدوءة: يمكن استبدالها بدورة أخرى مجاناً
-   <span class="arrow">→</span> بدء أول درس في الـLMS (إطلاق حدث course.started) <span class="arrow">→</span> قفل الدورة وخصمها نهائياً من الرصيد
-   <span class="arrow">→</span> استهلاك الرصيد تدريجياً طوال العام <span class="arrow">→</span> التجديد السنوي برصيد جديد دون ترحيل للمتبقي</div>
+  <div class="journey-chain">
+    <div class="journey-step"><span class="step-num">1</span> استعراض باقة Choose-X السنوية</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">2</span> السداد وتفعيل الرصيد السنوي (10 دورات)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">3</span> تصفح واختيار الدورة الأولى</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">4</span> إمكانية الاستبدال (ما دام التعلم لم يبدأ)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">5</span> بدء الدرس الأول بالـ LMS (قفل الدورة)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">6</span> استهلاك الرصيد تدريجياً طوال العام</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">7</span> تجديد سنوي برصيد جديد دون ترحيل</div>
+  </div>
 
   <h3>3. رحلة حجز الاستشارة المهنية (Consultation Booking Path)</h3>
-  <div class="flow">تصفح صفحة الخبير أو سوق الاستشارات <span class="arrow">→</span> اختيار نوع الخدمة والمدة <span class="arrow">→</span> اختيار اليوم والموعد المتاح
-   <span class="arrow">→</span> فحص ذري لمنع تضارب الموعد (Atomic Availability Check) <span class="arrow">→</span> السداد الإلكتروني
-   <span class="arrow">→</span> تأكيد الحجز وإنشاء اجتماع Google Meet فوراً <span class="arrow">→</span> إرسال الدعوات والتقويم للطرفين
-   <span class="arrow">→</span> تذكيرات قبل الموعد (واتساب وبريد) <span class="arrow">→</span> إمكانية إعادة الجدولة حتى 6 ساعات قبل الموعد
-   <span class="arrow">→</span> انعقاد الجلسة <span class="arrow">→</span> اكتمال الحجز</div>
+  <div class="journey-chain">
+    <div class="journey-step"><span class="step-num">1</span> تصفح الخبير وسوق الاستشارات</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">2</span> اختيار الخدمة واليوم والموعد</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">3</span> فحص التضارب اللحظي (Atomic Check)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">4</span> السداد وتأكيد الحجز</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">5</span> إنشاء اجتماع Google Meet ودعوات التقويم</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">6</span> تذكيرات قبل الموعد وإعادة الجدولة حتى 6 ساعات</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">7</span> انعقاد الجلسة واكتمال الخدمة</div>
+  </div>
 
   <h3>4. رحلة برنامج مكافآت ماستري (Mastery Rewards Workflow)</h3>
-  <div class="flow">عملية شراء سابقة مدفوعة <span class="arrow">→</span> كسب نقاط (10 نقاط لكل 1$ مدفوع نقداً) <span class="arrow">→</span> تراكم النقاط بالحساب التجاري
-   <span class="arrow">→</span> سلة مشتريات جديدة <span class="arrow">→</span> خيار تفعيل استخدام النقاط عند الدفع (مثلاً 1,000 نقطة = 10$ خصم)
-   <span class="arrow">→</span> حجز النقاط مؤقتاً أثناء محاولة السداد <span class="arrow">→</span> نجاح سداد المبلغ المتبقي بالبطاقة
-   <span class="arrow">→</span> خصم النقاط نهائياً من الرصيد <span class="arrow">→</span> كسب نقاط جديدة فقط على الجزء النقدي المدفوع</div>
+  <div class="journey-chain">
+    <div class="journey-step"><span class="step-num">1</span> شراء مدفوع نقداً</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">2</span> كسب نقاط (10 نقاط لكل 1$ مدفوع)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">3</span> تراكم النقاط في الحساب التجاري (بلا انتهاء)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">4</span> تفعيل الخصم بالنقاط عند السداد القادم</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">5</span> حجز النقاط وسداد الفارق بالبطاقة</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">6</span> خصم النقاط نهائياً وكسب نقاط على المدفوع نقداً</div>
+  </div>
 
   <h3>5. رحلة تمديد الوصول بعد انتهاء الصلاحية (Access Extension)</h3>
-  <div class="flow">اقتراب انتهاء مدة الوصول للدورة (تنبيه قبل 30 و7 أيام) <span class="arrow">→</span> انتهاء صلاحية العام الأول
-   <span class="arrow">→</span> تحول زر صفحة الدورة تلقائياً من "ابدأ التعلم" إلى "مدد فترة الوصول"
-   <span class="arrow">→</span> اختيار باقة التمديد (3 أشهر / سنة كاملة / مدى الحياة) <span class="arrow">→</span> السداد السريع
-   <span class="arrow">→</span> تحديث سجل Entitlement وتمديد صلاحية التسجيل في الـLMS فوراً دون فقدان أي إنجاز سابق</div>
+  <div class="journey-chain">
+    <div class="journey-step"><span class="step-num">1</span> إشعار اقتراب انتهاء عام الوصول</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">2</span> تحول زر الدورة إلى "مدد فترة الوصول"</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">3</span> اختيار باقة التمديد (3 أشهر / سنة / مدى الحياة)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">4</span> السداد السريع للرسوم</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">5</span> تحديث الصلاحية بالـ LMS فوراً وحفظ التقدم</div>
+  </div>
 
   <h3>6. رحلة قوائم الانتظار للبرامج المباشرة (Waitlist Flow)</h3>
-  <div class="flow">تصفح صفحة برنامج تدريبي مباشر <span class="arrow">→</span> وصول المقاعد للحد الأقصى (Sold Out)
-   <span class="arrow">→</span> تحول زر الشراء إلى "انضم لقائمة الانتظار" <span class="arrow">→</span> تسجيل رغبة العميل ورقم هاتفه
-   <span class="arrow">→</span> فتح مقعد جديد أو إطلاق دفعة جديدة <span class="arrow">→</span> إشعار آلي فوري برابط حجز مباشر ذي أولوية زمنية</div>
+  <div class="journey-chain">
+    <div class="journey-step"><span class="step-num">1</span> تصفح برنامج مباشر مكتمل المقاعد (Sold Out)</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">2</span> الضغط على "انضم لقائمة الانتظار"</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">3</span> تسجيل بيانات التواصل ورقم الجوال</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">4</span> توفر مقعد شاغر أو إطلاق دفعة جديدة</div>
+    <div class="journey-arrow">←</div>
+    <div class="journey-step"><span class="step-num">5</span> إشعار فوري برابط حجز مباشر ذي أولوية</div>
+  </div>
 </section>
 
 <section id="admin">
